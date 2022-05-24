@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Impulse</string>
+    <string name="driver_ID">Please enter your ID</string>
+    <string name="driver_name">Please enter your Name</string>
+    <string name="hospital_name">Please enter hospital Name</string>
+    <string name="name">Name</string>
+    <string name="name_id">Your ID</string>
+    <string name="hospital">Hospital</string>
+    <string name="registration">Registration</string>
 </resources>

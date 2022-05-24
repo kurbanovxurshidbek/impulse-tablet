@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--my colors-->
+    <color name="main_red">#F83648</color>
+    <color name="status_bar_color">#EC5261</color>
+    <color name="navigation_false_color">#DA5360</color>
+    <color name="intro_text_color">#2B3A4B</color>
+    <color name="btn_gradient_start_color">#E47170</color>
+    <color name="btn_gradient_end_color">#F83648</color>
+    <color name="intro_title_color">#F83648</color>
+    <color name="ll_bg_color">#cbcbcb</color>
+    <color name="main_10">#10F83648</color>
+    <color name="helper_text_color">#9F9D9D</color>
 </resources>
