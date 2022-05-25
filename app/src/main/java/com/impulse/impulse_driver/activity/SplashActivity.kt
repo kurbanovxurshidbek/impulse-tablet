@@ -20,7 +20,7 @@ class SplashActivity : BaseActivity() {
     private lateinit var binding: ActivitySplashBinding
     private lateinit var lottieAnimationView: LottieAnimationView
     private var isFirstTime : Boolean = false
-    private var medicalCall : String? = ""
+    private var medicalCall : String? = "dwdw"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,18 +47,14 @@ class SplashActivity : BaseActivity() {
 
             override fun onFinish() {
                 if (medicalCall!=""){
-                    if (PrefsManager.getInstance(context)!!.isFirstTime("isFirstTime")) {
+                    if (PrefsManager.getInstance(context)!!.isFirstTime("turnOn")) {
                         callAmbulanceActivity(this@SplashActivity)
                         finish()
                 }else {
                         callMainActivity(this@SplashActivity)
                         finish()
                 }
-                }else {
-                    callSignInActivity(this@SplashActivity)
-                    finish()
                 }
-
             }
         }.start()
     }
