@@ -5,6 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+/ BaseActivity To manage all activities
+/ **/
+
 open class BaseActivity : AppCompatActivity() {
     lateinit var context: Context
 
@@ -25,6 +29,11 @@ open class BaseActivity : AppCompatActivity() {
 
     fun callSignInActivity(context: Context) {
         val intent = Intent(this, SignInActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun callSplashActivity(context: Context) {
+        val intent = Intent(this, SplashActivity::class.java)
         startActivity(intent)
     }
 }

@@ -9,7 +9,7 @@ import com.impulse.impulse_driver.databinding.ActivityAmbulanceBinding
 import com.impulse.impulse_driver.databinding.ActivitySplashBinding
 import com.impulse.impulse_driver.manager.PrefsManager
 
-// The application for high volume message
+/** The application for high volume message **/
 
 class AmbulanceActivity : BaseActivity() {
 
@@ -28,7 +28,7 @@ class AmbulanceActivity : BaseActivity() {
 
     private fun initViews() {
         lottieAnimationView = findViewById(R.id.lottie_animation)
-        lottieAnimationView.setAnimation("medical_cross_sos_emergency.json")
+        lottieAnimationView.setAnimation("ambulance_plus.json")
         sosView()
         lottieAnimationView.setOnClickListener {
             callMainActivity(this)

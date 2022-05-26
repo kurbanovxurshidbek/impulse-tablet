@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
 
-        val lattitu = "41.337473"
-        val longtitu = "69.209783"
-        val adressName = "Gulobod"
+        val lattitu = "41.325968"
+        val longtitu = "69.2348073"
+        val adressName ="Navoi Avenue"
 
         val my_data = String.format(Locale.ENGLISH,
             "http://maps.google.com/maps?daddr=$lattitu,$longtitu$adressName")

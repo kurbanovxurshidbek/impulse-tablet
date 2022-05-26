@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.WindowManager
+import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.impulse.impulse_driver.R
@@ -11,7 +12,7 @@ import com.impulse.impulse_driver.databinding.ActivitySplashBinding
 import com.impulse.impulse_driver.manager.PrefsManager
 
 /*
-* In SplashActivity user can visit to SignInActivity or MainActivity
+* In SplashActivity driver can visit to SignInActivity or MainActivity
 */
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
@@ -19,8 +20,7 @@ class SplashActivity : BaseActivity() {
     private val TAG = SplashActivity::class.java.toString()
     private lateinit var binding: ActivitySplashBinding
     private lateinit var lottieAnimationView: LottieAnimationView
-    private var isFirstTime : Boolean = false
-    private var medicalCall : String? = "dwdw"
+    private var medicalCall : String? = "fdfd"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,11 @@ class SplashActivity : BaseActivity() {
             }
 
             override fun onFinish() {
-                if (medicalCall!=""){
+
+                if (PrefsManager.getInstance(context)!!.isFirstTime("safe")) {
+                    callSignInActivity(this@SplashActivity)
+                }
+                else if (medicalCall!=""){
                     if (PrefsManager.getInstance(context)!!.isFirstTime("turnOn")) {
                         callAmbulanceActivity(this@SplashActivity)
                         finish()
@@ -54,8 +58,11 @@ class SplashActivity : BaseActivity() {
                         callMainActivity(this@SplashActivity)
                         finish()
                 }
+                }else {
+                    Toast.makeText(this@SplashActivity,"Sizda hech qanday chaqiruv hizmati yo'q",Toast.LENGTH_LONG).show()
                 }
             }
         }.start()
     }
+
 }
