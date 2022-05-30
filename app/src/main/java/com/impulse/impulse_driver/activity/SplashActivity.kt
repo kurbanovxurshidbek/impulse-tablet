@@ -11,16 +11,17 @@ import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.databinding.ActivitySplashBinding
 import com.impulse.impulse_driver.manager.PrefsManager
 
-/*
+/**
 * In SplashActivity driver can visit to SignInActivity or MainActivity
-*/
+**/
+
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
 
     private val TAG = SplashActivity::class.java.toString()
     private lateinit var binding: ActivitySplashBinding
     private lateinit var lottieAnimationView: LottieAnimationView
-    private var medicalCall : String? = "fdfd"
+    private var medicalCall : String? = "das"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +60,7 @@ class SplashActivity : BaseActivity() {
                         finish()
                 }
                 }else {
-                    Toast.makeText(this@SplashActivity,"Sizda hech qanday chaqiruv hizmati yo'q",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@SplashActivity,R.string.info_call,Toast.LENGTH_LONG).show()
                 }
             }
         }.start()

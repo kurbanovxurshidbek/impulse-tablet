@@ -13,7 +13,6 @@ import com.impulse.impulse_driver.manager.PrefsManager
 
 class AmbulanceActivity : BaseActivity() {
 
-    private lateinit var lottieAnimationView: LottieAnimationView
     lateinit var mediaPlayer : MediaPlayer
     private lateinit var binding: ActivityAmbulanceBinding
     private var turnOn = true
@@ -27,10 +26,9 @@ class AmbulanceActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        lottieAnimationView = findViewById(R.id.lottie_animation)
-        lottieAnimationView.setAnimation("ambulance_plus.json")
+        binding.lottieAnimation.setAnimation("sos_animation_plus.json")
         sosView()
-        lottieAnimationView.setOnClickListener {
+        binding.lottieAnimation.setOnClickListener {
             callMainActivity(this)
             mediaPlayer.stop()
             saveLoggedState()
