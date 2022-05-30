@@ -8,6 +8,7 @@ import com.impulse.impulse_driver.adapter.ViewPagerAdapter
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
 import com.impulse.impulse_driver.fragments.PageReferenceFragment
 import com.impulse.impulse_driver.fragments.PageStatementFragment
+import com.impulse.impulse_driver.fragments.PageStatementFragmentContinue
 import java.util.*
 
 /**
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
         viewPagerAdapter.add(PageStatementFragment(), "Bayonot")
+        viewPagerAdapter.add(PageStatementFragmentContinue(), "Bayonot 2-qismi")
         viewPagerAdapter.add(PageReferenceFragment(), "Tez yordam ma`lumotnomasi")
 
         binding.viewpager.setAdapter(viewPagerAdapter)

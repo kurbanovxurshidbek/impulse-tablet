@@ -14,8 +14,10 @@
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_sign_in.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_splash.xml" value="0.14666666666666667" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_base_page.xml" value="0.131640625" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_reference_page.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page.xml" value="0.16471163245356793" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page_continue.xml" value="0.131640625" />
       </map>
     </option>
   </component>
