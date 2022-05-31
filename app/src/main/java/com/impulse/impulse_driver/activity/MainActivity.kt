@@ -6,9 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.impulse.impulse_driver.adapter.ViewPagerAdapter
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
-import com.impulse.impulse_driver.fragments.PageReferenceFragment
-import com.impulse.impulse_driver.fragments.PageStatementFragment
-import com.impulse.impulse_driver.fragments.PageStatementFragmentContinue
+import com.impulse.impulse_driver.fragments.*
 import java.util.*
 
 /**
@@ -48,9 +46,11 @@ class MainActivity : AppCompatActivity() {
     private fun initViews() {
 
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewPagerAdapter.add(PageStatementFragment(), "Bayonot")
-        viewPagerAdapter.add(PageStatementFragmentContinue(), "Bayonot 2-qismi")
         viewPagerAdapter.add(PageReferenceFragment(), "Tez yordam ma`lumotnomasi")
+        viewPagerAdapter.add(PageStatementFragment(), "Bayonot")
+        viewPagerAdapter.add(PageStatementTimeFragment(), "Bayonot 2-qismi")
+        viewPagerAdapter.add(PageStatementFragmentContinue(), "Bayonot 3-qismi")
+        viewPagerAdapter.add(PageMedicineFragment(), "Bayonot 4-qismi")
 
         binding.viewpager.setAdapter(viewPagerAdapter)
         binding.tabLayout.setupWithViewPager(binding.viewpager)

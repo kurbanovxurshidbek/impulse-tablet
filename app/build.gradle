@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
+
+
 
 android {
     compileSdk 32
@@ -33,6 +36,7 @@ android {
     viewBinding {
         enabled = true
     }
+
 }
 
 dependencies {
@@ -50,4 +54,11 @@ dependencies {
 
     // lottie animation
     implementation 'com.airbnb.android:lottie:5.0.2'
+
+    def roomVersion = "2.4.0"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-runtime:$roomVersion"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
 }
