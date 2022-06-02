@@ -3,25 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable-v24/background_rounded_corners_fragment_top_right.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable-v24/background_rounded_corners_left.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/background_rounded_corners_border.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/background_rounded_corners_border_default.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/background_rounded_corners_border_left.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/background_rounded_corners_border_mid.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/background_rounded_corners_border_right.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/background_rounded_corners_viewpager.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/bottom_navigation_color_selector.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/button_with_focus.xml" value="0.149" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/edittext_rounded_corners_border.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/ic_baseline_add_ic_call_24.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/ic_baseline_circle_24.xml" value="0.1785" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/ic_baseline_directions_24.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/ic_baseline_gps_fixed_24.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/ic_baseline_satellite_alt_24.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/ic_satellite_off.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/notification_rounded_corners_border.xml" value="0.184" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/drawable/reference_rounded_corners_left.xml" value="0.184" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_ambulance.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_sign_in.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/activity_splash.xml" value="0.14666666666666667" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_base_page.xml" value="0.131640625" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_maps.xml" value="0.131640625" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_medicine_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_reference_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page.xml" value="0.16471163245356793" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page_continue.xml" value="0.14666666666666667" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_time_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_medicine_drugs.xml" value="0.131640625" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/menu/navigation_menu.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.184" />
       </map>
     </option>
   </component>

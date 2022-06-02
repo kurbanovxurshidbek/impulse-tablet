@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
+    android:background="@drawable/background_rounded_corners_viewpager"
+    android:backgroundTint="@color/white"
     android:orientation="vertical"
     android:gravity="center_vertical|center_horizontal">
 

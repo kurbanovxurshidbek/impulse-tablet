@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/fragment_second"
     android:orientation="vertical"
+    android:background="@drawable/background_rounded_corners_viewpager"
+    android:backgroundTint="@color/white"
     android:gravity="center_vertical|center_horizontal">
 
     <androidx.core.widget.NestedScrollView
