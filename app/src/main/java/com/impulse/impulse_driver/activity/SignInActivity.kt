@@ -1,5 +1,6 @@
 package com.impulse.impulse_driver.activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.impulse.impulse_driver.R
@@ -25,11 +26,14 @@ class SignInActivity : BaseActivity() {
 
     private fun initViews() {
 
-        binding.bOpenActivity.setOnClickListener {
-            isSignIn = false
-            PrefsManager.getInstance(context)!!.setFirstTime("safe",isSignIn)
-            callSplashActivity(this)
-            finish()
+        binding.apply {
+            bOpenActivity.setOnClickListener {
+                isSignIn = false
+                PrefsManager.getInstance(context)!!.setFirstTime("safe",isSignIn)
+                bOpenActivity.setTextColor(Color.WHITE)
+                callSplashActivity(this@SignInActivity)
+                finish()
+            }
         }
     }
 }

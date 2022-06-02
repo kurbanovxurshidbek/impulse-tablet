@@ -96,8 +96,6 @@ class PageReferenceFragment : Fragment(), GoogleMap.OnMarkerClickListener, Googl
             requireActivity().finish()
         }
 
-
-
         binding.apply {
 
             /** openContact with your device**/

@@ -18,7 +18,113 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_number_card"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/background_rounded_corners_border_default"
+                        app:backgroundTint="@null"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/str_brigade_card"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/background_rounded_corners_border_default"
+                        app:backgroundTint="@null"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_group"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:background="@drawable/background_rounded_corners_border_default"
+                        android:layout_marginTop="3dp"
+                        app:backgroundTint="@null"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_date"
+                        android:gravity="center_horizontal"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/status_bar_color"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/background_rounded_corners_border_default"
+                        app:backgroundTint="@null"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,6 +139,7 @@
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
+                    android:fontFamily="sans-serif"
                     android:text="@string/str_patient_ttyo"/>
 
                 <LinearLayout

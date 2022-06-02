@@ -30,10 +30,10 @@
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_maps.xml" value="0.131640625" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_medicine_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_reference_page.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page.xml" value="0.16471163245356793" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page_continue.xml" value="0.14666666666666667" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_time_page.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_medicine_drugs.xml" value="0.131640625" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page.xml" value="0.22" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page_continue.xml" value="0.22" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_time_page.xml" value="0.22" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_medicine_drugs.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/menu/navigation_menu.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.184" />
       </map>

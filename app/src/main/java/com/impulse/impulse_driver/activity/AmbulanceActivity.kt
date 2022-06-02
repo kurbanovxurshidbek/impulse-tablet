@@ -26,13 +26,24 @@ class AmbulanceActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        binding.lottieAnimation.setAnimation("sos_animation_plus.json")
-        sosView()
-        binding.lottieAnimation.setOnClickListener {
-            callMainActivity(this)
-            mediaPlayer.stop()
-            saveLoggedState()
-            finish()
+
+        binding.apply {
+            lottieAnimation.setAnimation("sos_animation_plus.json")
+
+            sosView()
+
+            lottieAnimation.setOnClickListener {
+                callMainActivity(this@AmbulanceActivity)
+                mediaPlayer.stop()
+                saveLoggedState()
+                finish()
+            }
+
+            callCancel.setOnClickListener {
+                mediaPlayer.stop()
+                callSplashActivity(this@AmbulanceActivity)
+                finish()
+            }
         }
     }
 

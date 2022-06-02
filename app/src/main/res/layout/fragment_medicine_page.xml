@@ -319,6 +319,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:padding="5dp"
                         android:id="@+id/rv_drugs"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>

@@ -3,38 +3,72 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tv_drugs_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="March 15"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_marginLeft="35dp"/>
+    android:layout_marginTop="10dp"
+    android:backgroundTint="#FBE1E4"
+    android:background="@drawable/reference_rounded_corners_left"
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
-        <ImageView
-            android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_circle_24"/>
-        <TextView
-            android:id="@+id/tv_drugs_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Call"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginLeft="15dp"/>
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_circle_24" />
+
+                <TextView
+                    android:id="@+id/tv_drugs_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="March 15"
+                    android:textSize="16sp"
+                    android:singleLine="true"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_drugs_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:baselineAligned="false"
+                android:gravity="right|center"
+                android:text="Call"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/helper_text_color"
+            android:layout_marginTop="15dp"/>
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black"
-        android:layout_marginTop="15dp"/>
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight=".1">
+        <ImageView
+            android:id="@+id/delete_item"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_delete_forever_24" />
+    </LinearLayout>
 </LinearLayout>
