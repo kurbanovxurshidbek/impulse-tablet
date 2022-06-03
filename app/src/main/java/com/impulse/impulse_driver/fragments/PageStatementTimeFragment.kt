@@ -10,7 +10,7 @@ import com.impulse.impulse_driver.databinding.FragmentStatementPageBinding
 import com.impulse.impulse_driver.databinding.FragmentStatementTimePageBinding
 
 
-class PageStatementTimeFragment : Fragment() {
+class PageStatementTimeFragment : BaseFragment() {
     private var _binding: FragmentStatementTimePageBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(

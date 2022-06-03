@@ -34,7 +34,7 @@ import com.impulse.impulse_driver.utils.PermissionGPS
 import java.util.ArrayList
 
 
-class PageReferenceFragment : Fragment(), GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
+class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
     OnMapReadyCallback,
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener{

@@ -8,7 +8,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.impulse.impulse_driver.R
-import com.impulse.impulse_driver.adapter.ViewPagerAdapter
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
 import com.impulse.impulse_driver.fragments.*
 import java.util.*

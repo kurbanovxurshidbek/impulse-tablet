@@ -41,73 +41,105 @@
             android:padding="15dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
+                android:padding="15dp"
+                android:orientation="vertical"
+                android:backgroundTint="@color/edittext_color"
+                android:background="@drawable/reference_rounded_corners_left">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="23sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Bemor : "/>
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="Bemor : "/>
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/status_bar_color"
+                        android:layout_marginLeft="15dp"
+                        android:text="xxxxx"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="23sp"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="15dp"
-                    android:text="xxxxx"/>
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="Joylashuv nomi : "/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/status_bar_color"
+                        android:layout_marginLeft="15dp"
+                        android:text="xxxxx"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="Chaqiruv xolati : "/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/status_bar_color"
+                        android:layout_marginLeft="15dp"
+                        android:text="xxxxx"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="Yoshi : "/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="23sp"
+                        android:textColor="@color/status_bar_color"
+                        android:layout_marginLeft="15dp"
+                        android:text="xxxxx"/>
+
+                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="23sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Joylashuv nomi : "/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="23sp"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="15dp"
-                    android:text="xxxxx"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="23sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Chaqiruv xolati : "/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="23sp"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="15dp"
-                    android:text="xxxxx"/>
-
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -138,5 +170,4 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

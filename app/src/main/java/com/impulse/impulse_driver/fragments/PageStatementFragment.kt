@@ -9,7 +9,7 @@ import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.databinding.FragmentStatementPageBinding
 
 
-class PageStatementFragment : Fragment() {
+class PageStatementFragment : BaseFragment() {
     private var _binding: FragmentStatementPageBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -25,7 +25,7 @@ class PageStatementFragment : Fragment() {
 
     private fun initViews() {
         binding.apply {
-
+            lottieAnimations.setAnimation("sos_doctor.json")
         }
     }
 }

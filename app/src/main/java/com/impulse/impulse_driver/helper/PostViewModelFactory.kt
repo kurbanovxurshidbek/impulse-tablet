@@ -3,7 +3,7 @@ package com.impulse.impulse_driver.helper
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.impulse.impulse_driver.database.dao.PostDao
-import com.impulse.impulse_driver.fragments.MedicineViewModel
+import com.impulse.impulse_driver.presenter.MedicineViewModel
 import java.lang.IllegalArgumentException
 
 
@@ -14,5 +14,4 @@ class PostViewModelFactory(private val dao: PostDao) : ViewModelProvider.Factory
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }
-
 }

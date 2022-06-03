@@ -10,7 +10,7 @@ import com.impulse.impulse_driver.databinding.FragmentReferencePageBinding
 import com.impulse.impulse_driver.databinding.FragmentStatementPageBinding
 import com.impulse.impulse_driver.databinding.FragmentStatementPageContinueBinding
 
-class PageStatementFragmentContinue : Fragment() {
+class PageStatementFragmentContinue : BaseFragment() {
     private var _binding: FragmentStatementPageContinueBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(

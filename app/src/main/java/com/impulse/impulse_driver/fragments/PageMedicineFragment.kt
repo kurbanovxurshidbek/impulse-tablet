@@ -1,26 +1,25 @@
 package com.impulse.impulse_driver.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
-import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
 import com.impulse.impulse_driver.databinding.FragmentMedicinePageBinding
 import com.impulse.impulse_driver.helper.PostViewModelFactory
 import com.impulse.impulse_driver.manager.RoomManager
 import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.presenter.MedicineViewModel
 import com.impulse.impulse_driver.utils.UiStateList
 import kotlinx.coroutines.flow.collect
 
 
-class PageMedicineFragment : Fragment() {
+class PageMedicineFragment : BaseFragment() {
     private var _binding: FragmentMedicinePageBinding? = null
     private val binding get() = _binding!!
     private lateinit var cardRepository: RoomManager
@@ -101,10 +100,15 @@ class PageMedicineFragment : Fragment() {
                 countries)
             autoCompleteTextview2.setAdapter(adapterArray)
             autoCompleteTextview2.threshold = 1
+
             numberPicker.minValue = 1
             numberPicker.maxValue = 50
+            numberPicker.wrapSelectorWheel = true
             addButton.setOnClickListener {
-                viewModel.saveItem(Medicine(0,"dsa","sda"))
+                val rnds = (0..1000).random().toLong()
+                Log.d("random",rnds.toString())
+                viewModel.saveItem(Medicine(0,autoCompleteTextview2.text.toString(),numberPicker.value.toString()))
+                autoCompleteTextview2.text.clear()
                 onResume()
             }
         }

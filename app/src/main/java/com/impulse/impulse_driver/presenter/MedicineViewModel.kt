@@ -1,4 +1,4 @@
-package com.impulse.impulse_driver.fragments
+package com.impulse.impulse_driver.presenter
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

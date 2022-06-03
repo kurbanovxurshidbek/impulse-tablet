@@ -1,6 +1,7 @@
 package com.impulse.impulse_driver.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,17 +19,19 @@ import com.impulse.impulse_driver.model.Medicine
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PageMedicineAdapter : RecyclerView.Adapter<PageMedicineAdapter.Vh>() {
+class PageMedicineAdapter : BaseAdapter() {
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
     var deleteClick: ((Medicine) -> Unit)? =  null
 
     inner class Vh(var binding: ItemMedicineDrugsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             val medicine = dif.currentList[adapterPosition]
+            binding.tvDrugsName.text = medicine.medicineName
             binding.tvDrugsAmount.text = medicine.amount
 
-            binding.deleteItem.setOnClickListener{
+            binding.llDf.setOnClickListener{
                 deleteClick?.invoke(medicine)
+                Log.d("invoke",medicine.toString())
             }
         }
     }
