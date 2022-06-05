@@ -21,7 +21,7 @@ class SplashActivity : BaseActivity() {
     private val TAG = SplashActivity::class.java.toString()
     private lateinit var binding: ActivitySplashBinding
     private lateinit var lottieAnimationView: LottieAnimationView
-    private var medicalCall : String? = "eew"
+    private var medicalCall : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +37,9 @@ class SplashActivity : BaseActivity() {
     private fun initViews() {
         lottieAnimationView = findViewById(R.id.lottie_animation)
         lottieAnimationView.setAnimation("ambulance.json")
+        if (PrefsManager.getInstance(context)!!.isFirstTime("Yes")) {
+            medicalCall = true
+        }
         countDownTimer()
     }
 
@@ -51,7 +54,7 @@ class SplashActivity : BaseActivity() {
                 if (PrefsManager.getInstance(context)!!.isFirstTime("safe")) {
                     callSignInActivity(this@SplashActivity)
                 }
-                else if (medicalCall!=""){
+                else if (medicalCall){
                     if (PrefsManager.getInstance(context)!!.isFirstTime("turnOn")) {
                         callAmbulanceActivity(this@SplashActivity)
                         finish()

@@ -52,7 +52,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/driver_ID"
+                        android:inputType="numberPassword"
+                        android:imeOptions="actionNext"
+                        android:imeActionLabel="Next"
                         android:textSize="25sp"
+                        android:ems="10"
                         android:layout_weight="1"
                         android:background="@drawable/edittext_rounded_corners_border" />
                 </LinearLayout>
@@ -88,7 +92,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/driver_name"
+                        android:inputType="textPersonName"
                         android:textSize="25sp"
+                        android:imeOptions="actionNext"
+                        android:imeActionLabel="Next"
                         android:layout_weight="1"
                         android:background="@drawable/edittext_rounded_corners_border" />
                 </LinearLayout>
@@ -124,7 +131,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hospital_name"
+                        android:inputType="textPersonName"
                         android:textSize="25sp"
+                        android:imeOptions="actionDone"
+                        android:imeActionLabel="Ok"
                         android:background="@drawable/edittext_rounded_corners_border" />
                 </LinearLayout>
 

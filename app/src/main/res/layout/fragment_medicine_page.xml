@@ -109,7 +109,10 @@
                             android:layout_weight="1"
                             android:layout_marginTop="68dp"
                             android:text="@={myViewModel.drugsName}"
+                            android:inputType="text"
                             android:hint="Dori vositalari nomi : "
+                            android:imeOptions="actionDone"
+                            android:imeActionLabel="Ok"
                             android:background="@drawable/background_rounded_corners_border_default"
                             android:layout_height="wrap_content"/>
 
@@ -159,6 +162,7 @@
                         android:gravity="center_horizontal"
                         android:layout_marginTop="40dp">
                         <Button
+                            android:id="@+id/done"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"

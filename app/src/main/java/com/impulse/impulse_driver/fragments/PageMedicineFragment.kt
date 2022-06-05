@@ -1,19 +1,23 @@
 package com.impulse.impulse_driver.fragments
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.impulse.impulse_driver.activity.SplashActivity
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.FragmentMedicinePageBinding
+import com.impulse.impulse_driver.manager.PrefsManager
 import com.impulse.impulse_driver.model.Medicine
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
@@ -58,8 +62,15 @@ class PageMedicineFragment : BaseFragment() {
                     Toast.makeText(requireContext(),it, Toast.LENGTH_SHORT).show()
                 }
             })
+
+            done.setOnClickListener {
+                PrefsManager.getInstance(requireContext())!!.setFirstTime("Yes",false)
+                val intent = Intent(requireActivity(), SplashActivity::class.java)
+                startActivity(intent)
+            }
         }
 
+        myEnter()
     }
 
     private fun initRecyclerView() {
@@ -109,6 +120,30 @@ class PageMedicineFragment : BaseFragment() {
             numberPicker.wrapSelectorWheel = true
 
         }
+    }
+
+    //handle enter button
+    private fun myEnter() {
+        binding.apply {
+            autoCompleteTextview2.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+                if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                    hideKeyboard()
+                    return@OnKeyListener true
+                }
+                false
+            })
+        }
+    }
+
+    //Hide register keyboard
+    private fun hideKeyboard() {
+        val view = requireActivity().currentFocus
+        if (view != null) {
+             val hideMe = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            hideMe.hideSoftInputFromWindow(view.windowToken,0)
+        }
+        //else
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
 }

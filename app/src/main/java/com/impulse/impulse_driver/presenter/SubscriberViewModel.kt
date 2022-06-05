@@ -45,10 +45,15 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     }
 
     fun saveOrUpdate() {
-
-        if (drugsName.value == null) {
+        if (drugsName.value == null || drugsName.value == "") {
             statusMessage.value = Event("Please enter subscriber`s name")
-        }else {
+        }else if (drugsAmount.value == null) {
+            val name = drugsName.value!!
+            val email = 1
+            insert(Medicine(0,name,email))
+            drugsName.value = null
+        }
+            else {
             if (isUpdateOrDelete) {
                 subscriberToUpdateOrDelete.name = drugsName.value!!
                 subscriberToUpdateOrDelete.amount = drugsAmount.value!!

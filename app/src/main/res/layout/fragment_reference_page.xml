@@ -50,7 +50,7 @@
                         android:textSize="20sp"
                         android:textColor="@color/black"
                         android:layout_marginLeft="15dp"
-                        android:text="xxxxx"/>
+                        android:text="Ilhombek Ubaydullayev "/>
 
                 </LinearLayout>
 
