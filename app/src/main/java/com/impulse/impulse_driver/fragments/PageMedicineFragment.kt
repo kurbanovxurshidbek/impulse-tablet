@@ -7,24 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
+import com.impulse.impulse_driver.database.MedicineDatabase
+import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.FragmentMedicinePageBinding
-import com.impulse.impulse_driver.helper.PostViewModelFactory
-import com.impulse.impulse_driver.manager.RoomManager
 import com.impulse.impulse_driver.model.Medicine
-import com.impulse.impulse_driver.presenter.MedicineViewModel
-import com.impulse.impulse_driver.utils.UiStateList
-import kotlinx.coroutines.flow.collect
+import com.impulse.impulse_driver.presenter.SubscriberViewModel
+import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
 
 
 class PageMedicineFragment : BaseFragment() {
+
     private var _binding: FragmentMedicinePageBinding? = null
     private val binding get() = _binding!!
-    private lateinit var cardRepository: RoomManager
-    private lateinit var viewModel: MedicineViewModel
-    private val adapter by lazy { PageMedicineAdapter() }
+    private lateinit var subscriberViewModel: SubscriberViewModel
+    private lateinit var adapter : PageMedicineAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,53 +39,55 @@ class PageMedicineFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        cardRepository = RoomManager.getInstance(requireContext())
-        setupViewModel()
-        setupGetAllChatsObserver()
         initViews()
-    }
-
-    private fun initViews() {
-        binding.apply {
-            rvDrugs.adapter = adapter
-            adapter.deleteClick = { medicine ->
-                viewModel.removeItem(medicine)
-                onResume()
-            }
-        }
         numberPicker()
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.getAllChats()
-    }
+    private fun initViews() {
+        val dao = MedicineDatabase.getInstance(requireActivity().application).subscriberDao
+        val repository = MedicineRepository(dao)
+        val factory = SubscriberViewModelFactory(repository)
+        subscriberViewModel = ViewModelProvider(this,factory).get(SubscriberViewModel::class.java)
+        binding.apply {
+            myViewModel = subscriberViewModel
+            lifecycleOwner = requireActivity()
+            initRecyclerView()
 
-    private fun setupGetAllChatsObserver() {
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.getAllChats.collect {
-                when(it){
-                    is UiStateList.LOADING -> {
-
-                    }
-                    is UiStateList.SUCCESS -> {
-                        adapter.submitList(it.data)
-                    }
-                    is UiStateList.ERROR -> {
-                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> Unit
+            subscriberViewModel.message.observe(requireActivity(), Observer {
+                it.getContentIfNotHandler()?.let {
+                    Toast.makeText(requireContext(),it, Toast.LENGTH_SHORT).show()
                 }
-            }
+            })
         }
+
     }
+
+    private fun initRecyclerView() {
+        binding.rvDrugs.layoutManager = LinearLayoutManager(requireContext())
+        adapter = PageMedicineAdapter({ seletedItem: Medicine ->listItemClicked(seletedItem)})
+        binding.rvDrugs.adapter = adapter
+        displaySubscribersList()
+    }
+
+    private fun displaySubscribersList() {
+        subscriberViewModel.subscribers.observe(requireActivity(), Observer {
+            Log.d("MyTag",it.toString())
+            adapter.setList(it)
+            adapter.notifyDataSetChanged()
+
+        })
+    }
+
+    private fun listItemClicked(subscriber: Medicine) {
+//        Toast.makeText(this,"selected name is ${subscriber.name}",Toast.LENGTH_SHORT).show()
+        subscriberViewModel.initUpdateAndDelete(subscriber)
+    }
+
 
 
     private fun numberPicker() {
         binding.apply {
-            val countries = arrayOf("Uzbekistan",
+            val countries = arrayOf("GLISEVIT tabletkalari N30",
                 "USA",
                 "Tashkent",
                 "Namangan",
@@ -104,20 +107,8 @@ class PageMedicineFragment : BaseFragment() {
             numberPicker.minValue = 1
             numberPicker.maxValue = 50
             numberPicker.wrapSelectorWheel = true
-            addButton.setOnClickListener {
-                val rnds = (0..1000).random().toLong()
-                Log.d("random",rnds.toString())
-                viewModel.saveItem(Medicine(0,autoCompleteTextview2.text.toString(),numberPicker.value.toString()))
-                autoCompleteTextview2.text.clear()
-                onResume()
-            }
+
         }
     }
 
-    private fun setupViewModel(){
-        viewModel = ViewModelProvider(
-            this,
-            PostViewModelFactory(cardRepository.postDao())
-        )[MedicineViewModel::class.java]
-    }
 }

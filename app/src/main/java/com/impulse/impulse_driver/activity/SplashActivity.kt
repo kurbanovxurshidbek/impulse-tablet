@@ -21,7 +21,7 @@ class SplashActivity : BaseActivity() {
     private val TAG = SplashActivity::class.java.toString()
     private lateinit var binding: ActivitySplashBinding
     private lateinit var lottieAnimationView: LottieAnimationView
-    private var medicalCall : String? = "das"
+    private var medicalCall : String? = "eew"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

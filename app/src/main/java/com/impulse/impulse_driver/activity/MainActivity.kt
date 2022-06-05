@@ -17,14 +17,14 @@ import java.util.*
 The MainActivity stores an ambulance call and patient information
  * **/
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+        val view = binding.root
+        setContentView(view)
         callLocation()
         initViews()
 
@@ -48,9 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("ResourceAsColor")
     private fun initViews() {
-
         replaceFragment(PageReferenceFragment())
-
 
         specilFragments()
     }
@@ -80,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.drawable.clock)
+                imgClock.setImageResource(R.mipmap.clock)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
@@ -127,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.drawable.clock)
+                imgClock.setImageResource(R.mipmap.clock)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
@@ -150,7 +148,7 @@ class MainActivity : AppCompatActivity() {
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.drawable.clock)
+                imgClock.setImageResource(R.mipmap.clock)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
@@ -173,7 +171,7 @@ class MainActivity : AppCompatActivity() {
                 llDiagnosis.setBackgroundColor(Color.TRANSPARENT)
                 tvDiagnosis.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.drawable.clock)
+                imgClock.setImageResource(R.mipmap.clock)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }

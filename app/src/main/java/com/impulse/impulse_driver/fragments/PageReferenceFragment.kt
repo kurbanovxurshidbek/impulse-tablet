@@ -33,6 +33,9 @@ import com.impulse.impulse_driver.utils.Constants
 import com.impulse.impulse_driver.utils.PermissionGPS
 import java.util.ArrayList
 
+  /**
+   * The first fragment to open is a google map and for short information about the patient
+   * **/
 
 class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
     OnMapReadyCallback,

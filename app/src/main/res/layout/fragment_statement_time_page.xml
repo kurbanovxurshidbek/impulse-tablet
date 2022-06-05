@@ -307,7 +307,7 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/clock" />
+                            android:src="@mipmap/clock" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -784,6 +784,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:singleLine="true"
                                 android:text="@string/str_disproportionate_injury"/>
                         </LinearLayout>
 
@@ -796,6 +797,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:singleLine="true"
                                 android:text="@string/str_acuse_disease"/>
                         </LinearLayout>
 
@@ -977,6 +979,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:layout_weight="1"
+                        android:singleLine="true"
                         android:gravity="center_horizontal"
                         android:textColor="@color/black"
                         android:text="Qondagi glukoza"/>

@@ -1,75 +1,45 @@
 package com.impulse.impulse_driver.adapter
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.impulse.impulse_driver.R
-import com.impulse.impulse_driver.database.AppDatabase
-import com.impulse.impulse_driver.database.dao.PostDao
 import com.impulse.impulse_driver.databinding.ItemMedicineDrugsBinding
-import com.impulse.impulse_driver.manager.RoomManager
 import com.impulse.impulse_driver.model.Medicine
 import java.util.*
-import kotlin.collections.ArrayList
 
-class PageMedicineAdapter : BaseAdapter() {
-    private val dif = AsyncListDiffer(this, ITEM_DIFF)
-    var deleteClick: ((Medicine) -> Unit)? =  null
-
-    inner class Vh(var binding: ItemMedicineDrugsBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind() {
-            val medicine = dif.currentList[adapterPosition]
-            binding.tvDrugsName.text = medicine.medicineName
-            binding.tvDrugsAmount.text = medicine.amount
-
-            binding.llDf.setOnClickListener{
-                deleteClick?.invoke(medicine)
-                Log.d("invoke",medicine.toString())
-            }
-        }
+class PageMedicineAdapter(private val clickListener:(Medicine)->Unit):RecyclerView.Adapter<MyViewHolder>(){
+    private val subscriberList= ArrayList<Medicine>()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding : ItemMedicineDrugsBinding =
+            DataBindingUtil.inflate(layoutInflater, R.layout.item_medicine_drugs,parent,false)
+        return MyViewHolder(binding)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Vh {
-        return Vh(
-            ItemMedicineDrugsBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.bind(subscriberList[position],clickListener)
     }
-    fun submitList(list: List<Medicine>) {
-        dif.submitList(list)
+    fun setList(subscriber: List<Medicine>) {
+        subscriberList.clear()
+        subscriberList.addAll(subscriber)
     }
 
-    override fun onBindViewHolder(holder: Vh, position: Int) = holder.bind()
 
-    override fun getItemCount(): Int = dif.currentList.size
-
-    companion object {
-        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Medicine>() {
-            override fun areItemsTheSame(
-                oldItem: Medicine,
-                newItem: Medicine
-            ): Boolean {
-                return true
+    override fun getItemCount(): Int {
+        return subscriberList.size
+    }
+}
+class MyViewHolder(val binding: ItemMedicineDrugsBinding) : RecyclerView.ViewHolder(binding.root){
+    fun bind(subscriber: Medicine, clickListener: (Medicine) -> Unit) {
+        binding.apply {
+            tvDrugsName.text = subscriber.name
+            tvDrugsAmount.text = subscriber.amount.toString()
+            binding.listItemLayout.setOnClickListener {
+                clickListener(subscriber)
             }
-
-            override fun areContentsTheSame(
-                oldItem: Medicine,
-                newItem: Medicine
-            ): Boolean {
-                return true
-            }
-
-
         }
     }
 }

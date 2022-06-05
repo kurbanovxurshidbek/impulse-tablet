@@ -16,15 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="#000000">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="right|center"
                 android:orientation="horizontal"
                 android:paddingRight="16dp">
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -322,7 +319,7 @@
                         android:id="@+id/img_clock"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/clock"/>
+                        android:src="@mipmap/clock"/>
 
                     <TextView
                         android:id="@+id/tv_clock"
