@@ -1,5 +1,6 @@
 package com.impulse.impulse_driver.activity
 
+import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,7 +30,7 @@ class AmbulanceActivity : BaseActivity() {
 
         binding.apply {
             lottieAnimation.setAnimation("sos_animation_plus.json")
-
+            lottieAnimationAmbulance.setAnimation("ambulance_ways.json")
             sosView()
 
             lottieAnimation.setOnClickListener {

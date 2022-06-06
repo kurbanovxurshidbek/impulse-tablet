@@ -61,47 +61,47 @@ class MainActivity : BaseActivity() {
 
             lnHome.setOnClickListener {
                 replaceFragment(PageReferenceFragment())
-                imgHome.setImageResource(R.drawable.ic_home_black)
+                imgHome.setImageResource(R.mipmap.home_black)
                 lnHome.setBackgroundColor(Color.WHITE)
                 lnHome.setBackgroundResource(R.drawable.background_rounded_corners_left)
                 tvHome.setTextColor(Color.BLACK)
 
-                imgInspection.setImageResource(R.drawable.doctors)
+                imgInspection.setImageResource(R.mipmap.doctor_red)
                 llInspection.setBackgroundColor(Color.TRANSPARENT)
                 tvInspection.setTextColor(Color.RED)
 
-                imgDiagnosis.setImageResource(R.drawable.diagnosis)
+                imgDiagnosis.setImageResource(R.mipmap.doctor_red)
                 llDiagnosis.setBackgroundColor(Color.TRANSPARENT)
                 tvDiagnosis.setTextColor(Color.RED)
 
-                imgDrugs.setImageResource(R.drawable.medicine)
+                imgDrugs.setImageResource(R.mipmap.drugs)
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.mipmap.clock)
+                imgClock.setImageResource(R.mipmap.clock_red)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
 
             lyClock.setOnClickListener {
                 replaceFragment(PageStatementTimeFragment())
-                imgHome.setImageResource(R.drawable.ic_baseline_home_24)
+                imgHome.setImageResource(R.mipmap.home_red3)
                 lnHome.setBackgroundColor(Color.TRANSPARENT)
                 tvHome.setTextColor(Color.RED)
 
-                imgInspection.setImageResource(R.drawable.doctors)
+                imgInspection.setImageResource(R.mipmap.doctor_red)
                 llInspection.setBackgroundColor(Color.TRANSPARENT)
                 tvInspection.setTextColor(Color.RED)
 
-                imgDiagnosis.setImageResource(R.drawable.diagnosis)
+                imgDiagnosis.setImageResource(R.mipmap.diagnosic_red)
                 llDiagnosis.setBackgroundColor(Color.TRANSPARENT)
                 tvDiagnosis.setTextColor(Color.RED)
 
-                imgDrugs.setImageResource(R.drawable.medicine)
+                imgDrugs.setImageResource(R.mipmap.drugs)
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.drawable.clockred)
+                imgClock.setImageResource(R.mipmap.clock_black)
                 lyClock.setBackgroundColor(Color.WHITE)
                 tvClock.setTextColor(Color.BLACK)
 
@@ -109,69 +109,69 @@ class MainActivity : BaseActivity() {
 
             llInspection.setOnClickListener {
                 replaceFragment(PageStatementFragment())
-                imgInspection.setImageResource(R.drawable.doctorsb)
+                imgInspection.setImageResource(R.mipmap.doctor_black)
                 llInspection.setBackgroundColor(Color.WHITE)
                 tvInspection.setTextColor(Color.BLACK)
 
-                imgHome.setImageResource(R.drawable.ic_baseline_home_24)
+                imgHome.setImageResource(R.mipmap.home_red3)
                 lnHome.setBackgroundColor(Color.TRANSPARENT)
                 tvHome.setTextColor(Color.RED)
 
-                imgDiagnosis.setImageResource(R.drawable.diagnosis)
+                imgDiagnosis.setImageResource(R.mipmap.diagnosic_red)
                 llDiagnosis.setBackgroundColor(Color.TRANSPARENT)
                 tvDiagnosis.setTextColor(Color.RED)
 
-                imgDrugs.setImageResource(R.drawable.medicine)
+                imgDrugs.setImageResource(R.mipmap.drugs)
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.mipmap.clock)
+                imgClock.setImageResource(R.mipmap.clock_red)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
 
             llDiagnosis.setOnClickListener {
                 replaceFragment(PageStatementFragmentContinue())
-                imgDiagnosis.setImageResource(R.drawable.diagnosisb)
+                imgDiagnosis.setImageResource(R.mipmap.diagnosic_black)
                 llDiagnosis.setBackgroundColor(Color.WHITE)
                 tvDiagnosis.setTextColor(Color.BLACK)
 
-                imgHome.setImageResource(R.drawable.ic_baseline_home_24)
+                imgHome.setImageResource(R.mipmap.home_red3)
                 lnHome.setBackgroundColor(Color.TRANSPARENT)
                 tvHome.setTextColor(Color.RED)
 
-                imgInspection.setImageResource(R.drawable.doctors)
+                imgInspection.setImageResource(R.mipmap.doctor_red)
                 llInspection.setBackgroundColor(Color.TRANSPARENT)
                 tvInspection.setTextColor(Color.RED)
 
-                imgDrugs.setImageResource(R.drawable.medicine)
+                imgDrugs.setImageResource(R.mipmap.drugs)
                 llDrugs.setBackgroundColor(Color.TRANSPARENT)
                 tvDrugs.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.mipmap.clock)
+                imgClock.setImageResource(R.mipmap.clock_red)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
 
             llDrugs.setOnClickListener {
                 replaceFragment(PageMedicineFragment())
-                imgDrugs.setImageResource(R.drawable.medicineb)
+                imgDrugs.setImageResource(R.mipmap.drugs_black)
                 llDrugs.setBackgroundColor(Color.WHITE)
                 tvDrugs.setTextColor(Color.BLACK)
 
-                imgHome.setImageResource(R.drawable.ic_baseline_home_24)
+                imgHome.setImageResource(R.mipmap.home_red3)
                 lnHome.setBackgroundColor(Color.TRANSPARENT)
                 tvHome.setTextColor(Color.RED)
 
-                imgInspection.setImageResource(R.drawable.doctors)
+                imgInspection.setImageResource(R.mipmap.doctor_red)
                 llInspection.setBackgroundColor(Color.TRANSPARENT)
                 tvInspection.setTextColor(Color.RED)
 
-                imgDiagnosis.setImageResource(R.drawable.diagnosis)
+                imgDiagnosis.setImageResource(R.mipmap.diagnosic_red)
                 llDiagnosis.setBackgroundColor(Color.TRANSPARENT)
                 tvDiagnosis.setTextColor(Color.RED)
 
-                imgClock.setImageResource(R.mipmap.clock)
+                imgClock.setImageResource(R.mipmap.clock_red)
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }

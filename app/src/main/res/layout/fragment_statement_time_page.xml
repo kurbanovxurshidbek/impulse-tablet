@@ -139,14 +139,13 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:gravity="center"
                     android:background="@drawable/background_rounded_corners_border_default"
                     android:layout_weight=".5">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:fontFamily="sans-serif"
@@ -221,7 +220,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:textColor="@color/black"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:textSize="16sp"
                         android:text="@string/str_call_category"/>
 
@@ -307,7 +306,7 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@mipmap/clock" />
+                            android:src="@mipmap/clock_red" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -439,7 +438,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="50dp"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1">
                         <CheckBox
@@ -451,7 +450,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="50dp"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1">
                         <CheckBox
@@ -463,7 +462,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="50dp"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1">
                         <CheckBox
@@ -498,7 +497,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -510,7 +509,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -522,7 +521,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -540,7 +539,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -552,7 +551,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -564,7 +563,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -582,7 +581,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -594,7 +593,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -606,7 +605,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:background="@drawable/background_rounded_corners_border_default">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -900,14 +899,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="@color/black"/>
 
             <TextView
                 android:layout_width="match_parent"

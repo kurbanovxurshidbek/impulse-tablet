@@ -4,25 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/sufyan"
     tools:context=".activity.SignInActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:gravity="center_horizontal">
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@mipmap/logo"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center_horizontal|center_vertical">
+
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:background="@mipmap/logo"/>
+
             <LinearLayout
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="200dp"
@@ -37,6 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="22sp"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:layout_marginRight="20dp"
                         android:text="@string/name_id"/>
@@ -47,18 +50,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
+
                     <EditText
                         android:id="@+id/et_driver_ID"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_rounded_corners_border"
+                        android:baselineAligned="false"
+                        android:textColor="@color/white"
                         android:hint="@string/driver_ID"
-                        android:inputType="numberPassword"
-                        android:imeOptions="actionNext"
                         android:imeActionLabel="Next"
-                        android:textSize="25sp"
-                        android:ems="10"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_rounded_corners_border" />
+                        android:imeOptions="actionNext"
+                        android:inputType="numberPassword"
+                        android:textColorHint="@color/white"
+                        android:textSize="22sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -78,6 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="22sp"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:layout_marginRight="20dp"
                         android:text="@string/name"/>
@@ -93,7 +99,9 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/driver_name"
                         android:inputType="textPersonName"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
                         android:imeOptions="actionNext"
                         android:imeActionLabel="Next"
                         android:layout_weight="1"
@@ -117,6 +125,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="22sp"
                         android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:layout_marginRight="20dp"
                         android:text="@string/hospital"/>
 
@@ -132,7 +141,9 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/hospital_name"
                         android:inputType="textPersonName"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         android:imeOptions="actionDone"
                         android:imeActionLabel="Ok"
                         android:background="@drawable/edittext_rounded_corners_border" />

@@ -286,7 +286,7 @@
                         android:id="@+id/img_home"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/ic_home_black"/>
+                        android:src="@mipmap/home_black" />
 
                     <TextView
                         android:id="@+id/tv_home"
@@ -295,7 +295,7 @@
                         android:textSize="16sp"
                         android:textStyle="normal"
                         android:layout_marginTop="3dp"
-                        android:text="Home"
+                        android:text="Asosiy"
                         />
                 </LinearLayout>
 
@@ -310,7 +310,7 @@
                     android:id="@+id/ly_clock"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.1"
+                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:gravity="center_horizontal|center_vertical"
                     android:layout_marginLeft="10dp">
@@ -319,7 +319,7 @@
                         android:id="@+id/img_clock"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@mipmap/clock"/>
+                        android:src="@mipmap/clock_red"/>
 
                     <TextView
                         android:id="@+id/tv_clock"
@@ -328,7 +328,7 @@
                         android:textSize="16sp"
                         android:textStyle="normal"
                         android:textColor="@color/status_bar_color"
-                        android:text="Chaqiruv\nvaqtlari"
+                        android:text="Vaqtlar"
                         />
                 </LinearLayout>
 
@@ -353,7 +353,7 @@
                         android:id="@+id/img_inspection"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/doctors"/>
+                        android:src="@mipmap/doctor_red"/>
 
                     <TextView
                         android:id="@+id/tv_inspection"
@@ -388,7 +388,7 @@
                         android:id="@+id/img_diagnosis"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/diagnosis"/>
+                        android:src="@mipmap/diagnosic_red"/>
 
                     <TextView
                         android:id="@+id/tv_diagnosis"
@@ -423,7 +423,7 @@
                         android:id="@+id/img_drugs"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/medicine"/>
+                        android:src="@mipmap/drugs"/>
 
                     <TextView
                         android:id="@+id/tv_drugs"
