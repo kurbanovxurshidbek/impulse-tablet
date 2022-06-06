@@ -1,6 +1,5 @@
 package com.impulse.impulse_driver.activity
 
-import android.content.Context
 import android.graphics.Color
 import android.hardware.input.InputManager
 import android.media.Image
@@ -33,8 +32,6 @@ class SignInActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        myEnter()
-        hideKeyboard()
         binding.apply {
             bOpenActivity.setOnClickListener {
                 isSignIn = false
@@ -44,29 +41,5 @@ class SignInActivity : BaseActivity() {
                 finish()
             }
         }
-    }
-
-    //handle enter button
-    private fun myEnter() {
-        binding.apply {
-            etDriverID.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
-                if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                    hideKeyboard()
-                    return@OnKeyListener true
-                }
-                false
-            })
-        }
-    }
-
-    //Hide register keyboard
-    fun hideKeyboard() {
-        val view = this.currentFocus
-        if (view != null) {
-            val hideMe = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            hideMe.hideSoftInputFromWindow(view.windowToken,0)
-        }
-        //else
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 }

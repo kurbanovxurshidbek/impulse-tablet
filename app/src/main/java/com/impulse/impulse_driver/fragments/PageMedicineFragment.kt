@@ -71,6 +71,7 @@ class PageMedicineFragment : BaseFragment() {
         }
 
         myEnter()
+        hideKeyboard()
     }
 
     private fun initRecyclerView() {
@@ -122,8 +123,8 @@ class PageMedicineFragment : BaseFragment() {
         }
     }
 
-    //handle enter button
-    private fun myEnter() {
+    //Handle enter button
+    fun myEnter() {
         binding.apply {
             autoCompleteTextview2.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
@@ -135,12 +136,12 @@ class PageMedicineFragment : BaseFragment() {
         }
     }
 
-    //Hide register keyboard
-    private fun hideKeyboard() {
+    //Hide our keyboard
+    fun hideKeyboard() {
         val view = requireActivity().currentFocus
         if (view != null) {
-             val hideMe = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            hideMe.hideSoftInputFromWindow(view.windowToken,0)
+            val hide = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            hide.hideSoftInputFromWindow(view.windowToken,0)
         }
         //else
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
