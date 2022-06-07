@@ -1,7 +1,9 @@
 package com.impulse.impulse_driver.activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.airbnb.lottie.LottieAnimationView
@@ -9,6 +11,7 @@ import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.databinding.ActivityAmbulanceBinding
 import com.impulse.impulse_driver.databinding.ActivitySplashBinding
 import com.impulse.impulse_driver.manager.PrefsManager
+import java.util.*
 
 /** The application for high volume message **/
 

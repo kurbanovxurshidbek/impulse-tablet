@@ -1,16 +1,12 @@
 package com.impulse.impulse_driver.activity
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
 import com.impulse.impulse_driver.fragments.*
-import java.util.*
 
 /**
  *
@@ -25,30 +21,13 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        callLocation()
         initViews()
 
     }
 
-
-    /** Location for ambulance with google map **/
-
-    private fun callLocation() {
-        val lattitu = "41.325968"
-        val longtitu = "69.2348073"
-        val adressName ="Navoi Avenue"
-
-        val my_data = String.format(Locale.ENGLISH,
-            "http://maps.google.com/maps?daddr=$lattitu,$longtitu$adressName")
-
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(my_data))
-        intent.setPackage("com.google.android.apps.maps")
-        startActivity(intent)
-    }
-
     @SuppressLint("ResourceAsColor")
     private fun initViews() {
-        replaceFragment(PageReferenceFragment())
+        replaceFragment(MapsInfoFragment())
 
         specilFragments()
     }
@@ -60,7 +39,7 @@ class MainActivity : BaseActivity() {
         binding.apply {
 
             lnHome.setOnClickListener {
-                replaceFragment(PageReferenceFragment())
+                replaceFragment(MapsInfoFragment())
                 imgHome.setImageResource(R.mipmap.home_black)
                 lnHome.setBackgroundColor(Color.WHITE)
                 lnHome.setBackgroundResource(R.drawable.background_rounded_corners_left)
@@ -70,7 +49,7 @@ class MainActivity : BaseActivity() {
                 llInspection.setBackgroundColor(Color.TRANSPARENT)
                 tvInspection.setTextColor(Color.RED)
 
-                imgDiagnosis.setImageResource(R.mipmap.doctor_red)
+                imgDiagnosis.setImageResource(R.mipmap.diagnosic_red)
                 llDiagnosis.setBackgroundColor(Color.TRANSPARENT)
                 tvDiagnosis.setTextColor(Color.RED)
 
@@ -84,7 +63,7 @@ class MainActivity : BaseActivity() {
             }
 
             lyClock.setOnClickListener {
-                replaceFragment(PageStatementTimeFragment())
+                replaceFragment(TimeFragment())
                 imgHome.setImageResource(R.mipmap.home_red3)
                 lnHome.setBackgroundColor(Color.TRANSPARENT)
                 tvHome.setTextColor(Color.RED)

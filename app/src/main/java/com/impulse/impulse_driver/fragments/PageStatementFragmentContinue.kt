@@ -5,10 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.impulse.impulse_driver.R
-import com.impulse.impulse_driver.databinding.FragmentReferencePageBinding
-import com.impulse.impulse_driver.databinding.FragmentStatementPageBinding
 import com.impulse.impulse_driver.databinding.FragmentStatementPageContinueBinding
 
 class PageStatementFragmentContinue : BaseFragment() {

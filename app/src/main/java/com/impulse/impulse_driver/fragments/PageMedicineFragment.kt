@@ -12,6 +12,9 @@ import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.database.FirebaseDatabase
+import com.impulse.impulse_driver.R
+import com.impulse.impulse_driver.activity.AmbulanceActivity
 import com.impulse.impulse_driver.activity.SplashActivity
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
@@ -19,8 +22,15 @@ import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.FragmentMedicinePageBinding
 import com.impulse.impulse_driver.manager.PrefsManager
 import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.model.MyLocation
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
+import com.impulse.impulse_driver.service.LocationService
+import com.impulse.impulse_driver.utils.Util
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.File
 
 
 class PageMedicineFragment : BaseFragment() {
@@ -29,6 +39,8 @@ class PageMedicineFragment : BaseFragment() {
     private val binding get() = _binding!!
     private lateinit var subscriberViewModel: SubscriberViewModel
     private lateinit var adapter : PageMedicineAdapter
+    var mLocationService: LocationService = LocationService()
+    lateinit var mServiceIntent: Intent
 
 
     override fun onCreateView(
@@ -65,9 +77,12 @@ class PageMedicineFragment : BaseFragment() {
 
             done.setOnClickListener {
                 PrefsManager.getInstance(requireContext())!!.setFirstTime("Yes",false)
-                val intent = Intent(requireActivity(), SplashActivity::class.java)
+                stopServiceFunc()
+                val intent = Intent(requireActivity(), AmbulanceActivity::class.java)
                 startActivity(intent)
+                requireActivity().finish()
             }
+
         }
 
         myEnter()
@@ -145,6 +160,33 @@ class PageMedicineFragment : BaseFragment() {
         }
         //else
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+    }
+
+    private fun stopServiceFunc(){
+        mLocationService = LocationService()
+        mServiceIntent = Intent(requireContext(), mLocationService.javaClass)
+        if (Util.isMyServiceRunning(mLocationService.javaClass, requireActivity())) {
+            requireContext().stopService(mServiceIntent)
+            Toast.makeText(requireContext(), "Service stopped!!", Toast.LENGTH_SHORT).show()
+            saveDataToFile()
+        } else {
+            Toast.makeText(requireContext(), "Service is already stopped!!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun saveDataToFile(){
+        val path = requireActivity().getExternalFilesDir(null)
+        val folder = File(path, "trickyworld")
+        folder.mkdirs()
+        val file = File(folder, "location.txt")
+        if ( ! LocationService.locationArrayList.isEmpty()) file.appendText("${LocationService.locationArrayList.toString()}")
+        LocationService.locationArrayList.clear()
+        val myLocation = MyLocation("ignore",41.331504, 69.244695)
+        LocationService.dbRef = FirebaseDatabase.getInstance().getReference("driver_points")
+        CoroutineScope(Dispatchers.IO).launch{
+            Log.d("TAG", "initViews: dsadasd")
+            LocationService.dbRef?.setValue(myLocation)
+        }
     }
 
 }

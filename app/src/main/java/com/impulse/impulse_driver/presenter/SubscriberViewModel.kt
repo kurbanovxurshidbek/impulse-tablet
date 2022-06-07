@@ -40,13 +40,13 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     get() = statusMessage
 
     init {
-        saveOrUpdateButtonText.value = "Save"
-        clearAllOrDeleteButtonText.value = "Clear All"
+        saveOrUpdateButtonText.value = "Saqlash"
+        clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
     }
 
     fun saveOrUpdate() {
         if (drugsName.value == null || drugsName.value == "") {
-            statusMessage.value = Event("Please enter subscriber`s name")
+            statusMessage.value = Event("Iltimos dorining nomini kiriting")
         }else if (drugsAmount.value == null) {
             val name = drugsName.value!!
             val email = 1
@@ -79,7 +79,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     fun insert(subscriber: Medicine) : Job = viewModelScope.launch {
         val newRowId = repository.insert(subscriber)
         if (newRowId>-1) {
-            statusMessage.value = Event("Subscriber Inserted Successfully")
+            statusMessage.value = Event("Omadli yakunlandi")
         }else {
             statusMessage.value = Event("Error Occurred")
         }
@@ -92,9 +92,9 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
             drugsName.value = null
             drugsAmount.value = 1
             isUpdateOrDelete = false
-            saveOrUpdateButtonText.value = "Save"
-            clearAllOrDeleteButtonText.value = "Clear All"
-            statusMessage.value = Event("$noOfRows Row Updated Successfully")
+            saveOrUpdateButtonText.value = "Saqlash"
+            clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
+            statusMessage.value = Event("$noOfRows O`zgartirildi")
         }else {
             statusMessage.value = Event("Error occurred")
         }
@@ -108,9 +108,9 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
             drugsName.value = null
             drugsAmount.value = 1
             isUpdateOrDelete = false
-            saveOrUpdateButtonText.value = "Save"
-            clearAllOrDeleteButtonText.value = "Clear All"
-            statusMessage.value = Event("$noOfRowsDeleted Row Deleted Successfully")
+            saveOrUpdateButtonText.value = "Saqlash"
+            clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
+            statusMessage.value = Event("$noOfRowsDeleted Barchasi o'chirildi")
         }else {
             statusMessage.value = Event("Error occurred")
         }
@@ -119,7 +119,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     fun clearAll() : Job = viewModelScope.launch {
         val noOfRowsDeleted = repository.deleteAll()
         if (noOfRowsDeleted>0) {
-            statusMessage.value = Event("$noOfRowsDeleted Subscribers Deleted Successfully")
+            statusMessage.value = Event("$noOfRowsDeleted O`chirish omadli yakunlandi")
         }else {
             statusMessage.value = Event("Error Occurred")
         }
@@ -131,8 +131,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         drugsAmount.value = subscriber.amount
         isUpdateOrDelete = true
         subscriberToUpdateOrDelete = subscriber
-        saveOrUpdateButtonText.value = "Update"
-        clearAllOrDeleteButtonText.value = "Delete"
+        saveOrUpdateButtonText.value = "O`zgartirish"
+        clearAllOrDeleteButtonText.value = "O`chirish"
 
     }
 

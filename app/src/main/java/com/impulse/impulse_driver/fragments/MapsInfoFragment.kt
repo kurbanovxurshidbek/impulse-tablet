@@ -1,9 +1,8 @@
 package com.impulse.impulse_driver.fragments
 
 import android.Manifest
-import android.R
 import android.annotation.SuppressLint
-import android.app.ProgressDialog
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -15,10 +14,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -26,40 +26,51 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.impulse.impulse_driver.databinding.FragmentReferencePageBinding
+import com.google.firebase.database.FirebaseDatabase
+import com.impulse.impulse_driver.databinding.FragmentInfoMapsBinding
+import com.impulse.impulse_driver.model.MyLocation
 import com.impulse.impulse_driver.service.FetchAddressIntentService
+import com.impulse.impulse_driver.service.LocationService
+import com.impulse.impulse_driver.service.LocationService.CompanionObject.locationArrayList
 import com.impulse.impulse_driver.utils.Connections
 import com.impulse.impulse_driver.utils.Constants
 import com.impulse.impulse_driver.utils.PermissionGPS
-import java.util.ArrayList
+import com.impulse.impulse_driver.utils.Util
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.File
 
-  /**
+/**
    * The first fragment to open is a google map and for short information about the patient
    * **/
 
-class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
+class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener,
     OnMapReadyCallback,
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener{
 
 
-    companion object {
+      companion object {
+          private const val MY_FINE_LOCATION_REQUEST = 99
+          private const val MY_BACKGROUND_LOCATION_REQUEST = 100
+          private val TAG = MapsInfoFragment::class.java.simpleName
 
-        private val TAG = PageReferenceFragment::class.java.simpleName
+          private const val DEFAULT_ZOOM = 2f
 
-        private const val DEFAULT_ZOOM = 2f
+          private const val UPDATE_INTERVAL: Long = 500
+          private const val FASTEST_UPDATE_INTERVAL = UPDATE_INTERVAL / 5
+          private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+          private var gpsFirstOn = true
 
-        private const val UPDATE_INTERVAL: Long = 500
-        private const val FASTEST_UPDATE_INTERVAL = UPDATE_INTERVAL / 5
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
-        private var gpsFirstOn = true
-
-        const val MY_PERMISSIONS_REQUEST_LOCATION = 99
-    }
-
-    private var _binding: FragmentReferencePageBinding? = null
+          const val MY_PERMISSIONS_REQUEST_LOCATION = 99
+      }
+    private var _binding: FragmentInfoMapsBinding? = null
     private val binding get() = _binding!!
-
+      var mLocationService: LocationService = LocationService()
+      lateinit var mServiceIntent: Intent
+      lateinit var startServiceBtn: Button
+      lateinit var stopServiceBtn: Button
 
     //    belongs to the map
     private val LocationA = LatLng(41.311081, 69.240562)
@@ -79,11 +90,10 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentReferencePageBinding.inflate(inflater, container, false)
+        _binding = FragmentInfoMapsBinding.inflate(inflater, container, false)
         val view = binding.root
 
         initViews()
-
         return view
     }
 
@@ -107,6 +117,11 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
             openContact.setOnClickListener {
                 openCallContact(tv_call)
             }
+
+            lottieAnimationClick.setAnimation("click.json")
+            lottieAnimationClick.setOnClickListener {
+                callLocation()
+            }
         }
 
         init()
@@ -122,6 +137,7 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
         locationgps = Location("Point A")
         locationgpsS = Location("Point B")
 
+
     }
 
 
@@ -131,6 +147,50 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
     }
 
     /** hence the map functions **/
+
+    private fun starServiceFunc(){
+        mLocationService = LocationService()
+        mServiceIntent = Intent(requireContext(), mLocationService.javaClass)
+        if (!Util.isMyServiceRunning(mLocationService.javaClass, requireActivity())) {
+            requireContext().startService(mServiceIntent)
+
+            Toast.makeText(requireContext(), getString(com.impulse.impulse_driver.R.string.service_start_successfully), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), getString(com.impulse.impulse_driver.R.string.service_already_running), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+      override fun onDestroy() {
+          /*  if (::mServiceIntent.isInitialized) {
+                stopService(mServiceIntent)
+            }*/
+          super.onDestroy()
+      }
+
+      @RequiresApi(Build.VERSION_CODES.Q)
+      private fun requestBackgroundLocationPermission() {
+          ActivityCompat.requestPermissions(requireActivity(),
+              arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION), MY_BACKGROUND_LOCATION_REQUEST)
+      }
+
+      private fun requestFineLocationPermission() {
+          ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,), MY_FINE_LOCATION_REQUEST)
+      }
+
+      public fun saveDataToFile(){
+          val path = requireActivity().getExternalFilesDir(null)
+          val folder = File(path, "trickyworld")
+          folder.mkdirs()
+          val file = File(folder, "location.txt")
+          if ( ! locationArrayList.isEmpty()) file.appendText("${LocationService.locationArrayList.toString()}")
+          locationArrayList.clear()
+          val myLocation = MyLocation("ignore",0.0, 0.0)
+          LocationService.dbRef = FirebaseDatabase.getInstance().getReference("driver_points").child("0")
+          CoroutineScope(Dispatchers.IO).launch{
+              Log.d("TAG", "initViews: dsadasd")
+              LocationService.dbRef?.setValue(myLocation)
+          }
+      }
 
     private fun init() {
 
@@ -147,11 +207,9 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
                 if (map != null) {
                     val MapType = map!!.mapType
                     if (MapType == 1) {
-                        fbsatelits.setImageResource(android.R.drawable.presence_invisible)
 //                        map!!.mapType = GoogleMap.MAP_TYPE_SATELLITE
                         map!!.mapType = GoogleMap.MAP_TYPE_HYBRID
                     } else {
-                        fbsatelits.setBackgroundResource(R.drawable.presence_online)
                         map!!.mapType = GoogleMap.MAP_TYPE_NORMAL
                     }
                 }
@@ -280,6 +338,41 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
             if (checkPermission())
                 fusedLocationProvider!!.requestLocationUpdates(locationRequest!!, locationCallback!!,
                     Looper.myLooper()!!)
+
+            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+                        starServiceFunc()
+                        requestBackgroundLocationPermission()
+
+                    }else if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED){
+                        starServiceFunc()
+                    }
+                }else{
+                    starServiceFunc()
+                }
+
+            }else if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+                if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("ACCESS_FINE_LOCATION")
+                        .setMessage("Location permission required")
+                        .setPositiveButton(
+                            "OK"
+                        ) { _, _ ->
+                            requestFineLocationPermission()
+                        }
+                        .create()
+                        .show()
+                } else {
+                    requestFineLocationPermission()
+                }
+            }
         }
     }
 
@@ -332,7 +425,7 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
     override fun onConnected(p0: Bundle?) {
         if (!enabled!!) {
             val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivity(intent);
+            startActivity(intent)
             getDeviceLocation(false)
             if (!Geocoder.isPresent()) {
                 Toast.makeText(requireContext(),"no_geocoder_available", Toast.LENGTH_SHORT).show()
@@ -376,6 +469,7 @@ class PageReferenceFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, G
         intent.putExtra(Constants.LOCATION_DATA_EXTRA, locationgpsS)
         requireContext().startService(intent)
     }
+
 
 
     override fun onConnectionSuspended(p0: Int) {
