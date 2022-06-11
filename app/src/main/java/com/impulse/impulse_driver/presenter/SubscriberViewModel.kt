@@ -1,7 +1,6 @@
 package com.impulse.impulse_driver.presenter
 
 
-import android.util.Patterns
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
@@ -10,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.impulse.impulse_driver.database.Event
 import com.impulse.impulse_driver.database.MedicineRepository
-import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.database.entity.Medicine
 
 
 import kotlinx.coroutines.Job

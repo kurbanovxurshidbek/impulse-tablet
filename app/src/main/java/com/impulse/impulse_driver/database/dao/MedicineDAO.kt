@@ -2,7 +2,7 @@ package com.impulse.impulse_driver.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.database.entity.Medicine
 
 @Dao
 interface MedicineDAO {

@@ -1,13 +1,12 @@
 package com.impulse.impulse_driver.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.databinding.ItemMedicineDrugsBinding
-import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.database.entity.Medicine
 import java.util.*
 
 class PageMedicineAdapter(private val clickListener:(Medicine)->Unit):RecyclerView.Adapter<MyViewHolder>(){

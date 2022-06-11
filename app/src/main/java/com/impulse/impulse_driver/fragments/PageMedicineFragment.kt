@@ -8,20 +8,17 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.FirebaseDatabase
-import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.activity.AmbulanceActivity
-import com.impulse.impulse_driver.activity.SplashActivity
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.FragmentMedicinePageBinding
 import com.impulse.impulse_driver.manager.PrefsManager
-import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.database.entity.Medicine
 import com.impulse.impulse_driver.model.MyLocation
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
@@ -105,6 +102,7 @@ class PageMedicineFragment : BaseFragment() {
         })
     }
 
+
     private fun listItemClicked(subscriber: Medicine) {
 //        Toast.makeText(this,"selected name is ${subscriber.name}",Toast.LENGTH_SHORT).show()
         subscriberViewModel.initUpdateAndDelete(subscriber)
@@ -112,6 +110,7 @@ class PageMedicineFragment : BaseFragment() {
 
 
 
+    /** number and text selection  **/
     private fun numberPicker() {
         binding.apply {
             val countries = arrayOf("GLISEVIT tabletkalari N30",
@@ -138,7 +137,7 @@ class PageMedicineFragment : BaseFragment() {
         }
     }
 
-    //Handle enter button
+    /** Handle enter button **/
     fun myEnter() {
         binding.apply {
             autoCompleteTextview2.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
@@ -151,7 +150,7 @@ class PageMedicineFragment : BaseFragment() {
         }
     }
 
-    //Hide our keyboard
+    /** Hide our keyboard **/
     fun hideKeyboard() {
         val view = requireActivity().currentFocus
         if (view != null) {
@@ -162,6 +161,7 @@ class PageMedicineFragment : BaseFragment() {
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
+    /** deactivation of the service to stop the location **/
     private fun stopServiceFunc(){
         mLocationService = LocationService()
         mServiceIntent = Intent(requireContext(), mLocationService.javaClass)
@@ -174,6 +174,7 @@ class PageMedicineFragment : BaseFragment() {
         }
     }
 
+    /** send and delete the last location address **/
     private fun saveDataToFile(){
         val path = requireActivity().getExternalFilesDir(null)
         val folder = File(path, "trickyworld")

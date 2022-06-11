@@ -1,7 +1,7 @@
 package com.impulse.impulse_driver.database
 
 import com.impulse.impulse_driver.database.dao.MedicineDAO
-import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.database.entity.Medicine
 
 
 class MedicineRepository(private val dao : MedicineDAO) {

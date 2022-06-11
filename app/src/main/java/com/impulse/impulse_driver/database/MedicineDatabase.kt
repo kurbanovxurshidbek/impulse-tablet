@@ -6,7 +6,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.impulse.impulse_driver.database.dao.MedicineDAO
-import com.impulse.impulse_driver.model.Medicine
+import com.impulse.impulse_driver.database.entity.Medicine
 
 @Database(entities = [Medicine::class], version = 1)
 abstract class MedicineDatabase : RoomDatabase() {
@@ -23,7 +23,7 @@ abstract class MedicineDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         MedicineDatabase::class.java,
-                        "subscriber_data_database"
+                        "medicine_dao"
                     ).build()
                 }
                 return instance

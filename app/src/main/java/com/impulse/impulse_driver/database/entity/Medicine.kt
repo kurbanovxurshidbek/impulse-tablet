@@ -1,4 +1,4 @@
-package com.impulse.impulse_driver.model
+package com.impulse.impulse_driver.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
