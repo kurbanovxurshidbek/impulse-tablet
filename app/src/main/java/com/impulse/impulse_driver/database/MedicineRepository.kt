@@ -1,6 +1,7 @@
 package com.impulse.impulse_driver.database
 
 import com.impulse.impulse_driver.database.dao.MedicineDAO
+import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
 
 
@@ -22,5 +23,23 @@ class MedicineRepository(private val dao : MedicineDAO) {
 
     suspend fun deleteAll() : Int {
         return dao.deleteAll()
+    }
+
+    /** Base database **/
+
+    suspend fun insertAll(baseInsert: BaseMedicine) : Long {
+        return dao.insertSubscriberAll(baseInsert)
+    }
+
+    suspend fun update(baseUpdate: BaseMedicine) : Int {
+        return dao.updateSubscriberAll(baseUpdate)
+    }
+
+    suspend fun delete(baseDelete: BaseMedicine) : Int {
+        return dao.deleteSubscriberAll(baseDelete)
+    }
+
+    suspend fun bDeleteAll() : Int {
+        return dao.bDeleteAll()
     }
 }

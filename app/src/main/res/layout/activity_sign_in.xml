@@ -35,9 +35,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:layout_weight="0.2">
+                    android:layout_weight="0.3">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="22sp"
                         android:textColor="@color/white"
@@ -50,21 +50,36 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/et_driver_ID"
+                    android:layout_weight="1.2">
+                    
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etPasswordLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittext_rounded_corners_border"
-                        android:baselineAligned="false"
-                        android:textColor="@color/white"
-                        android:hint="@string/driver_ID"
-                        android:imeActionLabel="Next"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberPassword"
                         android:textColorHint="@color/white"
-                        android:textSize="22sp" />
+                        app:hintTextColor="@color/white"
+                        app:counterMaxLength="25"
+                        app:boxStrokeColor="@color/white"
+                        app:startIconTint="@color/white"
+                        app:errorTextAppearance="@style/error_appearance"
+                        app:passwordToggleTint="@color/white"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_driver_ID"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edittext_rounded_corners_border"
+                            android:baselineAligned="false"
+                            android:textColor="@color/white"
+                            android:hint="@string/driver_ID"
+                            android:imeActionLabel="Next"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:textColorHint="@color/white"
+                            android:textSize="22sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -79,7 +94,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.2">
+                    android:layout_weight="0.3">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -93,20 +108,21 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <EditText
+                    android:layout_weight="1.2">
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_driver_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/driver_name"
-                        android:inputType="textPersonName"
-                        android:textSize="22sp"
-                        android:textColorHint="@color/white"
+                        android:background="@drawable/edittext_rounded_corners_border"
+                        android:baselineAligned="false"
                         android:textColor="@color/white"
-                        android:imeOptions="actionNext"
+                        android:hint="@string/driver_name"
                         android:imeActionLabel="Next"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:textColorHint="@color/white"
                         android:layout_weight="1"
-                        android:background="@drawable/edittext_rounded_corners_border" />
+                        android:textSize="22sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -120,7 +136,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0.2">
+                    android:layout_weight="0.3">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,7 +151,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1.2">
                     <EditText
                         android:id="@+id/et_hospital"
                         android:layout_width="match_parent"

@@ -9,7 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.impulse.impulse_driver.database.Event
 import com.impulse.impulse_driver.database.MedicineRepository
+import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
+import com.impulse.impulse_driver.model.PatientInfo
 
 
 import kotlinx.coroutines.Job
@@ -20,6 +22,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val subscribers = repository.subscribers
     private var isUpdateOrDelete = false
     private lateinit var subscriberToUpdateOrDelete : Medicine
+    private lateinit var baseSaveInfo : BaseMedicine
+    private lateinit var patientInfo : PatientInfo
 
     @Bindable
     val drugsName = MutableLiveData<String?>()
@@ -33,6 +37,12 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     @Bindable
     val clearAllOrDeleteButtonText = MutableLiveData<String>()
 
+    @Bindable
+    val fullName = MutableLiveData<String?>()
+
+    @Bindable
+    val callStatus = MutableLiveData<String?>()
+
     private val statusMessage = MutableLiveData<Event<String>>()
 
     val message : LiveData<Event<String>>
@@ -43,13 +53,23 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
     }
 
+    fun saveBaseDatabase() {
+        if (fullName.value == null) {
+            statusMessage.value = Event("Xato")
+        }else {
+            val fullName = fullName.value!!
+            val callStatus = callStatus.value!!
+            insertBase(BaseMedicine(0,fullName,callStatus,"",2,2,3,3))
+        }
+    }
+
     fun saveOrUpdate() {
         if (drugsName.value == null || drugsName.value == "") {
             statusMessage.value = Event("Iltimos dorining nomini kiriting")
         }else if (drugsAmount.value == null) {
             val name = drugsName.value!!
-            val email = 1
-            insert(Medicine(0,name,email))
+            val amount = 1
+            insert(Medicine(0,name,amount))
             drugsName.value = null
         }
             else {
@@ -77,6 +97,16 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
 
     fun insert(subscriber: Medicine) : Job = viewModelScope.launch {
         val newRowId = repository.insert(subscriber)
+        if (newRowId>-1) {
+            statusMessage.value = Event("Omadli yakunlandi")
+        }else {
+            statusMessage.value = Event("Error Occurred")
+        }
+
+    }
+
+    fun insertBase(subscriber: BaseMedicine) : Job = viewModelScope.launch {
+        val newRowId = repository.insertAll(subscriber)
         if (newRowId>-1) {
             statusMessage.value = Event("Omadli yakunlandi")
         }else {
@@ -133,6 +163,10 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         saveOrUpdateButtonText.value = "O`zgartirish"
         clearAllOrDeleteButtonText.value = "O`chirish"
 
+    }
+
+    fun initUpdateAndDeleteBase(subscriber: BaseMedicine) {
+        fullName.value = subscriber.fullName
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

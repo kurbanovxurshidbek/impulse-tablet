@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -27,8 +28,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.FirebaseDatabase
+import com.impulse.impulse_driver.adapter.MapsAndInfoAdapter
+import com.impulse.impulse_driver.adapter.PageMedicineAdapter
+import com.impulse.impulse_driver.database.entity.Medicine
 import com.impulse.impulse_driver.databinding.FragmentInfoMapsBinding
 import com.impulse.impulse_driver.model.MyLocation
+import com.impulse.impulse_driver.model.PatientInfo
 import com.impulse.impulse_driver.service.FetchAddressIntentService
 import com.impulse.impulse_driver.service.LocationService
 import com.impulse.impulse_driver.service.LocationService.CompanionObject.locationArrayList
@@ -51,7 +56,7 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
     GoogleApiClient.OnConnectionFailedListener{
 
 
-      companion object {
+     companion object {
           private const val MY_FINE_LOCATION_REQUEST = 99
           private const val MY_BACKGROUND_LOCATION_REQUEST = 100
           private val TAG = MapsInfoFragment::class.java.simpleName
@@ -65,12 +70,12 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
 
           const val MY_PERMISSIONS_REQUEST_LOCATION = 99
       }
+
     private var _binding: FragmentInfoMapsBinding? = null
     private val binding get() = _binding!!
-      var mLocationService: LocationService = LocationService()
-      lateinit var mServiceIntent: Intent
-      lateinit var startServiceBtn: Button
-      lateinit var stopServiceBtn: Button
+    var mLocationService: LocationService = LocationService()
+    lateinit var mServiceIntent: Intent
+    private lateinit var adapter : MapsAndInfoAdapter
 
     //    belongs to the map
     private val LocationA = LatLng(41.311081, 69.240562)
@@ -113,11 +118,6 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
 
             /** openContact with your device**/
 
-            var tv_call = _binding!!.tvCall.text.toString()
-            openContact.setOnClickListener {
-                openCallContact(tv_call)
-            }
-
             lottieAnimationClick.setAnimation("click.json")
             lottieAnimationClick.setOnClickListener {
                 callLocation()
@@ -137,14 +137,30 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
         locationgps = Location("Point A")
         locationgpsS = Location("Point B")
 
+        initRecyclerView()
 
     }
 
 
-    private fun openCallContact(tvCall: String) {
-        val callIntent = Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+Uri.encode(tvCall)))
-        startActivity(callIntent)
+    private fun initRecyclerView() {
+        binding.apply {
+            rvPInfo.layoutManager = LinearLayoutManager(requireContext())
+            adapter = MapsAndInfoAdapter(requireContext())
+            rvPInfo.adapter = adapter
+            displaySubscribersList()
+        }
+
     }
+
+    private fun displaySubscribersList() {
+        var array = ArrayList<PatientInfo>()
+        array.add(PatientInfo("Ilhombek Ubaydullayev",
+            "Boytepa 4","Yengil","+998995243536"))
+        adapter.setList(array)
+        adapter.notifyDataSetChanged()
+
+    }
+
 
     /** hence the map functions **/
 
@@ -175,21 +191,6 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
 
       private fun requestFineLocationPermission() {
           ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,), MY_FINE_LOCATION_REQUEST)
-      }
-
-      public fun saveDataToFile(){
-          val path = requireActivity().getExternalFilesDir(null)
-          val folder = File(path, "trickyworld")
-          folder.mkdirs()
-          val file = File(folder, "location.txt")
-          if ( ! locationArrayList.isEmpty()) file.appendText("${LocationService.locationArrayList.toString()}")
-          locationArrayList.clear()
-          val myLocation = MyLocation("ignore",0.0, 0.0)
-          LocationService.dbRef = FirebaseDatabase.getInstance().getReference("driver_points").child("0")
-          CoroutineScope(Dispatchers.IO).launch{
-              Log.d("TAG", "initViews: dsadasd")
-              LocationService.dbRef?.setValue(myLocation)
-          }
       }
 
     private fun init() {
@@ -327,7 +328,6 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
         super.onStart()
         if (Connections.checkConnection(requireContext())) {
             PermissionGPS(requireActivity())
-
         }
     }
 
@@ -376,6 +376,8 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
         }
     }
 
+
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         Log.i(TAG, "onRequestPermissionResult")
@@ -422,7 +424,7 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
 
 
 
-    override fun onConnected(p0: Bundle?) {
+     override fun onConnected(p0: Bundle?) {
         if (!enabled!!) {
             val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(intent)
@@ -440,8 +442,7 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
     fun searchLocation(googleMap: GoogleMap) {
 
         map = googleMap
-
-        // Add a marker in Sydney and move the camera
+        // map default camera
         val sydney = LatLng(41.335797, 69.221273)
         map!!.addMarker(MarkerOptions().position(sydney).title("Нерафшон-стрит"))
         map!!.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15f))

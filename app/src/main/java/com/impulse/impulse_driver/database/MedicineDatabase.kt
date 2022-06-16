@@ -6,9 +6,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.impulse.impulse_driver.database.dao.MedicineDAO
+import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
 
-@Database(entities = [Medicine::class], version = 1)
+@Database(entities = [Medicine::class,BaseMedicine::class], version = 1)
 abstract class MedicineDatabase : RoomDatabase() {
     abstract val subscriberDao: MedicineDAO
 

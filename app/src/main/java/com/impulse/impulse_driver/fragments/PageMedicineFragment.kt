@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.FirebaseDatabase
 import com.impulse.impulse_driver.activity.AmbulanceActivity
+import com.impulse.impulse_driver.activity.SplashActivity
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository

@@ -4,184 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:gravity="center_horizontal|center_vertical"
     android:orientation="vertical"
     tools:context=".activity.AmbulanceActivity">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/call_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:layout_gravity="right"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            app:backgroundTint="@null"
-            android:textAllCaps="false"
-            android:background="@drawable/button_with_focus"
-            android:text="Chaqiruvni bekor qilish"/>
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
+        android:layout_height="match_parent">
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:orientation="vertical"
-                android:backgroundTint="@color/edittext_color"
-                android:background="@drawable/reference_rounded_corners_left">
-                <LinearLayout
-                    android:layout_width="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/call_cancel"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="Bemor : "/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/status_bar_color"
-                        android:layout_marginLeft="15dp"
-                        android:text="Ilhombek Ubaydullayev"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="Joylashuv nomi : "/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/status_bar_color"
-                        android:layout_marginLeft="15dp"
-                        android:text="Beruniy 3A"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="Chaqiruv xolati : "/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/status_bar_color"
-                        android:layout_marginLeft="15dp"
-                        android:text="Yengil"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="Yoshi : "/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="23sp"
-                        android:textColor="@color/status_bar_color"
-                        android:layout_marginLeft="15dp"
-                        android:text="xxxxx"/>
-
-                </LinearLayout>
-            </LinearLayout>
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    app:backgroundTint="@null"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_cancel_focus"
+                    android:text="Chaqiruvni bekor qilish"/>
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/lottie_animation_ambulance"
-                    android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true" />
+                    android:layout_weight="1.7"
+                    android:orientation="vertical"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="25dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_ambulance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="match_parent">
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lottie_animation_ambulance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lottie_animation"
+                        android:layout_width="250dp"
+                        android:layout_height="250dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Qabul qilish"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
             </LinearLayout>
-
-
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="vertical"
-            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/ll_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/lottie_animation"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Qabul qilish"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:layout_marginTop="40dp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

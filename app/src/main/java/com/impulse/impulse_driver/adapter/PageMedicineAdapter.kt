@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.databinding.ItemMedicineDrugsBinding
 import com.impulse.impulse_driver.database.entity.Medicine
+import com.impulse.impulse_driver.model.PatientInfo
 import java.util.*
 
-class PageMedicineAdapter(private val clickListener:(Medicine)->Unit):RecyclerView.Adapter<MyViewHolder>(){
+class PageMedicineAdapter(private val clickListener:(Medicine)->Unit):BaseAdapter(){
     private val subscriberList= ArrayList<Medicine>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -18,8 +19,10 @@ class PageMedicineAdapter(private val clickListener:(Medicine)->Unit):RecyclerVi
         return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(subscriberList[position],clickListener)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item: Medicine = subscriberList[position]
+        val itemViewHolder: MyViewHolder = holder as MyViewHolder
+        itemViewHolder.bind(item,clickListener)
     }
     fun setList(subscriber: List<Medicine>) {
         subscriberList.clear()

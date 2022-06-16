@@ -37,4 +37,9 @@ open class BaseActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun callHistoryActivity(context: Context) {
+        val intent = Intent(this, HistoryActivity::class.java)
+        startActivity(intent)
+    }
+
 }

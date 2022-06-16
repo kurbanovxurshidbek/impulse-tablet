@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Impulse</string>
-    <string name="driver_ID">Please enter your ID</string>
+    <string name="driver_ID">Maxsus ID ni kiriting</string>
     <string name="permission_rationale">permission_rationale</string>
 
-<!--    for maps-->
+    <!--    for maps-->
     <string name="no_location_data_provided">no_location_data_provided</string>
     <string name="service_not_available">service_not_available</string>
     <string name="invalid_lat_long_used">invalid_lat_long_used</string>
@@ -12,13 +12,13 @@
     <string name="no_location_detected">no_location_detected</string>
     <string name="google_maps_key">AIzaSyArtvZuAVTJNY74sqLojOlnI3mQnyZGo7c</string>
 
-<!--    for app-->
-    <string name="driver_name">Please enter your Name</string>
-    <string name="hospital_name">Please enter hospital Name</string>
-    <string name="name">Name</string>
-    <string name="name_id">Your ID</string>
-    <string name="hospital">Hospital</string>
-    <string name="registration">Registration</string>
+    <!--    for app-->
+    <string name="driver_name">Ism Familiyani kiriting</string>
+    <string name="hospital_name">Kasalxona nomini kiriting</string>
+    <string name="name">To`liq Ism</string>
+    <string name="name_id">Shtab ID</string>
+    <string name="hospital">Kasalxona</string>
+    <string name="registration">Registratsiya</string>
     <string name="info_call">Sizda hech qanday chaqiruv hizmati yo`q</string>
     <string name="str_licensing_organization_name">O`zbekiston Respublikasi\nSog`liqni Saqlash vazirligi</string>
     <string name="str_licensing_organization">O`zbekiston Respublikasi\nSog`liqni Saqlash vazirligining\n2022 yil 17 yanvardagi 16-sonli\n buyruq bilan tasdiqlangan\n062-raqamli tibbiy hujjat shakli</string>
@@ -120,7 +120,7 @@
     <string name="str_accepted">Qabul qilingan stop №</string>
     <string name="str_accepted_person">Qabul qilgan shaxs F.I.Sh</string>
 
-<!--    service location gps-->
+    <!--    service location gps-->
 
     <string name="service_already_running">Service is already running</string>
     <string name="service_start_successfully">Service started successfully</string>

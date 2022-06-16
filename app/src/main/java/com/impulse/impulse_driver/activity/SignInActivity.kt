@@ -35,13 +35,26 @@ class SignInActivity : BaseActivity() {
     }
 
     private fun initViews() {
+        var specialId = 13331
         binding.apply {
             bOpenActivity.setOnClickListener {
+                var registerId = etDriverID.text.toString().trim()
+                var etDriverNames = etDriverName.text.toString().trim()
+                var et_hospitals = etHospital.text.toString().trim()
+            if (!registerId.equals(specialId.toString())) {
+                etPasswordLayout.error = "Notog'ri Id raqami"
+
+            }else if (etDriverNames==""||etDriverNames.length<5){
+                etDriverName.error = "Notog'ri Ism"
+            }else if (et_hospitals==""||et_hospitals.length<5) {
+                etHospital.error = "Notog'ri joy"
+            }else {
                 isSignIn = false
                 PrefsManager.getInstance(context)!!.setFirstTime("safe",isSignIn)
                 bOpenActivity.setTextColor(Color.WHITE)
                 callSplashActivity(this@SignInActivity)
                 finish()
+            }
             }
         }
     }

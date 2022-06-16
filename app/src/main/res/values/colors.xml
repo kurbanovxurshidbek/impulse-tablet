@@ -10,7 +10,8 @@
 
     <!--my colors-->
     <color name="main_red">#F83648</color>
-    <color name="status_bar_color">#EC5261</color>
+<!--    <color name="status_bar_color">#EC5261</color>-->
+    <color name="status_bar_color">#E9D6041A</color>
     <color name="edittext_color">#FBE1E4</color>
     <color name="navigation_false_color">#DA5360</color>
     <color name="intro_text_color">#2B3A4B</color>
@@ -20,5 +21,5 @@
     <color name="ll_bg_color">#cbcbcb</color>
     <color name="main_10">#10F83648</color>
     <color name="helper_text_color">#BC9F9D9D</color>
-    <color name="base_color">#CEF0EFEF</color>
+    <color name="base_color">#1B8E7F7F</color>
 </resources>
