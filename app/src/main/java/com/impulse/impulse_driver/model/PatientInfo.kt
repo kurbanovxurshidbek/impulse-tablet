@@ -15,8 +15,9 @@ open class PatientInfo {
     var longitude: Double? = null
     var patientImg: String? = null
     var phoneNumber : String? = null
-    var cardNumber : Int? = null
+    var cardNumber : Int? = 32342
     var bloodGroup : Int? = null
+    var came_ambulance : String? = null
 
     constructor(patientImg: String,fullName: String,addressName: String,callStatus: String,age: Int,weight: Int,height: Int,cardNumber : Int,bloodGroup : Int) {
         this.patientImg = patientImg
@@ -42,5 +43,9 @@ open class PatientInfo {
         this.addressName = addressName
         this.callStatus = callStatus
         this.age = age
+    }
+
+    constructor() {
+
     }
 }

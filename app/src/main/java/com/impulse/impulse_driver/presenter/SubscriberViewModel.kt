@@ -1,6 +1,9 @@
 package com.impulse.impulse_driver.presenter
 
 
+import android.os.Build
+import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
@@ -12,10 +15,11 @@ import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
 import com.impulse.impulse_driver.model.PatientInfo
-
-
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 
 class SubscriberViewModel(private val repository: MedicineRepository) : ViewModel(), Observable {
 
@@ -24,6 +28,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     private lateinit var subscriberToUpdateOrDelete : Medicine
     private lateinit var baseSaveInfo : BaseMedicine
     private lateinit var patientInfo : PatientInfo
+
 
     @Bindable
     val drugsName = MutableLiveData<String?>()
@@ -43,6 +48,39 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     @Bindable
     val callStatus = MutableLiveData<String?>()
 
+    @Bindable
+    val cardNumber = MutableLiveData<String?>()
+
+    @Bindable
+    val currentDate = MutableLiveData<String?>()
+
+    @Bindable
+    val currentTimes = MutableLiveData<String?>()
+
+    @Bindable
+    val ch_patient = MutableLiveData<String?>()
+
+    @Bindable
+    val ch_operator = MutableLiveData<String?>()
+
+    @Bindable
+    val ch_brigade = MutableLiveData<String?>()
+
+    @Bindable
+    val et_time = MutableLiveData<String?>()
+
+    @Bindable
+    val et_timeP = MutableLiveData<String?>()
+
+    @Bindable
+    val et_timeS = MutableLiveData<String?>()
+
+    @Bindable
+    val et_timeFinish = MutableLiveData<String?>()
+
+    @Bindable
+    val chAmbulanse = MutableLiveData<String?>()
+
     private val statusMessage = MutableLiveData<Event<String>>()
 
     val message : LiveData<Event<String>>
@@ -51,6 +89,21 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     init {
         saveOrUpdateButtonText.value = "Saqlash"
         clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun saveTimeFragment() {
+         patientInfo = PatientInfo()
+        cardNumber.value = patientInfo.cardNumber.toString()
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatted = current.format(formatter)
+        currentDate.value = formatted
+        val formatterTime = DateTimeFormatter.ofPattern("HH:mm:ss")
+        val formattedTime = current.format(formatterTime)
+        currentTimes.value = formattedTime
+        Log.d("came",ch_patient.value.toString())
     }
 
     fun saveBaseDatabase() {

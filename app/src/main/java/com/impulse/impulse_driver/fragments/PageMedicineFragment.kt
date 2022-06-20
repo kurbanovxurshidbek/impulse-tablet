@@ -40,6 +40,15 @@ class PageMedicineFragment : BaseFragment() {
     var mLocationService: LocationService = LocationService()
     lateinit var mServiceIntent: Intent
 
+    private var fragment: PageMedicineFragment? = null
+
+    fun newInstance(): PageMedicineFragment?{
+        if (fragment == null){
+            fragment = PageMedicineFragment()
+        }
+        return fragment
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

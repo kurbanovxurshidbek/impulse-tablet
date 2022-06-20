@@ -29,11 +29,19 @@ class MainActivity : BaseActivity() {
     private lateinit var adapter : MainAdapter
     private lateinit var subscriberViewModel: SubscriberViewModel
 
+    // fragments
+    private lateinit var mapsInfoFragment: MapsInfoFragment
+    private lateinit var timeFragment: TimeFragment
+    private lateinit var pageStatementFragment: PageStatementFragment
+    private lateinit var pageStatementFragmentContinue: PageStatementFragmentContinue
+    private lateinit var pageMedicineFragment: PageMedicineFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        initFragments()
         initViews()
 
     }
@@ -204,6 +212,36 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
+    private fun initFragments() {
+        mapsInfoFragment = MapsInfoFragment().newInstance()!!
+        timeFragment = TimeFragment().newInstance()!!
+        pageStatementFragment = PageStatementFragment().newInstance()!!
+        pageStatementFragmentContinue = PageStatementFragmentContinue().newInstance()!!
+        pageMedicineFragment = PageMedicineFragment().newInstance()!!
+    }
+
+//    fun replaceFragment(fragment: Fragment) {
+//        val backStateName = fragment.javaClass.name
+//        val manager = supportFragmentManager
+//        val fragmentPopped = manager.popBackStackImmediate(backStateName, 0)
+//        if (!fragmentPopped) {
+//            val ft = manager.beginTransaction()
+//            ft.replace(R.id.fragmentContainer, fragment)
+//            ft.addToBackStack(backStateName)
+//            ft.commit()
+//        }
+//    }
+//
+//    override fun onBackPressed() {
+//        if (supportFragmentManager.backStackEntryCount == 1)
+//            finish()
+//        else if (supportFragmentManager.fragments.any { it is TimeFragment }) {
+//            if (timeFragment.onBackPressed())
+//                super.onBackPressed()
+//        } else
+//            super.onBackPressed()
+//    }
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager

@@ -10,6 +10,16 @@ import com.impulse.impulse_driver.databinding.FragmentStatementPageContinueBindi
 class PageStatementFragmentContinue : BaseFragment() {
     private var _binding: FragmentStatementPageContinueBinding? = null
     private val binding get() = _binding!!
+
+    private var fragment: PageStatementFragmentContinue? = null
+
+    fun newInstance(): PageStatementFragmentContinue?{
+        if (fragment == null){
+            fragment = PageStatementFragmentContinue()
+        }
+        return fragment
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

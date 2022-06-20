@@ -12,6 +12,16 @@ import com.impulse.impulse_driver.databinding.FragmentStatementPageBinding
 class PageStatementFragment : BaseFragment() {
     private var _binding: FragmentStatementPageBinding? = null
     private val binding get() = _binding!!
+
+    private var fragment: PageStatementFragment? = null
+
+    fun newInstance(): PageStatementFragment?{
+        if (fragment == null){
+            fragment = PageStatementFragment()
+        }
+        return fragment
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

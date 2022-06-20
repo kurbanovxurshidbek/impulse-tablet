@@ -55,6 +55,14 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener{
 
+    private var fragment: MapsInfoFragment? = null
+
+    fun newInstance(): MapsInfoFragment?{
+        if (fragment == null){
+            fragment = MapsInfoFragment()
+        }
+        return fragment
+    }
 
      companion object {
           private const val MY_FINE_LOCATION_REQUEST = 99
@@ -388,6 +396,11 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
                 else -> requestPermission()
             }
         }
+    }
+
+    override fun onPause() {
+        Log.d("MyTime","OnPause")
+        super.onPause()
     }
 
 
