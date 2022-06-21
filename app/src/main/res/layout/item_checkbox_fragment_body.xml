@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_rounded_corners_border_default"
+        android:layout_weight="1">
+        <CheckBox
+            android:id="@+id/ch_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Vezikulyar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_rounded_corners_border_default"
+        android:layout_weight="1">
+        <CheckBox
+            android:id="@+id/ch_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Xansirash" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_rounded_corners_border_default"
+        android:layout_weight="1">
+        <CheckBox
+            android:id="@+id/ch_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Susaygan" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_rounded_corners_border_default"
+        android:layout_weight="1">
+        <CheckBox
+            android:id="@+id/ch_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Dag`al" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_rounded_corners_border_default"
+        android:layout_weight="1">
+        <CheckBox
+            android:id="@+id/ch_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Xo`l xirillash" />
+    </LinearLayout>
+</LinearLayout>
+</layout>

@@ -35,12 +35,17 @@
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_medicine_page.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_reference_page.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page_continue.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_page_continue.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_statement_time_page.xml" value="0.22" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_time.xml" value="0.14666666666666667" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/fragment_time.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_ambulance_view.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_checkbox_for_header.xml" value="0.22" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_checkbox_for_header.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_checkbox_fragment_body.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_checkbox_three.xml" value="0.14316239316239315" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_fragment_five.xml" value="0.144017094017094" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_fragment_four.xml" value="0.22" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_fragment_three.xml" value="0.21519795657726692" />
+        <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_fragment_three_parts_checkbox.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_main_header.xml" value="0.16666666666666666" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_maps_and_info.xml" value="0.22" />
         <entry key="..\:/Android studio projects/impulse-tablet/app/src/main/res/layout/item_medicine_drugs.xml" value="0.22" />
