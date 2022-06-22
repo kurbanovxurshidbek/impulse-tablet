@@ -51,7 +51,7 @@ class MainAdapter(val context: Context): BaseAdapter(){
             Glide.with(context).load(subscriber.patientImg).placeholder(R.drawable.user)
                 .error(R.drawable.cancel).into(ptImg)
             ptName.text = subscriber.fullName
-            tvAddress.text = subscriber.addressName
+            tvAddress.text = subscriber.street
             tvStatusInfo.text = subscriber.callStatus
             tvAge.text = subscriber.age.toString()
             tvHeight.text = subscriber.height.toString()

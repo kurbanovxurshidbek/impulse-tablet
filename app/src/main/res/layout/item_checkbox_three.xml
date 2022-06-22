@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="50dp">
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:background="@drawable/background_rounded_corners_border_default">
-        <CheckBox
-            android:id="@+id/checkbox_item"
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/str_live_home"/>
-</LinearLayout>
-</LinearLayout>
+            android:gravity="center_vertical"
+            android:background="@drawable/background_rounded_corners_border_default"
+            android:layout_weight="1">
+            <CheckBox
+                android:id="@+id/ch_item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="O`zgarishsiz" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_rounded_corners_border_default"
+            android:layout_weight="1">
+            <CheckBox
+                android:id="@+id/ch_item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Artimiya(xilpillovchi)" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_rounded_corners_border_default"
+            android:layout_weight="1">
+            <CheckBox
+                android:id="@+id/ch_item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Paroksizmal taxikardiya" />
+        </LinearLayout>
+    </LinearLayout>
 </layout>

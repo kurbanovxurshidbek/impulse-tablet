@@ -68,6 +68,17 @@ class PageStatementFragmentContinue : BaseFragment(),QuantityListenerFragment {
         arrayList.add(CheckboxM("Bosh","Tana","O`ng qo`l","Chap qo`l","Chap oyoq","O`ng oyoq",10))
         arrayList.add(CheckboxM("9.Glasgo shkalasi",1))
         arrayList.add(CheckboxM("Ko`zi ochiq","So'ralganda","Og`riqqa","Umuman ochmaydi",11))
+        arrayList.add(CheckboxM("Tashxis",1))
+        arrayList.add(CheckboxM("Koma xolati","O`tkir qorin sindromi","Vegototomir distoniya",12))
+        arrayList.add(CheckboxM("Shok xolati","Tug`ruq","Bronxial asmatik status",12))
+        arrayList.add(CheckboxM("O`tkir qoronar sindrom","Homilador patalogiyasi","URI,Bronxit,Laringit,Pnevmoniya",12))
+        arrayList.add(CheckboxM("Yurak ritmining buzilishi","BMKAUB(ONMK)","Allergiya",12))
+        arrayList.add(CheckboxM("Stenokardiya va uning xurujlari","O`tkir zaxarlanish","O`tkir LOR kasalliklari(angina)",12))
+        arrayList.add(CheckboxM("Qo`shma jaroxatlar","Epilepsiya,talvasa sindromi","Alkagoldan mastlik holati",12))
+        arrayList.add(CheckboxM("Sinishlar,chiqishlar","Termik,kimyoviy kuyish","Qarilik demensiyasi",12))
+        arrayList.add(CheckboxM("Qon ketish(ichki,tashqi,burun,bachadon...)","Og`ir ruxiy buzilishlar","Metiorizm",12))
+        arrayList.add(CheckboxM("Bosh miya jarohatlari","Arterial gipertensiya(krizis)","Havo-tomeni,o'tkir ichak infeksiyasi",12))
+        arrayList.add(CheckboxM("Arterial gipertenziya(kris bilan)","Hazm a'zolari faolyati buzilishi","Boshqa kasalliklar",12))
         return arrayList
     }
 
@@ -113,6 +124,10 @@ class PageStatementFragmentContinue : BaseFragment(),QuantityListenerFragment {
     }
 
     override fun onQuantityChangeNine(arrayList: ArrayList<String>) {
+        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onQuantityChangeTeen(arrayList: ArrayList<String>) {
         Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
     }
 }

@@ -46,6 +46,15 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val fullName = MutableLiveData<String?>()
 
     @Bindable
+    val patientAge = MutableLiveData<String?>()
+
+    @Bindable
+    val callPatient = MutableLiveData<String?>()
+
+    @Bindable
+    val residence_address = MutableLiveData<String?>()
+
+    @Bindable
     val callStatus = MutableLiveData<String?>()
 
     @Bindable
@@ -79,9 +88,123 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val et_timeFinish = MutableLiveData<String?>()
 
     @Bindable
-    val chAmbulanse = MutableLiveData<String?>()
+    val chAmbulanse_name = MutableLiveData<String?>()
 
+    @Bindable
+    val doctor_name = MutableLiveData<String?>()
+
+    @Bindable
+    val signature = MutableLiveData<String?>()
+
+    @Bindable
+    val signaturePerson = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators1 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators2 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators3 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators4 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators5 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators6 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators7 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators8 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators9 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators10 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators11 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators12 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators13 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators14 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators15 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators16 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators17 = MutableLiveData<String?>()
+
+    @Bindable
+    val indicators18 = MutableLiveData<String?>()
+
+    @Bindable
+    val institution_name = MutableLiveData<String?>()
+
+    @Bindable
+    val station = MutableLiveData<String?>()
+
+    @Bindable
+    val district = MutableLiveData<String?>()
+
+    @Bindable
+    val street = MutableLiveData<String?>()
+
+    @Bindable
+    val home = MutableLiveData<String?>()
+
+    @Bindable
+    val apartment = MutableLiveData<String?>()
+
+    @Bindable
+    val doctor = MutableLiveData<String?>()
+
+    @Bindable
+    val feldsher = MutableLiveData<String?>()
+
+    @Bindable
+    val sanitary = MutableLiveData<String?>()
+
+    @Bindable
+    val dispatcher = MutableLiveData<String?>()
+
+    @Bindable
+    val driver = MutableLiveData<String?>()
+
+    @Bindable
+    val board_number = MutableLiveData<String?>()
+
+    @Bindable
+    val distance = MutableLiveData<String?>()
+
+    @Bindable
+    val number_ps = MutableLiveData<String?>()
+
+    @Bindable
+    val add_info = MutableLiveData<String?>()
+
+    @Bindable
+    val add_infoSecond = MutableLiveData<String?>()
+
+    @Bindable
+    val phoneNumber = MutableLiveData<String?>()
     private val statusMessage = MutableLiveData<Event<String>>()
+
 
     val message : LiveData<Event<String>>
     get() = statusMessage
@@ -116,6 +239,21 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         }
     }
 
+    fun statementFragment() {
+        patientInfo = PatientInfo()
+        callStatus.value = patientInfo.callStatus
+        district.value = patientInfo.districtName
+        street.value = patientInfo.street
+        home.value = patientInfo.homeNumber
+        apartment.value = patientInfo.apartment
+        phoneNumber.value = patientInfo.phoneNumber
+        fullName.value = patientInfo.fullName
+        patientAge.value = patientInfo.age.toString()
+        callPatient.value = patientInfo.callPatient
+        residence_address.value = patientInfo.residence_address
+        insertBase(BaseMedicine(0,fullName.value.toString(),callStatus.value.toString(),street.value.toString()
+            ,cardNumber.value!!.toInt(),patientInfo.age!!,patientInfo.weight!!,patientInfo.height!!))
+    }
     fun saveOrUpdate() {
         if (drugsName.value == null || drugsName.value == "") {
             statusMessage.value = Event("Iltimos dorining nomini kiriting")

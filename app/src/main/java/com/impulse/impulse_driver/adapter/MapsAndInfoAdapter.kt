@@ -42,7 +42,7 @@ class MapsAndInfoAdapter(val context: Context): BaseAdapter(){
         fun bind(subscriber: PatientInfo) {
             binding.apply {
                 ptName.text = subscriber.fullName
-                tvAddress.text = subscriber.addressName
+                tvAddress.text = subscriber.street
                 tvStatusInfo.text = subscriber.callStatus
                 tvCall.text = subscriber.phoneNumber.toString()
 

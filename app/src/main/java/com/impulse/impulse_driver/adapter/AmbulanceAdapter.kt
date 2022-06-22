@@ -49,7 +49,7 @@ class AmbulanceAdapter(val context: Context): BaseAdapter(){
     fun bind(subscriber: PatientInfo) {
         binding.apply {
             ptName.text = subscriber.fullName
-            tvAddress.text = subscriber.addressName
+            tvAddress.text = subscriber.street
             tvStatusInfo.text = subscriber.callStatus
             tvAge.text = subscriber.age.toString()
 

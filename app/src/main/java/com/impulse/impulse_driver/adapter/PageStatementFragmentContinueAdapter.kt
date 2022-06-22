@@ -34,6 +34,7 @@ class PageStatementFragmentContinueAdapter(val context: Context, var arrayLists:
     private val subscriberListSeven = ArrayList<String>()
     private val subscriberListEight = ArrayList<String>()
     private val subscriberListNINE = ArrayList<String>()
+    private val subscriberListTeen = ArrayList<String>()
 
     private var TYPE_ITEM_TWO = 1
     private var  TYPE_ITEM_THREE = 2
@@ -45,6 +46,7 @@ class PageStatementFragmentContinueAdapter(val context: Context, var arrayLists:
     private var TYPE_ITEM_NINE= 9
     private var TYPE_ITEM_TEEN= 10
     private var TYPE_ITEM_ELEVEN= 11
+    private var TYPE_ITEM_TWELVE= 12
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -85,10 +87,14 @@ class PageStatementFragmentContinueAdapter(val context: Context, var arrayLists:
             val binding: ItemFragmentFourBinding =
                 DataBindingUtil.inflate(layoutInflater, R.layout.item_fragment_four, parent, false)
             return CheckboxBodyViewHFour(context, binding)
-        }else {
+        }else if (viewType == TYPE_ITEM_ELEVEN){
             val binding: ItemFragmentFiveBinding =
                 DataBindingUtil.inflate(layoutInflater, R.layout.item_fragment_five, parent, false)
             return CheckboxBodyViewHFive(context, binding)
+        }else {
+            val binding: ItemFragmentThreeBinding =
+                DataBindingUtil.inflate(layoutInflater, R.layout.item_fragment_three, parent, false)
+            return CheckboxBodyViewHs(context, binding)
         }
     }
 
@@ -110,6 +116,8 @@ class PageStatementFragmentContinueAdapter(val context: Context, var arrayLists:
             return TYPE_ITEM_TEEN
         }else if (item.position == 11) {
             return TYPE_ITEM_ELEVEN
+        }else if (item.position == 12) {
+            return TYPE_ITEM_TWELVE
         }
         else {
             return TYPE_ITEM_THREE
@@ -434,27 +442,66 @@ class PageStatementFragmentContinueAdapter(val context: Context, var arrayLists:
                     val item: CheckboxM = arrayLists[position]
                     chItem1.setOnClickListener {
                         if (chItem1.isChecked) {
-                            subscriberListFour.add(subscriber.ch_one)
+                            if (item.position == 6) {
+                                subscriberListFour.add(subscriber.ch_one)
+                            }else if (item.position == 12) {
+                                subscriberListTeen.add(subscriber.ch_one)
+                            }
+
                         }else {
-                            subscriberListFour.remove(subscriber.ch_one)
+                            if (item.position == 6) {
+                                subscriberListFour.remove(subscriber.ch_one)
+                            }else {
+                                subscriberListTeen.remove(subscriber.ch_one)
+                            }
                         }
-                        quantityListener.onQuantityChangeFour(subscriberListFour)
+                        if (item.position == 6) {
+                            quantityListener.onQuantityChangeFour(subscriberListFour)
+                        }else {
+                            quantityListener.onQuantityChangeTeen(subscriberListTeen)
+                        }
                     }
                     chItem2.setOnClickListener {
                         if (chItem2.isChecked) {
-                            subscriberListFour.add(subscriber.ch_two)
+                            if (item.position == 6) {
+                                subscriberListFour.add(subscriber.ch_two)
+                            }else if (item.position == 12) {
+                                subscriberListTeen.add(subscriber.ch_two)
+                            }
+
                         }else {
-                            subscriberListFour.remove(subscriber.ch_two)
+                            if (item.position == 6) {
+                                subscriberListFour.remove(subscriber.ch_two)
+                            }else {
+                                subscriberListTeen.remove(subscriber.ch_two)
+                            }
                         }
-                        quantityListener.onQuantityChangeFour(subscriberListFour)
+                        if (item.position == 6) {
+                            quantityListener.onQuantityChangeFour(subscriberListFour)
+                        }else {
+                            quantityListener.onQuantityChangeTeen(subscriberListTeen)
+                        }
                     }
                     chItem3.setOnClickListener {
                         if (chItem3.isChecked) {
-                            subscriberListFour.add(subscriber.ch_three)
+                            if (item.position == 6) {
+                                subscriberListFour.add(subscriber.ch_three)
+                            }else if (item.position == 12) {
+                                subscriberListTeen.add(subscriber.ch_three)
+                            }
+
                         }else {
-                            subscriberListFour.remove(subscriber.ch_three)
+                            if (item.position == 6) {
+                                subscriberListFour.remove(subscriber.ch_three)
+                            }else {
+                                subscriberListTeen.remove(subscriber.ch_three)
+                            }
                         }
-                        quantityListener.onQuantityChangeFour(subscriberListFour)
+                        if (item.position == 6) {
+                            quantityListener.onQuantityChangeFour(subscriberListFour)
+                        }else {
+                            quantityListener.onQuantityChangeTeen(subscriberListTeen)
+                        }
                     }
                 }
             }

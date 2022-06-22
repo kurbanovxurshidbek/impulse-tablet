@@ -56,6 +56,7 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
     GoogleApiClient.OnConnectionFailedListener{
 
     private var fragment: MapsInfoFragment? = null
+    private var patientInfo : PatientInfo? = null
 
     fun newInstance(): MapsInfoFragment?{
         if (fragment == null){
@@ -162,8 +163,9 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
 
     private fun displaySubscribersList() {
         var array = ArrayList<PatientInfo>()
-        array.add(PatientInfo("Ilhombek Ubaydullayev",
-            "Boytepa 4","Yengil","+998995243536"))
+        patientInfo = PatientInfo()
+        array.add(PatientInfo(patientInfo?.fullName!!,
+            patientInfo?.street!!,patientInfo?.callStatus!!,patientInfo?.phoneNumber!!))
         adapter.setList(array)
         adapter.notifyDataSetChanged()
 

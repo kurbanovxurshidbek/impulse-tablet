@@ -10,11 +10,13 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.QuantityAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.FragmentTimeBinding
 import com.impulse.impulse_driver.listener.QuantityListener
+import com.impulse.impulse_driver.model.CheckboxTime
 import com.impulse.impulse_driver.model.PatientInfo
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
@@ -61,28 +63,27 @@ class TimeFragment : BaseFragment(),QuantityListener {
             lifecycleOwner = requireActivity()
             onCheckboxClicked()
             setRecyclerView()
+            saveDb.setOnClickListener {
+                subscriberViewModel.statementFragment()
+            }
         }
     }
 
-     fun getQuantityData():ArrayList<String>{
-         var arrayList : ArrayList<String> = ArrayList()
-
-         arrayList.add("Uyda qoldirildi")
-         arrayList.add("Joyida qoldirildi")
-         arrayList.add("Tanishildi")
-         arrayList.add("Yolg`on")
-         arrayList.add("Manzil topilmadi")
-         arrayList.add("Boshqa TTYO hizmat")
-         arrayList.add("Joyida yo`q")
-         arrayList.add("Jabrlangan yo`q")
-         arrayList.add("Bekor qilindi №..vaqti")
+     fun getQuantityData():ArrayList<CheckboxTime>{
+         var arrayList : ArrayList<CheckboxTime> = ArrayList()
+         arrayList.add(CheckboxTime(getString(R.string.str_first_aid),0))
+         arrayList.add(CheckboxTime(getString(R.string.str_not_specified),getString(R.string.str_specified_unsatisfactory),getString(R.string.str_specified_satisfactory),1))
+         arrayList.add(CheckboxTime(getString(R.string.str_death_toreturn),0))
+         arrayList.add(CheckboxTime(getString(R.string.str_came_aid),getString(R.string.str_ttyo_participation),getString(R.string.str_transportirovka),2))
+         arrayList.add(CheckboxTime(getString(R.string.str_participation_with),0))
+         arrayList.add(CheckboxTime(getString(R.string.str_disproportionate_injury),getString(R.string.str_acuse_disease),getString(R.string.str_phase_decompensasi),3))
          return arrayList
     }
 
     private fun setRecyclerView() {
         binding.apply {
             rvCheckbox.setHasFixedSize(true)
-            rvCheckbox.layoutManager = GridLayoutManager(requireContext(),3)
+            rvCheckbox.layoutManager = GridLayoutManager(requireContext(),1)
             quantityAdapter = QuantityAdapter(requireContext(),getQuantityData(),this@TimeFragment)
             rvCheckbox.adapter = quantityAdapter
         }
@@ -163,30 +164,6 @@ class TimeFragment : BaseFragment(),QuantityListener {
                         Log.d("isChecked3", subscriberViewModel.ch_brigade.value.toString())
                     }
                 }
-
-                chAmbulanse.setOnClickListener {
-                    if (chAmbulanse.isChecked) {
-                        subscriberViewModel.chAmbulanse.value = chAmbulanse.text.toString()
-                        chAmbulanseB.isChecked = false
-                        chAmbulanseA.isChecked = false
-                    }
-                }
-
-                chAmbulanseA.setOnClickListener {
-                    if (chAmbulanseA.isChecked) {
-                        subscriberViewModel.chAmbulanse.value = chAmbulanseA.text.toString()
-                        chAmbulanseB.isChecked = false
-                        chAmbulanse.isChecked = false
-                    }
-                }
-
-                chAmbulanseB.setOnClickListener {
-                    if (chAmbulanseB.isChecked) {
-                        subscriberViewModel.chAmbulanse.value = chAmbulanseB.text.toString()
-                        chAmbulanse.isChecked = false
-                        chAmbulanseA.isChecked = false
-                    }
-                }
             subscriberViewModel.saveTimeFragment()
         }
 
@@ -200,6 +177,14 @@ class TimeFragment : BaseFragment(),QuantityListener {
 
 
     override fun onQuantityChange(arrayList: ArrayList<String>) {
+        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onQuantityChangeTwo(arrayList: ArrayList<String>) {
+        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onQuantityChangeThree(arrayList: ArrayList<String>) {
         Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
     }
 }

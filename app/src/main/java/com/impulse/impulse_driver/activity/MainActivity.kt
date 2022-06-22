@@ -1,23 +1,27 @@
 package com.impulse.impulse_driver.activity
 
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.events.Subscriber
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.MainAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository
-import com.impulse.impulse_driver.database.entity.BaseMedicine
-import com.impulse.impulse_driver.database.entity.Medicine
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
 import com.impulse.impulse_driver.fragments.*
 import com.impulse.impulse_driver.model.PatientInfo
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
+import com.impulse.impulse_driver.service.TimerService
+import kotlin.math.roundToInt
+
 
 /**
  *
@@ -28,7 +32,9 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter : MainAdapter
     private lateinit var subscriberViewModel: SubscriberViewModel
-
+    private var timerStarted = false
+    private lateinit var serviceIntent : Intent
+    private var time = 0.0
     // fragments
     private lateinit var mapsInfoFragment: MapsInfoFragment
     private lateinit var timeFragment: TimeFragment
@@ -48,16 +54,64 @@ class MainActivity : BaseActivity() {
 
     @SuppressLint("ResourceAsColor")
     private fun initViews() {
+        serviceIntent = Intent(applicationContext,TimerService::class.java)
+        registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
         val dao = MedicineDatabase.getInstance(application).subscriberDao
         val repository = MedicineRepository(dao)
         val factory = SubscriberViewModelFactory(repository)
         subscriberViewModel = ViewModelProvider(this,factory).get(SubscriberViewModel::class.java)
-        binding.apply {
-
-        }
         replaceFragment(MapsInfoFragment())
         specilFragments()
         initRecyclerView()
+        startTimer()
+        binding.apply {
+            imgNotification.setOnClickListener {
+                resetTimer()
+                llCircle.setBackgroundResource(R.drawable.circle_timer_sirena)
+            }
+        }
+    }
+
+    private val updateTime: BroadcastReceiver = object : BroadcastReceiver()
+    {
+        override fun onReceive(context: Context, intent: Intent) {
+            time = intent.getDoubleExtra(TimerService.TIME_EXTRA,0.0)
+            binding.tvTimer.text = getTimeStringFromDouble(time)
+        }
+
+    }
+
+    private fun getTimeStringFromDouble(time: Double): String {
+        val resultInt = time.roundToInt()
+        val hours = resultInt % 86400 / 3600
+        val minutes = resultInt % 86400 % 3600 / 60
+        val seconds = resultInt % 86400 % 3600 % 60
+        if (seconds == 10 && minutes == 0) {
+            binding.llCircle.setBackgroundResource(R.drawable.circle_timer_sirena_middle)
+        }
+        if (seconds == 20 && minutes == 0) {
+            binding.llCircle.setBackgroundResource(R.drawable.circle_timer_sirena_full)
+        }
+        return makeTimeString(hours,minutes,seconds)
+    }
+
+    private fun makeTimeString(hour: Int, min: Int, sec: Int): String = String.format("%02d:%02d:%02d",hour,min,sec)
+
+    private fun startTimer() {
+        serviceIntent.putExtra(TimerService.TIME_EXTRA,time)
+        startService(serviceIntent)
+        timerStarted = true
+    }
+
+    private fun resetTimer() {
+        stopTimer()
+        time = 0.0
+        binding.tvTimer.text = getTimeStringFromDouble(time)
+    }
+
+    private fun stopTimer() {
+        stopService(serviceIntent)
+        timerStarted = false
     }
 
     private fun initRecyclerView() {
@@ -72,9 +126,7 @@ class MainActivity : BaseActivity() {
 
     private fun displaySubscribersList() {
         var array = ArrayList<PatientInfo>()
-        var subscriber = PatientInfo("https://images.unsplash.com/photo-1655207162062-766b99476e6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-            "Ilhombek Ubaydullayev",
-            "Boytepa 4","Yengil",25,64,178,123,2)
+        var subscriber = PatientInfo()
         array.add(subscriber)
         adapter.setList(array)
         adapter.notifyDataSetChanged()
@@ -83,9 +135,7 @@ class MainActivity : BaseActivity() {
     }
 
     fun saveDatabase(subscriber: PatientInfo) {
-        subscriberViewModel.fullName.value = subscriber.fullName
-        subscriberViewModel.callStatus.value = subscriber.callStatus
-        subscriberViewModel.saveBaseDatabase()
+//        subscriberViewModel.saveBaseDatabase()
     }
 
     /** A special navigation is written here to manage the fragments**/
@@ -93,7 +143,6 @@ class MainActivity : BaseActivity() {
     private fun specilFragments() {
 
         binding.apply {
-
             lnHome.setOnClickListener {
                 replaceFragment(MapsInfoFragment())
                 imgHome.setImageResource(R.mipmap.home_black)

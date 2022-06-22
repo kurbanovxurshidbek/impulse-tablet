@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.impulse.impulse_driver.presenter.SubscriberViewModel"/>
+    </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
@@ -62,28 +68,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:background="@drawable/background_rounded_corners_border_default"
-                                android:singleLine="true"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight=".3">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="16sp"
-                                android:text="sana"
-                                android:textColor="@color/black"
-                                android:textStyle="bold|italic"
-                                android:gravity="center_horizontal"/>
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
+                                android:text="@={myViewModel.institution_name}"
                                 android:background="@drawable/background_rounded_corners_border_default"
                                 android:singleLine="true"
                                 />
@@ -105,6 +90,7 @@
                             <EditText
                                 android:layout_marginTop="5dp"
                                 android:layout_width="match_parent"
+                                android:text="@={myViewModel.station}"
                                 android:background="@drawable/background_rounded_corners_border_default"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -183,8 +169,10 @@
                         android:text="@string/str_region"/>
 
                     <EditText
+                        android:id="@+id/et_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.district}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -205,6 +193,8 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@={myViewModel.street}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -225,6 +215,8 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@={myViewModel.home}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -246,29 +238,9 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.apartment}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/black"
-                        android:textStyle="italic|bold"
-                        android:text="@string/str_home_number"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_rounded_corners_border_default"/>
-                </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -286,6 +258,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.phoneNumber}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:singleLine="true"/>
                 </LinearLayout>
@@ -325,6 +298,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.fullName}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -345,6 +319,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.patientAge}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -365,6 +340,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.callPatient}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -385,299 +361,20 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.residence_address}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_statement"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_reasons_call"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="italic|bold"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center_horizontal"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/str_emergencies"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_mental_disorder"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_fall_heightr"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/str_chest_pain"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_worsening_breathing"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/str_severe_pain"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/str_blood_pressure"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/str_high_temperature"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_allergy"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_epilepsy"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_pregnancy"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_bleeding"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_mental_disorder_px"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:gravity="center_vertical"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_activity"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_death_condition"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
+                android:layout_height="wrap_content"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="40dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="@string/str_call_brigade"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="5dp"
-                    android:textStyle="bold|italic"
-                    android:textColor="@color/black"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_resuscitation"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_simple"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_feldsher"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_call_nerve"/>
-                    </LinearLayout>
-                </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -713,6 +410,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.doctor}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -732,6 +430,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.feldsher}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -751,6 +450,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.sanitary}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
                     </LinearLayout>
@@ -776,6 +476,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.dispatcher}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -795,6 +496,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.driver}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -814,6 +516,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.board_number}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
                     </LinearLayout>
@@ -839,6 +542,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.distance}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -858,6 +562,7 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@={myViewModel.number_ps}"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
                     </LinearLayout>
@@ -866,5 +571,5 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

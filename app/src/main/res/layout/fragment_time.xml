@@ -454,67 +454,6 @@
                 android:layout_marginTop="40dp">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="16sp"
-                    android:textStyle="italic|bold"
-                    android:text="@string/str_first_aid"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:id="@+id/ch_ambulanse"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_not_specified"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:id="@+id/ch_ambulanseA"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_specified_unsatisfactory"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/background_rounded_corners_border_default"
-                        android:layout_weight="1">
-                        <CheckBox
-                            android:id="@+id/ch_ambulanseB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_specified_satisfactory"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="40dp">
-                <TextView
-                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".3"
                     android:textSize="16sp"
@@ -534,116 +473,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="40dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold|italic"
-                        android:textColor="@color/black"
-                        android:gravity="center_horizontal"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="16sp"
-                        android:text="@string/str_death_toreturn"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/background_rounded_corners_border_default"
-                            android:layout_weight="1">
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/str_came_aid"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/background_rounded_corners_border_default"
-                            android:layout_weight="1">
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/str_ttyo_participation"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/background_rounded_corners_border_default"
-                            android:layout_weight="1">
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/str_transportirovka"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="40dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold|italic"
-                        android:textColor="@color/black"
-                        android:gravity="center_horizontal"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="16sp"
-                        android:text="@string/str_participation_with"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/background_rounded_corners_border_default"
-                            android:layout_weight="1">
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:text="@string/str_disproportionate_injury"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/background_rounded_corners_border_default"
-                            android:layout_weight="1">
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:text="@string/str_acuse_disease"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/background_rounded_corners_border_default"
-                            android:layout_weight="1">
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:text="@string/str_phase_decompensasi"/>
-                        </LinearLayout>
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -682,7 +511,9 @@
                                 <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/background_rounded_corners_border_default" />
+                                    android:text="@={myViewModel.chAmbulanse_name}"
+                                    android:singleLine="true"
+                                    android:background="@drawable/background_rounded_corners_border_default"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -704,6 +535,7 @@
                                 <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:text="@={myViewModel.doctor_name}"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
 
@@ -724,6 +556,7 @@
                                 <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:text="@={myViewModel.signature}"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
                         </LinearLayout>
@@ -766,6 +599,7 @@
                                 <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:text="@={myViewModel.currentTimes}"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
 
@@ -788,6 +622,7 @@
                                 <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:text="@={myViewModel.currentTimes}"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
 
@@ -808,6 +643,7 @@
                                 <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:text="@={myViewModel.signaturePerson}"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
                         </LinearLayout>
@@ -839,9 +675,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:layout_weight="2.7"
-                        android:gravity="right"
-                        android:paddingRight="30dp"
+                        android:layout_weight="1.7"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:text="Qon bosimi"/>
 
@@ -908,36 +750,42 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators1}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators2}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators3}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators4}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators5}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators6}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
@@ -959,36 +807,42 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators7}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators8}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators9}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators10}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators11}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators12}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
@@ -1010,44 +864,64 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators13}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators14}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators15}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators16}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators17}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:text="@={myViewModel.indicators18}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="40dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/save_db"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"/>
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

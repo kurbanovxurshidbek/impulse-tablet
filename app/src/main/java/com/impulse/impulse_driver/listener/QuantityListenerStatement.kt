@@ -4,8 +4,7 @@ import android.widget.CheckBox
 import com.impulse.impulse_driver.model.CheckboxM
 import java.util.ArrayList
 
-public interface QuantityListener {
+public interface QuantityListenerStatement {
     fun onQuantityChange(arrayList: ArrayList<String>)
-    fun onQuantityChangeTwo(arrayList: ArrayList<String>)
-    fun onQuantityChangeThree(arrayList: ArrayList<String>)
+    fun onQuantityChangeQuartet(arrayList: ArrayList<String>)
 }

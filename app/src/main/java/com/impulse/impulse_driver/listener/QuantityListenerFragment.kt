@@ -14,4 +14,5 @@ public interface QuantityListenerFragment {
     fun onQuantityChangeSeven(arrayList: ArrayList<String>)
     fun onQuantityChangeEight(arrayList: ArrayList<String>)
     fun onQuantityChangeNine(arrayList: ArrayList<String>)
+    fun onQuantityChangeTeen(arrayList: ArrayList<String>)
 }
