@@ -53,7 +53,7 @@ class SplashActivity : BaseActivity() {
 
                 if (PrefsManager.getInstance(context)!!.isFirstTime("safe")) {
                     callSignInActivity(this@SplashActivity)
-
+                    finish()
                 }
                 else if (medicalCall){
                     if (PrefsManager.getInstance(context)!!.isFirstTime("turnOn")) {

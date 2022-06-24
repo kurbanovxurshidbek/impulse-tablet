@@ -74,8 +74,7 @@
                             android:hint="@string/driver_ID"
                             android:imeActionLabel="Next"
                             android:imeOptions="actionNext"
-                            app:passwordToggleEnabled="true"
-                            android:paddingRight="30dp"
+                            android:inputType="textPassword"
                             android:textColorHint="@color/white"
                             android:textSize="22sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -173,29 +172,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="200dp"
                 android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginTop="25dp"
-                    android:gravity="bottom"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_donnot_account"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"/>
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_marginTop="25dp"-->
+<!--                    android:gravity="bottom"-->
+<!--                    android:layout_height="match_parent">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/str_donnot_account"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"/>-->
 
-                    <TextView
-                        android:id="@+id/tv_signup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_registration"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_signup"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/str_registration"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:textColor="@color/white"/>-->
+<!--                </LinearLayout>-->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

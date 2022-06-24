@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.impulse.impulse_driver.R
@@ -29,6 +30,7 @@ class TimeFragment : BaseFragment(),QuantityListener {
     private var patientInfo: PatientInfo? = null
     private lateinit var subscriberViewModel: SubscriberViewModel
     private lateinit var quantityAdapter: QuantityAdapter
+    private lateinit var fragmentActionListener: FragmentActivity
 
     private var fragment: TimeFragment? = null
 
@@ -38,8 +40,6 @@ class TimeFragment : BaseFragment(),QuantityListener {
         }
         return fragment
     }
-
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,

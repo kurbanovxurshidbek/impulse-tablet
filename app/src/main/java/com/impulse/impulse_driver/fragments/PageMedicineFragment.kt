@@ -30,6 +30,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
+  /** The name of the medication in the PageMedicineFragment and additional advice for the patient **/
 
 class PageMedicineFragment : BaseFragment() {
 

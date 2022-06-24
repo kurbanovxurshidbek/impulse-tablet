@@ -61,6 +61,7 @@
         <activity
             android:name=".activity.SignInActivity"
             android:exported="false" />
+        <activity android:name=".activity.SignUpActivity"/>
         <activity android:name=".activity.HistoryActivity"
             android:exported="false"/>
 

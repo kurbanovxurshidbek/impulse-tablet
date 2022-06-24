@@ -18,7 +18,7 @@
     <string name="name">To`liq Ism</string>
     <string name="name_id">Shtab ID</string>
     <string name="hospital">Kasalxona</string>
-    <string name="registration">Registratsiya</string>
+    <string name="registration">Kirish tugmasi</string>
     <string name="info_call">Sizda hech qanday chaqiruv hizmati yo`q</string>
     <string name="str_licensing_organization_name">O`zbekiston Respublikasi\nSog`liqni Saqlash vazirligi</string>
     <string name="str_licensing_organization">O`zbekiston Respublikasi\nSog`liqni Saqlash vazirligining\n2022 yil 17 yanvardagi 16-sonli\n buyruq bilan tasdiqlangan\n062-raqamli tibbiy hujjat shakli</string>
@@ -127,4 +127,9 @@
     <string name="gps_enable">GPS enable</string>
     <string name="please_turn_on_gps">Please turn on GPS</string>
     <string name="ok">Ok</string>
+
+
+<!--    for signIn-->
+    <string name="str_donnot_account">Account mavjud emasmi?</string>
+    <string name="str_registration">Ro`yxatdan o`tish</string>
 </resources>
