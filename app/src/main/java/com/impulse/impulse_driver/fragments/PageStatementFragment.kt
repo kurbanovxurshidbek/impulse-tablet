@@ -1,27 +1,27 @@
 package com.impulse.impulse_driver.fragments
 
+import android.content.Context
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.PageStatementAdapter
-import com.impulse.impulse_driver.adapter.QuantityAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.FragmentStatementPageBinding
 import com.impulse.impulse_driver.listener.QuantityListenerStatement
 import com.impulse.impulse_driver.model.CheckboxStatement
-import com.impulse.impulse_driver.model.PatientInfo
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
-import java.util.ArrayList
 
 
 class PageStatementFragment : BaseFragment(),QuantityListenerStatement {
@@ -31,11 +31,8 @@ class PageStatementFragment : BaseFragment(),QuantityListenerStatement {
     private lateinit var quantityAdapter: PageStatementAdapter
     private lateinit var subscriberViewModel: SubscriberViewModel
 
-    fun newInstance(): PageStatementFragment?{
-        if (fragment == null){
-            fragment = PageStatementFragment()
-        }
-        return fragment
+    fun newInstance(): PageStatementFragment? {
+        return PageStatementFragment()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -61,6 +58,9 @@ class PageStatementFragment : BaseFragment(),QuantityListenerStatement {
             lifecycleOwner = requireActivity()
             lottieAnimations.setAnimation("sos_doctor.json")
 //            subscriberViewModel.statementFragment()
+            btnSave.setOnClickListener {
+                subscriberViewModel.stamentTwo()
+            }
         }
         setRecyclerView()
     }

@@ -265,13 +265,20 @@
                     tools:ignore="Suspicious0dp" />
 
             </LinearLayout>
-            <androidx.fragment.app.FragmentContainerView
+<!--            <androidx.fragment.app.FragmentContainerView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/background_rounded_corners_viewpager"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:id="@+id/fragmentContainer"/>-->
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rounded_corners_viewpager"
-                android:layout_marginRight="20dp"
-                android:id="@+id/fragmentContainer"/>
+                android:layout_weight="1"
+                android:layout_above="@+id/bottomNavigationView"/>
 
         </LinearLayout>
 

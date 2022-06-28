@@ -34,7 +34,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val drugsName = MutableLiveData<String?>()
 
     @Bindable
-    val drugsAmount = MutableLiveData<Int?>()
+    val drugsAmount = MutableLiveData<Int>()
 
     @Bindable
     val saveOrUpdateButtonText = MutableLiveData<String>()
@@ -43,166 +43,182 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val clearAllOrDeleteButtonText = MutableLiveData<String>()
 
     @Bindable
-    val fullName = MutableLiveData<String?>()
+    val fullName = MutableLiveData<String>()
 
     @Bindable
-    val patientAge = MutableLiveData<String?>()
+    val patientAge = MutableLiveData<String>()
 
     @Bindable
-    val callPatient = MutableLiveData<String?>()
+    val callPatient = MutableLiveData<String>()
 
     @Bindable
-    val residence_address = MutableLiveData<String?>()
+    val residence_address = MutableLiveData<String>()
 
     @Bindable
-    val callStatus = MutableLiveData<String?>()
+    val callStatus = MutableLiveData<String>()
 
     @Bindable
-    val cardNumber = MutableLiveData<String?>()
+    val cardNumber = MutableLiveData<String>()
+
+    @Bindable
+    val cardNumberSecond = MutableLiveData<String?>()
+
+    @Bindable
+    val groupN = MutableLiveData<String?>()
 
     @Bindable
     val currentDate = MutableLiveData<String?>()
 
     @Bindable
-    val currentTimes = MutableLiveData<String?>()
+    val currentTimes = MutableLiveData<String>()
 
     @Bindable
-    val ch_patient = MutableLiveData<String?>()
+    val ch_patient = MutableLiveData<String>()
 
     @Bindable
-    val ch_operator = MutableLiveData<String?>()
+    val ch_operator = MutableLiveData<String>()
 
     @Bindable
-    val ch_brigade = MutableLiveData<String?>()
+    val ch_brigade = MutableLiveData<String>()
 
     @Bindable
-    val et_time = MutableLiveData<String?>()
+    val et_time = MutableLiveData<String>()
 
     @Bindable
-    val et_timeP = MutableLiveData<String?>()
+    val et_timeP = MutableLiveData<String>()
 
     @Bindable
-    val et_timeS = MutableLiveData<String?>()
+    val et_timeS = MutableLiveData<String>()
 
     @Bindable
-    val et_timeFinish = MutableLiveData<String?>()
+    val et_timeFinish = MutableLiveData<String>()
 
     @Bindable
-    val chAmbulanse_name = MutableLiveData<String?>()
+    val chAmbulanse_name = MutableLiveData<String>()
 
     @Bindable
-    val doctor_name = MutableLiveData<String?>()
+    val doctor_name = MutableLiveData<String>()
 
     @Bindable
-    val signature = MutableLiveData<String?>()
+    val signature = MutableLiveData<String>()
 
     @Bindable
-    val signaturePerson = MutableLiveData<String?>()
+    val signaturePerson = MutableLiveData<String>()
 
     @Bindable
-    val indicators1 = MutableLiveData<String?>()
+    val indicators1 = MutableLiveData<String>()
 
     @Bindable
-    val indicators2 = MutableLiveData<String?>()
+    val indicators2 = MutableLiveData<String>()
 
     @Bindable
-    val indicators3 = MutableLiveData<String?>()
+    val indicators3 = MutableLiveData<String>()
 
     @Bindable
-    val indicators4 = MutableLiveData<String?>()
+    val indicators4 = MutableLiveData<String>()
 
     @Bindable
-    val indicators5 = MutableLiveData<String?>()
+    val indicators5 = MutableLiveData<String>()
 
     @Bindable
-    val indicators6 = MutableLiveData<String?>()
+    val indicators6 = MutableLiveData<String>()
 
     @Bindable
-    val indicators7 = MutableLiveData<String?>()
+    val indicators7 = MutableLiveData<String>()
 
     @Bindable
-    val indicators8 = MutableLiveData<String?>()
+    val indicators8 = MutableLiveData<String>()
 
     @Bindable
-    val indicators9 = MutableLiveData<String?>()
+    val indicators9 = MutableLiveData<String>()
 
     @Bindable
-    val indicators10 = MutableLiveData<String?>()
+    val indicators10 = MutableLiveData<String>()
 
     @Bindable
-    val indicators11 = MutableLiveData<String?>()
+    val indicators11 = MutableLiveData<String>()
 
     @Bindable
-    val indicators12 = MutableLiveData<String?>()
+    val indicators12 = MutableLiveData<String>()
 
     @Bindable
-    val indicators13 = MutableLiveData<String?>()
+    val indicators13 = MutableLiveData<String>()
 
     @Bindable
-    val indicators14 = MutableLiveData<String?>()
+    val indicators14 = MutableLiveData<String>()
 
     @Bindable
-    val indicators15 = MutableLiveData<String?>()
+    val indicators15 = MutableLiveData<String>()
 
     @Bindable
-    val indicators16 = MutableLiveData<String?>()
+    val indicators16 = MutableLiveData<String>()
 
     @Bindable
-    val indicators17 = MutableLiveData<String?>()
+    val indicators17 = MutableLiveData<String>()
 
     @Bindable
-    val indicators18 = MutableLiveData<String?>()
+    val indicators18 = MutableLiveData<String>()
 
     @Bindable
-    val institution_name = MutableLiveData<String?>()
+    val institution_name = MutableLiveData<String>()
 
     @Bindable
-    val station = MutableLiveData<String?>()
+    val time_fragment = MutableLiveData<String>()
 
     @Bindable
-    val district = MutableLiveData<String?>()
+    val time_fragment_two = MutableLiveData<String>()
 
     @Bindable
-    val street = MutableLiveData<String?>()
+    val time_fragment_three = MutableLiveData<String>()
 
     @Bindable
-    val home = MutableLiveData<String?>()
+    val station = MutableLiveData<String>()
 
     @Bindable
-    val apartment = MutableLiveData<String?>()
+    val district = MutableLiveData<String>()
 
     @Bindable
-    val doctor = MutableLiveData<String?>()
+    val street = MutableLiveData<String>()
 
     @Bindable
-    val feldsher = MutableLiveData<String?>()
+    val home = MutableLiveData<String>()
 
     @Bindable
-    val sanitary = MutableLiveData<String?>()
+    val apartment = MutableLiveData<String>()
 
     @Bindable
-    val dispatcher = MutableLiveData<String?>()
+    val doctor = MutableLiveData<String>()
 
     @Bindable
-    val driver = MutableLiveData<String?>()
+    val feldsher = MutableLiveData<String>()
 
     @Bindable
-    val board_number = MutableLiveData<String?>()
+    val sanitary = MutableLiveData<String>()
 
     @Bindable
-    val distance = MutableLiveData<String?>()
+    val dispatcher = MutableLiveData<String>()
 
     @Bindable
-    val number_ps = MutableLiveData<String?>()
+    val driver = MutableLiveData<String>()
 
     @Bindable
-    val add_info = MutableLiveData<String?>()
+    val board_number = MutableLiveData<String>()
 
     @Bindable
-    val add_infoSecond = MutableLiveData<String?>()
+    val distance = MutableLiveData<String>()
 
     @Bindable
-    val phoneNumber = MutableLiveData<String?>()
+    val number_ps = MutableLiveData<String>()
+
+    @Bindable
+    val add_info = MutableLiveData<String>()
+
+    @Bindable
+    val add_infoSecond = MutableLiveData<String>()
+
+    @Bindable
+    val phoneNumber = MutableLiveData<String>()
+
     private val statusMessage = MutableLiveData<Event<String>>()
 
 
@@ -229,14 +245,35 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         Log.d("came",ch_patient.value.toString())
     }
 
+    fun saveDatabaseFragment() {
+        patientInfo = PatientInfo()
+        statementFragment()
+        Log.d("institution_name",institution_name.value.toString())
+        insertBase(BaseMedicine(0,cardNumber.value!!,cardNumberSecond.value!!,groupN.value!!,currentDate.value!!,ch_patient.value!!,
+            ch_operator.value!!,ch_brigade.value!!,currentTimes.value!!,et_time.value!!,et_timeP.value!!,
+        et_timeS.value!!,et_timeFinish.value!!,time_fragment.value.toString(),time_fragment_two.value.toString(),time_fragment_three.value.toString(),
+        chAmbulanse_name.value.toString(),doctor_name.value.toString(),signature.value.toString(),signaturePerson.value.toString(),indicators1.value.toString(),indicators2.value.toString(),
+            indicators3.value.toString(),indicators4.value.toString(),indicators5.value.toString(),indicators6.value.toString(),indicators7.value.toString(),indicators8.value.toString(),
+            indicators9.value.toString(),indicators10.value.toString(),indicators11.value.toString(),indicators12.value.toString(),indicators13.value.toString(),
+            indicators14.value.toString(),indicators15.value.toString(),indicators16.value.toString(),indicators17.value.toString(),indicators18.value.toString(),
+        fullName.value.toString(),callStatus.value.toString(),street.value.toString(),patientAge.value!!.toInt(),patientInfo.weight!!,patientInfo.height!!,institution_name.value.toString()))
+    }
+
     fun saveBaseDatabase() {
         if (fullName.value == null) {
             statusMessage.value = Event("Xato")
         }else {
             val fullName = fullName.value!!
             val callStatus = callStatus.value!!
-            insertBase(BaseMedicine(0,fullName,callStatus,"",2,2,3,3))
+//            insertBase(BaseMedicine(0,fullName,callStatus,"",2,2,3,3))
         }
+    }
+
+    fun stamentTwo() {
+        patientInfo = PatientInfo()
+        patientAge.value = patientInfo.age.toString()
+        var institution_names = institution_name.value.toString()
+        Log.d("ffff",institution_names)
     }
 
     fun statementFragment() {
@@ -251,8 +288,6 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         patientAge.value = patientInfo.age.toString()
         callPatient.value = patientInfo.callPatient
         residence_address.value = patientInfo.residence_address
-        insertBase(BaseMedicine(0,fullName.value.toString(),callStatus.value.toString(),street.value.toString()
-            ,cardNumber.value!!.toInt(),patientInfo.age!!,patientInfo.weight!!,patientInfo.height!!))
     }
     fun saveOrUpdate() {
         if (drugsName.value == null || drugsName.value == "") {

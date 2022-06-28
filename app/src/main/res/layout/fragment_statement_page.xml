@@ -65,6 +65,7 @@
                                 android:textStyle="bold|italic"
                                 android:gravity="center_horizontal"/>
                             <EditText
+                                android:id="@+id/editText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -567,6 +568,17 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saqlash"/>
             </LinearLayout>
         </LinearLayout>
 

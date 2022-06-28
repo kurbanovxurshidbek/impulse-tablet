@@ -20,15 +20,15 @@
             android:gravity="center_horizontal|center_vertical">
 
             <ImageView
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:background="@mipmap/logo"/>
 
             <LinearLayout
                 android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="200dp"
+                android:layout_marginHorizontal="150dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
                 <LinearLayout
@@ -43,7 +43,7 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:layout_marginRight="20dp"
-                        android:text="@string/name_id"/>
+                        android:text="@string/phone_number"/>
 
                 </LinearLayout>
 
@@ -71,12 +71,12 @@
                             android:background="@drawable/edittext_rounded_corners_border"
                             android:baselineAligned="false"
                             android:textColor="@color/white"
-                            android:hint="@string/driver_ID"
                             android:imeActionLabel="Next"
                             android:imeOptions="actionNext"
-                            android:inputType="textPassword"
+                            android:inputType="phone"
                             android:textColorHint="@color/white"
-                            android:textSize="22sp" />
+                            android:textSize="22sp"
+                            android:hint="@string/str_enter_phone_num"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -87,7 +87,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="200dp"
+                android:layout_marginHorizontal="150dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
                 <LinearLayout
@@ -130,7 +130,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="200dp"
+                android:layout_marginHorizontal="150dp"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="0dp"
@@ -170,31 +170,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="200dp"
+                android:layout_marginHorizontal="150dp"
                 android:orientation="horizontal">
-<!--                <LinearLayout-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:layout_marginTop="25dp"-->
-<!--                    android:gravity="bottom"-->
-<!--                    android:layout_height="match_parent">-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="@string/str_donnot_account"-->
-<!--                        android:textSize="16sp"-->
-<!--                        android:textColor="@color/white"/>-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    android:gravity="bottom"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_alreardy_have_account"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"/>
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_signup"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="@string/str_registration"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:textColor="@color/white"/>-->
-<!--                </LinearLayout>-->
+                    <TextView
+                        android:id="@+id/tv_signup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_enter_page"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                         android:layout_weight=".2"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/button_with_focus"
-                        android:text="@string/registration"
+                        android:text="@string/str_registrations"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="12sp"

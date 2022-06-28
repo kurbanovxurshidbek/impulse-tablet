@@ -81,6 +81,7 @@
                         android:layout_height="wrap_content"
                         android:singleLine="true"
                         android:layout_marginTop="3dp"
+                        android:text="@={myViewModel.cardNumberSecond}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         app:backgroundTint="@null"/>
                 </LinearLayout>
@@ -108,6 +109,7 @@
                         android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_marginTop="3dp"
+                        android:text="@={myViewModel.groupN}"
                         app:backgroundTint="@null"/>
                 </LinearLayout>
 
@@ -906,22 +908,18 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="40dp"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginTop="20dp">
                 <Button
-                    android:id="@+id/save_db"
+                    android:id="@+id/btn_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save"/>
+                    android:text="Saqlash"/>
             </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

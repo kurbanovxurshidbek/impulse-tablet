@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Impulse</string>
     <string name="driver_ID">Maxsus ID ni kiriting</string>
+    <string name="str_enter_phone_num">Telefon raqamni kiriting</string>
     <string name="permission_rationale">permission_rationale</string>
 
     <!--    for maps-->
@@ -15,10 +16,13 @@
     <!--    for app-->
     <string name="driver_name">Ism Familiyani kiriting</string>
     <string name="hospital_name">Kasalxona nomini kiriting</string>
-    <string name="name">To`liq Ism</string>
-    <string name="name_id">Shtab ID</string>
-    <string name="hospital">Kasalxona</string>
+    <string name="name">To`liq Ism :</string>
+    <string name="name_id">Shtab ID :</string>
+    <string name="str_enter">Kirish</string>
+    <string name="phone_number">Tel raqami:</string>
+    <string name="hospital">Kasalxona :</string>
     <string name="registration">Kirish tugmasi</string>
+    <string name="str_registrations">Ro`yxatdan o`tish</string>
     <string name="info_call">Sizda hech qanday chaqiruv hizmati yo`q</string>
     <string name="str_licensing_organization_name">O`zbekiston Respublikasi\nSog`liqni Saqlash vazirligi</string>
     <string name="str_licensing_organization">O`zbekiston Respublikasi\nSog`liqni Saqlash vazirligining\n2022 yil 17 yanvardagi 16-sonli\n buyruq bilan tasdiqlangan\n062-raqamli tibbiy hujjat shakli</string>
@@ -130,6 +134,8 @@
 
 
 <!--    for signIn-->
-    <string name="str_donnot_account">Account mavjud emasmi?</string>
+    <string name="str_dont_account">Account mavjud emas?</string>
+    <string name="str_alreardy_have_account">Siz ro`yxatdan o`tkansiz?</string>
+    <string name="str_enter_page">Kirish qismi</string>
     <string name="str_registration">Ro`yxatdan o`tish</string>
 </resources>

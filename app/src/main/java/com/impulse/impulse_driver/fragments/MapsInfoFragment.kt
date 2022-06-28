@@ -69,14 +69,11 @@ class MapsInfoFragment : BaseFragment(), GoogleMap.OnMarkerClickListener, Google
           private const val MY_FINE_LOCATION_REQUEST = 99
           private const val MY_BACKGROUND_LOCATION_REQUEST = 100
           private val TAG = MapsInfoFragment::class.java.simpleName
-
           private const val DEFAULT_ZOOM = 2f
-
           private const val UPDATE_INTERVAL: Long = 500
           private const val FASTEST_UPDATE_INTERVAL = UPDATE_INTERVAL / 5
           private const val LOCATION_PERMISSION_REQUEST_CODE = 1
           private var gpsFirstOn = true
-
           const val MY_PERMISSIONS_REQUEST_LOCATION = 99
       }
 

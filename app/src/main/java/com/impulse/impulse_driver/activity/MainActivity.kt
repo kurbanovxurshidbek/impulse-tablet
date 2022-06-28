@@ -10,8 +10,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.MainAdapter
+import com.impulse.impulse_driver.adapter.ViewPagerAdapter
 import com.impulse.impulse_driver.database.MedicineDatabase
 import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
@@ -35,6 +37,7 @@ class MainActivity : BaseActivity() {
     private var timerStarted = false
     private lateinit var serviceIntent : Intent
     private var time = 0.0
+    var index = 0
     // fragments
     private lateinit var mapsInfoFragment: MapsInfoFragment
     private lateinit var timeFragment: TimeFragment
@@ -60,11 +63,12 @@ class MainActivity : BaseActivity() {
         val repository = MedicineRepository(dao)
         val factory = SubscriberViewModelFactory(repository)
         subscriberViewModel = ViewModelProvider(this,factory).get(SubscriberViewModel::class.java)
-        replaceFragment(MapsInfoFragment())
+//        replaceFragment(MapsInfoFragment())
         specilFragments()
         initRecyclerView()
         startTimer()
         binding.apply {
+            setupViewPager(viewPager)
             imgNotification.setOnClickListener {
                 resetTimer()
                 llCircle.setBackgroundResource(R.drawable.circle_timer_sirena)
@@ -141,10 +145,54 @@ class MainActivity : BaseActivity() {
     /** A special navigation is written here to manage the fragments**/
 
     private fun specilFragments() {
-
         binding.apply {
             lnHome.setOnClickListener {
-                replaceFragment(MapsInfoFragment())
+                index = 0
+                viewPager.setCurrentItem(index)
+            }
+
+            lyClock.setOnClickListener {
+                index = 1
+                viewPager.setCurrentItem(index)
+            }
+
+            llInspection.setOnClickListener {
+                index = 2
+                viewPager.setCurrentItem(index)
+            }
+
+            llDiagnosis.setOnClickListener {
+                index = 3
+                viewPager.setCurrentItem(index)
+            }
+
+            llDrugs.setOnClickListener {
+                index = 4
+                viewPager.setCurrentItem(index)
+            }
+
+            viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+
+                }
+
+                override fun onPageSelected(position: Int) {
+                    index = position
+                    setFragment(index)
+                }
+
+                override fun onPageScrollStateChanged(state: Int) {}
+            })
+        }
+    }
+
+    private fun setFragment(index: Int) {
+        if (index == 0) {
+            binding.apply {
                 imgHome.setImageResource(R.mipmap.home_black)
                 lnHome.setBackgroundColor(Color.WHITE)
                 lnHome.setBackgroundResource(R.drawable.background_rounded_corners_left)
@@ -166,9 +214,9 @@ class MainActivity : BaseActivity() {
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
-
-            lyClock.setOnClickListener {
-                replaceFragment(TimeFragment())
+        }
+        else if (index == 1) {
+            binding.apply {
                 imgHome.setImageResource(R.mipmap.home_red3)
                 lnHome.setBackgroundColor(Color.TRANSPARENT)
                 tvHome.setTextColor(Color.RED)
@@ -188,11 +236,10 @@ class MainActivity : BaseActivity() {
                 imgClock.setImageResource(R.mipmap.clock_black)
                 lyClock.setBackgroundColor(Color.WHITE)
                 tvClock.setTextColor(Color.BLACK)
-
             }
-
-            llInspection.setOnClickListener {
-                replaceFragment(PageStatementFragment())
+        }
+        else if (index == 2) {
+            binding.apply {
                 imgInspection.setImageResource(R.mipmap.doctor_black)
                 llInspection.setBackgroundColor(Color.WHITE)
                 tvInspection.setTextColor(Color.BLACK)
@@ -213,9 +260,9 @@ class MainActivity : BaseActivity() {
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
-
-            llDiagnosis.setOnClickListener {
-                replaceFragment(PageStatementFragmentContinue())
+        }
+        else if (index == 3) {
+            binding.apply {
                 imgDiagnosis.setImageResource(R.mipmap.diagnosic_black)
                 llDiagnosis.setBackgroundColor(Color.WHITE)
                 tvDiagnosis.setTextColor(Color.BLACK)
@@ -236,9 +283,9 @@ class MainActivity : BaseActivity() {
                 lyClock.setBackgroundColor(Color.TRANSPARENT)
                 tvClock.setTextColor(Color.RED)
             }
-
-            llDrugs.setOnClickListener {
-                replaceFragment(PageMedicineFragment())
+        }
+        else {
+            binding.apply {
                 imgDrugs.setImageResource(R.mipmap.drugs_black)
                 llDrugs.setBackgroundColor(Color.WHITE)
                 tvDrugs.setTextColor(Color.BLACK)
@@ -260,6 +307,18 @@ class MainActivity : BaseActivity() {
                 tvClock.setTextColor(Color.RED)
             }
         }
+
+    }
+
+    private fun setupViewPager(viewPager: ViewPager) {
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(MapsInfoFragment())
+        adapter.addFragment(TimeFragment())
+        adapter.addFragment(PageStatementFragment())
+        adapter.addFragment(PageStatementFragmentContinue())
+        adapter.addFragment(PageMedicineFragment())
+        viewPager.setOffscreenPageLimit(3);
+        viewPager.adapter = adapter
     }
 
     private fun initFragments() {
@@ -270,33 +329,11 @@ class MainActivity : BaseActivity() {
         pageMedicineFragment = PageMedicineFragment().newInstance()!!
     }
 
-//    fun replaceFragment(fragment: Fragment) {
-//        val backStateName = fragment.javaClass.name
-//        val manager = supportFragmentManager
-//        val fragmentPopped = manager.popBackStackImmediate(backStateName, 0)
-//        if (!fragmentPopped) {
-//            val ft = manager.beginTransaction()
-//            ft.replace(R.id.fragmentContainer, fragment)
-//            ft.addToBackStack(backStateName)
-//            ft.commit()
-//        }
+//    private fun replaceFragment(fragment: Fragment) {
+//        val fragmentManager = supportFragmentManager
+//        var fragmentTransition = fragmentManager.beginTransaction()
+//        fragmentTransition.replace(R.id.fragmentContainer,fragment)
+//        fragmentTransition.commit()
 //    }
-//
-//    override fun onBackPressed() {
-//        if (supportFragmentManager.backStackEntryCount == 1)
-//            finish()
-//        else if (supportFragmentManager.fragments.any { it is TimeFragment }) {
-//            if (timeFragment.onBackPressed())
-//                super.onBackPressed()
-//        } else
-//            super.onBackPressed()
-//    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        var fragmentTransition = fragmentManager.beginTransaction()
-        fragmentTransition.replace(R.id.fragmentContainer,fragment)
-        fragmentTransition.commit()
-    }
 
 }

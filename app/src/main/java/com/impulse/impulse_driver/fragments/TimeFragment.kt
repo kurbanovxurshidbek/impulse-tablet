@@ -1,5 +1,6 @@
 package com.impulse.impulse_driver.fragments
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -30,16 +31,13 @@ class TimeFragment : BaseFragment(),QuantityListener {
     private var patientInfo: PatientInfo? = null
     private lateinit var subscriberViewModel: SubscriberViewModel
     private lateinit var quantityAdapter: QuantityAdapter
-    private lateinit var fragmentActionListener: FragmentActivity
 
     private var fragment: TimeFragment? = null
 
     fun newInstance(): TimeFragment? {
-        if (fragment == null) {
-            fragment = TimeFragment()
-        }
-        return fragment
+        return TimeFragment()
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,8 +46,13 @@ class TimeFragment : BaseFragment(),QuantityListener {
     ): View? {
         _binding = FragmentTimeBinding.inflate(inflater, container, false)
         val view = binding.root
-        initViews()
         return view
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -63,8 +66,9 @@ class TimeFragment : BaseFragment(),QuantityListener {
             lifecycleOwner = requireActivity()
             onCheckboxClicked()
             setRecyclerView()
-            saveDb.setOnClickListener {
-                subscriberViewModel.statementFragment()
+
+            btnSave.setOnClickListener {
+                subscriberViewModel.saveDatabaseFragment()
             }
         }
     }
@@ -166,25 +170,27 @@ class TimeFragment : BaseFragment(),QuantityListener {
                 }
             subscriberViewModel.saveTimeFragment()
         }
-
-
-
-        fun onBackPressed(): Boolean {
-
-            return true
-        }
     }
 
 
     override fun onQuantityChange(arrayList: ArrayList<String>) {
+        for (i in arrayList) {
+            subscriberViewModel.time_fragment.value = i.toString()
+        }
         Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeTwo(arrayList: ArrayList<String>) {
+        for (i in arrayList) {
+            subscriberViewModel.time_fragment_two.value = i.toString()
+        }
         Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeThree(arrayList: ArrayList<String>) {
+        for (i in arrayList) {
+            subscriberViewModel.time_fragment_three.value = i.toString()
+        }
         Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
     }
 }
