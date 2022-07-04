@@ -9,9 +9,9 @@ import java.io.Serializable
 data class Medicine(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "drugs_id")
-    var id : Int,
+    var id : Int? = null,
     @ColumnInfo(name = "drugs_name")
-    var name : String,
+    var name : String? = null,
     @ColumnInfo(name = "drugs_amount")
-    var amount : Int
+    var amount : Int? = null
 )

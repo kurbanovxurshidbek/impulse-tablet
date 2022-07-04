@@ -51,7 +51,6 @@
                     <EditText
                         android:id="@+id/et_card_number"
                         android:layout_width="match_parent"
-                        android:text="@={myViewModel.cardNumber}"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
                         android:layout_marginTop="3dp"
@@ -81,7 +80,6 @@
                         android:layout_height="wrap_content"
                         android:singleLine="true"
                         android:layout_marginTop="3dp"
-                        android:text="@={myViewModel.cardNumberSecond}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         app:backgroundTint="@null"/>
                 </LinearLayout>
@@ -109,7 +107,6 @@
                         android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_marginTop="3dp"
-                        android:text="@={myViewModel.groupN}"
                         app:backgroundTint="@null"/>
                 </LinearLayout>
 
@@ -134,7 +131,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.currentDate}"
                         android:layout_marginTop="3dp"
                         android:background="@drawable/background_rounded_corners_border_default"
                         app:backgroundTint="@null"/>
@@ -345,9 +341,9 @@
                         android:text="@string/str_acceptance_time"/>
 
                     <EditText
+                        android:id="@+id/et_currentTimes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.currentTimes}"
                         android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
@@ -372,7 +368,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.et_time}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -396,7 +391,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.et_timeP}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -420,7 +414,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.et_timeS}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -444,7 +437,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.et_timeFinish}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
             </LinearLayout>
@@ -511,9 +503,9 @@
                                     android:textColor="@color/black"
                                     android:text="@string/str_hospital_name"/>
                                 <EditText
+                                    android:id="@+id/et_chAmbulanse_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@={myViewModel.chAmbulanse_name}"
                                     android:singleLine="true"
                                     android:background="@drawable/background_rounded_corners_border_default"/>
                             </LinearLayout>
@@ -535,9 +527,10 @@
                                     android:text="@string/str_doctor"/>
 
                                 <EditText
+                                    android:id="@+id/et_doctor_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@={myViewModel.doctor_name}"
+                                    android:singleLine="true"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
 
@@ -556,9 +549,10 @@
                                     android:textColor="@color/black"
                                     android:text="@string/str_signature"/>
                                 <EditText
+                                    android:id="@+id/et_signature"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@={myViewModel.signature}"
+                                    android:singleLine="true"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
                         </LinearLayout>
@@ -587,50 +581,6 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".8"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_marginBottom="5dp"
-                                    android:gravity="center_horizontal"
-                                    android:textStyle="bold|italic"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/black"
-                                    android:text="@string/str_give_time"/>
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@={myViewModel.currentTimes}"
-                                    android:background="@drawable/background_rounded_corners_border_default" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".8"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textStyle="italic|bold"
-                                    android:gravity="center_horizontal"
-                                    android:layout_marginBottom="5dp"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/black"
-                                    android:text="@string/str_accepted"/>
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@={myViewModel.currentTimes}"
-                                    android:background="@drawable/background_rounded_corners_border_default" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
                                 <TextView
@@ -643,9 +593,10 @@
                                     android:textColor="@color/black"
                                     android:text="@string/str_accepted_person"/>
                                 <EditText
+                                    android:id="@+id/et_signaturePerson"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@={myViewModel.signaturePerson}"
+                                    android:singleLine="true"
                                     android:background="@drawable/background_rounded_corners_border_default" />
                             </LinearLayout>
                         </LinearLayout>
@@ -750,44 +701,50 @@
                         android:text="Dastlabki"/>
 
                     <EditText
+                        android:id="@+id/et_indicators1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators1}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators2}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators3}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators4}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators5}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators6"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators6}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
@@ -807,44 +764,50 @@
                         android:text="Yordamdan song"/>
 
                     <EditText
+                        android:id="@+id/et_indicators7"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators7}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators8"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators8}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators9}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators10"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators10}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators11"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators11}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators12"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators12}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
@@ -864,44 +827,50 @@
                         android:text="Kasalxonaga kelganda"/>
 
                     <EditText
+                        android:id="@+id/et_indicators13"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators13}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators14"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators14}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators15"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators15}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators16"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators16}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators17"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators17}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 
                     <EditText
+                        android:id="@+id/et_indicators18"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.indicators18}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:layout_weight="1"/>
 

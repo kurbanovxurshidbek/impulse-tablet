@@ -133,9 +133,118 @@
     <string name="ok">Ok</string>
 
 
-<!--    for signIn-->
+    <!--    for signIn-->
     <string name="str_dont_account">Account mavjud emas?</string>
     <string name="str_alreardy_have_account">Siz ro`yxatdan o`tkansiz?</string>
     <string name="str_enter_page">Kirish qismi</string>
     <string name="str_registration">Ro`yxatdan o`tish</string>
+
+    <!--    for fragment PageStatementFragmentContinue in addition checkbox names-->
+    <string name="str_respiratory">1.Nafas Tizimi</string>
+    <string name="str_ch_one">Vezikulyar</string>
+    <string name="str_ch_two">Xansirash</string>
+    <string name="str_ch_three">Susaygan</string>
+    <string name="str_ch_four">Dag`al</string>
+    <string name="str_ch_five">Xo`l xrillash</string>
+    <string name="str_ch_six">Quruq xrillash</string>
+    <string name="str_ch_seven">Agonal nafas</string>
+    <string name="str_ch_eight">Apnoe</string>
+    <string name="str_ch_nine">Suniy nafasda</string>
+    <string name="str_ch_teen">Nafas yo`l tiniq</string>
+    <string name="str_myText">2.Psixikasi</string>
+    <string name="str_a_one">Meyorda</string>
+    <string name="str_a_two">Qo`rquv</string>
+    <string name="str_a_three">Suiqasdga moyil</string>
+    <string name="str_a_four">Sekinlashga</string>
+    <string name="str_a_five">Eyforiyaga xos</string>
+    <string name="str_b_one">Xarakatchan notinch</string>
+    <string name="str_b_two">Agressiv</string>
+    <string name="str_b_three">Paranoyik</string>
+    <string name="str_b_four">Qo`zg`alon</string>
+    <string name="str_b_five">Depressiv</string>
+    <string name="str_b_mytext">3.Yurak qon-tomir</string>
+    <string name="str_c_one">Yurak tonlari bog`liq</string>
+    <string name="str_c_two">Bradikardiya</string>
+    <string name="str_c_three">Tasixardiya</string>
+    <string name="str_c_four">Asistoliya</string>
+    <string name="str_c_five">Ekstrasistoliya</string>
+    <string name="str_d_one">4.EKG</string>
+    <string name="str_d_two">O`zgarishsiz</string>
+    <string name="str_d_three">Artimiya(xilpillovchi)</string>
+    <string name="str_d_four">Paroksizmal taxikardiya</string>
+    <string name="str_d_five">UKS 5T-sigment ko`tarilishi,tushishi</string>
+    <string name="str_d_six">Qorincha fibrillyasiyasi</string>
+    <string name="str_d_seven">Pullsiz aktivlik</string>
+    <string name="str_e_one">5.Teri Qoplami</string>
+    <string name="str_e_two">Toza</string>
+    <string name="str_e_three">Quruq</string>
+    <string name="str_e_four">Rangpar</string>
+    <string name="str_e_five">Sianotik</string>
+    <string name="str_e_six">Toshmali</string>
+    <string name="str_e_seven">Shishgan</string>
+    <string name="str_f_one">6.Nevrologiya</string>
+    <string name="str_f_two">Gemiplegiya</string>
+    <string name="str_f_three">Paraplegiya</string>
+    <string name="str_f_four">Tetraplegiya</string>
+    <string name="str_f_five">Babinskiy musbat simptomi</string>
+    <string name="str_f_six">Meningeal musbat simptomlar</string>
+    <string name="str_g_one">7.Ko`z qorachiqlari</string>
+    <string name="str_g_two">O`rtacha</string>
+    <string name="str_g_three">Toraygan</string>
+    <string name="str_g_four">Kengaygan</string>
+    <string name="str_g_five">Anizokoreya</string>
+    <string name="str_g_six">Fotoreaksiya</string>
+    <string name="str_o_one">8.Jarohat soxasi</string>
+    <string name="str_o_two">Bosh</string>
+    <string name="str_o_three">Tana</string>
+    <string name="str_o_four">O`ng qo`l</string>
+    <string name="str_o_five">Chap qo`l</string>
+    <string name="str_o_six">Chap oyoq</string>
+    <string name="str_o_seven">O`ng oyoq</string>
+    <string name="str_p_one">9.Glasgo shkalasi</string>
+    <string name="str_p_two">Ko`zi ochiq</string>
+    <string name="str_p_three">So`ralganda</string>
+    <string name="str_p_four">Og`riqqa</string>
+    <string name="str_p_five">Umuman ochmaydi</string>
+    <string name="str_r_one">Tashxis</string>
+    <string name="str_r_two">Koma xolati</string>
+    <string name="str_r_three">O`tkir qorin sindromi</string>
+    <string name="str_r_four">Vegototomir distoniya</string>
+    <string name="str_r_five">Shok xolati</string>
+    <string name="str_r_six">Tug`ruq</string>
+    <string name="str_r_seven">Bronxial asmatik status</string>
+    <string name="str_r_eight">O`tkir qoronar sindrom</string>
+    <string name="str_r_nine">Homilador patalogiyasi</string>
+    <string name="str_r_teen">URI,Bronxit,Laringit,Pnevmoniya</string>
+    <string name="str_r_eleven">Yurak ritmining buzilishi</string>
+    <string name="str_r_twelve">BMKAUB(ONMK)</string>
+    <string name="str_s_one">Allergiya</string>
+    <string name="str_s_two">Stenokardiya va uning xurujlari</string>
+    <string name="str_s_three">O`tkir zaxarlanish</string>
+    <string name="str_s_four">O`tkir LOR kasalliklari(angina)</string>
+    <string name="str_s_five">Qo`shma jaroxatlar</string>
+    <string name="str_s_six">Epilepsiya,talvasa sindromi</string>
+    <string name="str_s_seven">Alkagoldan mastlik holati</string>
+    <string name="str_s_eleven">Sinishlar,chiqishlar</string>
+    <string name="str_s_twelve">Termik,kimyoviy kuyish</string>
+    <string name="str_s_eight">Qarilik demensiyasi</string>
+    <string name="str_s_nine">Qon ketish(ichki,tashqi,burun,bachadon…)</string>
+    <string name="str_s_teen">Og`ir ruxiy buzilishlar</string>
+    <string name="str_t_one">Metiorizm</string>
+    <string name="str_t_two">Bosh miya jarohatlari</string>
+    <string name="str_t_three">Arterial gipertensiya(krizis)</string>
+    <string name="str_t_four">Havo-tomeni,o`tkir ichak infeksiyasi</string>
+    <string name="str_t_five">Arterial gipertenziya(kris bilan)</string>
+    <string name="str_t_six">Hazm a`zolari faolyati buzilishi</string>
+    <string name="str_t_seven">Boshqa kasalliklar</string>
+
+    <!--    //toolbar tittle -->
+    <string name="str_toolbar">Jaqiruv bo`yicha ma`lumotlar tarixi</string>
+
+<!--    for sharedActivity-->
+    <string name="str_blood_type">Qon guruhi</string>
+    <string name="str_height">Bo`yi</string>
+    <string name="str_weight">Vazni</string>
+    <string name="str_call_statuss">Chaqiruv xolati</string>
+    <string name="str_current_date">Chaqirilgan vaqti</string>
 </resources>

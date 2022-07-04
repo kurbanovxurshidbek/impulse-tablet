@@ -78,6 +78,7 @@ class SignUpActivity : BaseActivity() {
             }
             tvSignup.setOnClickListener {
                 callSignInActivity(this@SignUpActivity)
+                finish()
             }
         }
     }

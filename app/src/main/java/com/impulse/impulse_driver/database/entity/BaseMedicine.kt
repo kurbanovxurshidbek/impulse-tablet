@@ -9,93 +9,155 @@ import java.io.Serializable
 data class BaseMedicine(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "card_id")
-    var id : Int,
+    var id : Int? = null,
     @ColumnInfo(name = "cardNumber")
-    var cardNumber : String,
+    var cardNumber : String? = null,
     @ColumnInfo(name = "cardNumberSecond")
-    var cardNumberSecond : String,
+    var cardNumberSecond : String? = null,
     @ColumnInfo(name = "groupN")
-    var groupN : String,
+    var groupN : String? = null,
     @ColumnInfo(name = "currentDate")
-    var currentDate : String,
+    var currentDate : String? = null,
     @ColumnInfo(name = "ch_patient")
-    var ch_patient : String,
+    var ch_patient : String? = null,
     @ColumnInfo(name = "ch_operator")
-    var ch_operator : String,
+    var ch_operator : String? = null,
     @ColumnInfo(name = "ch_brigade")
-    var ch_brigade : String,
+    var ch_brigade : String? = null,
     @ColumnInfo(name = "currentTimes")
-    var currentTimes : String,
+    var currentTimes : String? = null,
     @ColumnInfo(name = "et_time")
-    var et_time : String,
+    var et_time : String? = null,
     @ColumnInfo(name = "et_timeP")
-    var et_timeP : String,
+    var et_timeP : String? = null,
     @ColumnInfo(name = "et_timeS")
-    var et_timeS : String,
+    var et_timeS : String? = null,
     @ColumnInfo(name = "et_timeFinish")
-    var et_timeFinish : String,
+    var et_timeFinish : String? = null,
     @ColumnInfo(name = "time_fragment")
-    var time_fragment : String,
+    var time_fragment : String? = null,
     @ColumnInfo(name = "time_fragment_two")
-    var time_fragment_two : String,
+    var time_fragment_two : String? = null,
     @ColumnInfo(name = "time_fragment_three")
-    var time_fragment_three : String,
+    var time_fragment_three : String? = null,
     @ColumnInfo(name = "chAmbulanse_name")
-    var chAmbulanse_name : String,
+    var chAmbulanse_name : String? = null,
     @ColumnInfo(name = "doctor_name")
-    var doctor_name : String,
+    var doctor_name : String? = null,
     @ColumnInfo(name = "signature")
-    var signature : String,
+    var signature : String? = null,
     @ColumnInfo(name = "signaturePerson")
-    var signaturePerson : String,
+    var signaturePerson : String? = null,
     @ColumnInfo(name = "indicators1")
-    var indicators1 : String,
+    var indicators1 : String? = null,
     @ColumnInfo(name = "indicators2")
-    var indicators2 : String,
+    var indicators2 : String? = null,
     @ColumnInfo(name = "indicators3")
-    var indicators3 : String,
+    var indicators3 : String? = null,
     @ColumnInfo(name = "indicators4")
-    var indicators4 : String,
+    var indicators4 : String? = null,
     @ColumnInfo(name = "indicators5")
-    var indicators5 : String,
+    var indicators5 : String? = null,
     @ColumnInfo(name = "indicators6")
-    var indicators6 : String,
+    var indicators6 : String? = null,
     @ColumnInfo(name = "indicators7")
-    var indicators7 : String,
+    var indicators7 : String? = null,
     @ColumnInfo(name = "indicators8")
-    var indicators8 : String,
+    var indicators8 : String? = null,
     @ColumnInfo(name = "indicators9")
-    var indicators9 : String,
+    var indicators9 : String? = null,
     @ColumnInfo(name = "indicators10")
-    var indicators10 : String,
+    var indicators10 : String? = null,
     @ColumnInfo(name = "indicators11")
-    var indicators11 : String,
+    var indicators11 : String? = null,
     @ColumnInfo(name = "indicators12")
-    var indicators12 : String,
+    var indicators12 : String? = null,
     @ColumnInfo(name = "indicators13")
-    var indicators13 : String,
+    var indicators13 : String? = null,
     @ColumnInfo(name = "indicators14")
-    var indicators14 : String,
+    var indicators14 : String? = null,
     @ColumnInfo(name = "indicators15")
-    var indicators15 : String,
+    var indicators15 : String? = null,
     @ColumnInfo(name = "indicators16")
-    var indicators16 : String,
+    var indicators16 : String? = null,
     @ColumnInfo(name = "indicators17")
-    var indicators17 : String,
+    var indicators17 : String? = null,
     @ColumnInfo(name = "indicators18")
-    var indicators18 : String,
+    var indicators18 : String? = null,
     @ColumnInfo(name = "fullName")
-    var fullName : String,
+    var fullName : String? = null,
     @ColumnInfo(name = "callStatus")
-    var callStatus : String,
+    var callStatus : String? = null,
     @ColumnInfo(name = "addressName")
-    var addressName : String,
+    var addressName : String? = null,
     @ColumnInfo(name = "age")
-    var age : Int,
+    var age : String? = null,
     @ColumnInfo(name = "weight")
-    var weight : Int,
+    var weight : Int? = null,
     @ColumnInfo(name = "height")
-    var height : Int,
+    var height : Int? = null,
     @ColumnInfo(name = "institution_name")
-    var institution_name : String,
-)
+    var institution_name : String? = null,
+    @ColumnInfo(name = "station_name")
+    var station_name : String? = null,
+    @ColumnInfo(name = "station_number")
+    var station_number : String? = null,
+    @ColumnInfo(name = "street")
+    var street : String? = null,
+    @ColumnInfo(name = "home")
+    var home : String? = null,
+    @ColumnInfo(name = "apartment")
+    var apartment : String? = null,
+    @ColumnInfo(name = "phoneNumber")
+    var phoneNumber : String? = null,
+    @ColumnInfo(name = "call_patient")
+    var call_patient : String? = null,
+    @ColumnInfo(name = "residence_address")
+    var residence_address : String? = null,
+    @ColumnInfo(name = "doctor")
+    var doctor : String? = null,
+    @ColumnInfo(name = "feldsher")
+    var feldsher : String? = null,
+    @ColumnInfo(name = "sanitary")
+    var sanitary : String? = null,
+    @ColumnInfo(name = "dispatcher")
+    var dispatcher : String? = null,
+    @ColumnInfo(name = "driver")
+    var driver : String? = null,
+    @ColumnInfo(name = "board_number")
+    var board_number : String? = null,
+    @ColumnInfo(name = "statement_fragment")
+    var statement_fragment : String? = null,
+    @ColumnInfo(name = "statement_fragment_two")
+    var statement_fragment_two : String? = null,
+    @ColumnInfo(name = "statement_continue_one")
+    var statement_continue_one : String? = null,
+    @ColumnInfo(name = "statement_continue_two")
+    var statement_continue_two : String? = null,
+    @ColumnInfo(name = "statement_continue_three")
+    var statement_continue_three : String? = null,
+    @ColumnInfo(name = "statement_continue_four")
+    var statement_continue_four : String? = null,
+    @ColumnInfo(name = "statement_continue_five")
+    var statement_continue_five : String? = null,
+    @ColumnInfo(name = "statement_continue_six")
+    var statement_continue_six : String? = null,
+    @ColumnInfo(name = "statement_continue_seven")
+    var statement_continue_seven : String? = null,
+    @ColumnInfo(name = "statement_continue_eight")
+    var statement_continue_eight : String? = null,
+    @ColumnInfo(name = "statement_continue_nine")
+    var statement_continue_nine : String? = null,
+    @ColumnInfo(name = "statement_continue_teen")
+    var statement_continue_teen : String? = null,
+    @ColumnInfo(name = "add_info")
+    var add_info : String? = null,
+    @ColumnInfo(name = "add_infoSecond")
+    var add_infoSecond : String? = null,
+    @ColumnInfo(name = "drugs")
+    val drugs : ArrayList<String>? = null,
+    @ColumnInfo(name = "patientImg")
+    val patientImg : String? = null,
+    @ColumnInfo(name = "bloodGroup")
+    val bloodGroup : String? = null
+): Serializable

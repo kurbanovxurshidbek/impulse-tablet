@@ -3,24 +3,12 @@ package com.impulse.impulse_driver.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.CheckBox
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelLazy
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.impulse.impulse_driver.R
-import com.impulse.impulse_driver.database.MedicineDatabase
-import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.*
-import com.impulse.impulse_driver.listener.QuantityListener
 import com.impulse.impulse_driver.listener.QuantityListenerFragment
 import com.impulse.impulse_driver.model.CheckboxM
-import com.impulse.impulse_driver.model.PatientInfo
-import com.impulse.impulse_driver.presenter.SubscriberViewModel
-import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
 
 import java.util.*
 

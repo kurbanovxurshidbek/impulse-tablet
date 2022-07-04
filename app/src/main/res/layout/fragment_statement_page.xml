@@ -15,7 +15,6 @@
     android:background="@drawable/background_rounded_corners_viewpager"
     android:backgroundTint="@color/white"
     android:gravity="center_vertical|center_horizontal">
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -65,11 +64,10 @@
                                 android:textStyle="bold|italic"
                                 android:gravity="center_horizontal"/>
                             <EditText
-                                android:id="@+id/editText"
+                                android:id="@+id/et_institution_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:text="@={myViewModel.institution_name}"
                                 android:background="@drawable/background_rounded_corners_border_default"
                                 android:singleLine="true"
                                 />
@@ -89,9 +87,10 @@
                                 android:textStyle="italic|bold"
                                 android:text="@string/str_station_name"/>
                             <EditText
+                                android:id="@+id/et_station_name"
                                 android:layout_marginTop="5dp"
                                 android:layout_width="match_parent"
-                                android:text="@={myViewModel.station}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -110,8 +109,10 @@
                                 android:textStyle="italic|bold"
                                 android:text="№"/>
                             <EditText
+                                android:id="@+id/et_station_number"
                                 android:layout_marginTop="5dp"
                                 android:layout_width="match_parent"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -173,7 +174,7 @@
                         android:id="@+id/et_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.district}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -192,10 +193,10 @@
                         android:text="@string/str_street"/>
 
                     <EditText
+                        android:id="@+id/et_street"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.street}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -214,10 +215,10 @@
                         android:text="@string/str_home"/>
 
                     <EditText
+                        android:id="@+id/et_home"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="@={myViewModel.home}"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -237,9 +238,10 @@
                         android:text="@string/str_apartment"/>
 
                     <EditText
+                        android:id="@+id/et_apartment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.apartment}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
                 <LinearLayout
@@ -257,9 +259,9 @@
                         android:text="@string/str_phone_number"/>
 
                     <EditText
+                        android:id="@+id/et_phoneNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.phoneNumber}"
                         android:background="@drawable/background_rounded_corners_border_default"
                         android:singleLine="true"/>
                 </LinearLayout>
@@ -297,9 +299,10 @@
                         android:text="@string/str_patient"/>
 
                     <EditText
+                        android:id="@+id/et_fullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.fullName}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -318,9 +321,10 @@
                         android:text="@string/str_patient_age"/>
 
                     <EditText
+                        android:id="@+id/et_patientAge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.patientAge}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -339,9 +343,10 @@
                         android:text="@string/str_caller"/>
 
                     <EditText
+                        android:id="@+id/et_callPatient"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.callPatient}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
 
@@ -360,9 +365,10 @@
                         android:text="@string/str_adress"/>
 
                     <EditText
+                        android:id="@+id/et_residence_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={myViewModel.residence_address}"
+                        android:singleLine="true"
                         android:background="@drawable/background_rounded_corners_border_default"/>
                 </LinearLayout>
             </LinearLayout>
@@ -409,12 +415,12 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <EditText
+                                android:id="@+id/et_doctor"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@={myViewModel.doctor}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -429,9 +435,10 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <EditText
+                                android:id="@+id/et_feldsher"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@={myViewModel.feldsher}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -449,9 +456,10 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <EditText
+                                android:id="@+id/et_sanitary"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@={myViewModel.sanitary}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
                     </LinearLayout>
@@ -475,9 +483,10 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <EditText
+                                android:id="@+id/et_dispatcher"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@={myViewModel.dispatcher}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -495,9 +504,10 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <EditText
+                                android:id="@+id/et_driver"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@={myViewModel.driver}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
 
@@ -515,55 +525,10 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <EditText
+                                android:id="@+id/et_board_number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@={myViewModel.board_number}"
-                                android:background="@drawable/background_rounded_corners_border_default" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/str_distance"
-                                android:gravity="center_horizontal"
-                                android:textStyle="bold|italic"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@={myViewModel.distance}"
-                                android:background="@drawable/background_rounded_corners_border_default" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/str_ps"
-                                android:gravity="center_horizontal"
-                                android:textStyle="bold|italic"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@={myViewModel.number_ps}"
+                                android:singleLine="true"
                                 android:background="@drawable/background_rounded_corners_border_default" />
                         </LinearLayout>
                     </LinearLayout>
@@ -575,7 +540,7 @@
                 android:gravity="center"
                 android:layout_marginTop="20dp">
                 <Button
-                    android:id="@+id/btn_save"
+                    android:id="@+id/btn_saved"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Saqlash"/>

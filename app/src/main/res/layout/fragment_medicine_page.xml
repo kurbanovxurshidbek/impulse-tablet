@@ -51,10 +51,11 @@
                     android:textStyle="bold|italic" />
 
                 <EditText
+                    android:id="@+id/et_add_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:layout_weight="1"
-                    android:text="@={myViewModel.add_info}"
                     android:background="@drawable/background_rounded_corners_border_default" />
             </LinearLayout>
 
@@ -75,10 +76,11 @@
                     android:textStyle="bold|italic" />
 
                 <EditText
+                    android:id="@+id/et_add_infoSecond"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:layout_weight="1"
-                    android:text="@={myViewModel.add_infoSecond}"
                     android:background="@drawable/background_rounded_corners_border_default" />
             </LinearLayout>
 
@@ -112,6 +114,7 @@
                             android:layout_marginTop="68dp"
                             android:text="@={myViewModel.drugsName}"
                             android:inputType="textPersonName"
+                            android:singleLine="true"
                             android:hint="Dori vositalari nomi : "
                             android:imeOptions="actionDone"
                             android:imeActionLabel="Done"

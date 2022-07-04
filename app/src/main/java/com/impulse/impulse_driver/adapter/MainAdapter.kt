@@ -4,20 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelLazy
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.impulse.impulse_driver.R
-import com.impulse.impulse_driver.database.MedicineDatabase
-import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.ItemMainHeaderBinding
 import com.impulse.impulse_driver.model.PatientInfo
-import com.impulse.impulse_driver.presenter.SubscriberViewModel
-import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
-
 import java.util.*
 
 class MainAdapter(val context: Context): BaseAdapter(){
@@ -45,7 +36,6 @@ class MainAdapter(val context: Context): BaseAdapter(){
     }
 }
  class MainViewHolder(var context: Context,val binding: ItemMainHeaderBinding) : RecyclerView.ViewHolder(binding.root){
-    private  var subscriberViewModel: SubscriberViewModel? = null
     fun bind(subscriber: PatientInfo) {
         binding.apply {
             Glide.with(context).load(subscriber.patientImg).placeholder(R.drawable.user)
@@ -58,10 +48,6 @@ class MainAdapter(val context: Context): BaseAdapter(){
             tvWeight.text = subscriber.weight.toString()
             tvCardNumber.text = subscriber.cardNumber.toString()
             tvBloodGroup.text = subscriber.bloodGroup.toString()
-            val dao = MedicineDatabase.getInstance(context.applicationContext).subscriberDao
-            val repository = MedicineRepository(dao)
-            val factory = SubscriberViewModelFactory(repository)
-
         }
     }
 }

@@ -2,14 +2,14 @@ package com.impulse.impulse_driver.database
 
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.impulse.impulse_driver.database.dao.MedicineDAO
 import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
+import com.impulse.impulse_driver.utils.HobbiesTypeConverter
 
 @Database(entities = [Medicine::class,BaseMedicine::class], version = 1)
+@TypeConverters(HobbiesTypeConverter::class)
 abstract class MedicineDatabase : RoomDatabase() {
     abstract val subscriberDao: MedicineDAO
 

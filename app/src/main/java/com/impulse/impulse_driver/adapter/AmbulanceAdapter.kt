@@ -4,20 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelLazy
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.impulse.impulse_driver.R
-import com.impulse.impulse_driver.database.MedicineDatabase
-import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.ItemAmbulanceViewBinding
-import com.impulse.impulse_driver.databinding.ItemMainHeaderBinding
 import com.impulse.impulse_driver.model.PatientInfo
-import com.impulse.impulse_driver.presenter.SubscriberViewModel
-import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
 
 import java.util.*
 

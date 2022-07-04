@@ -51,29 +51,28 @@ class SplashActivity : BaseActivity() {
 
             override fun onFinish() {
 
-                if (PrefsManager.getInstance(context)!!.isFirstTime("safe")) {
-                    callSignInActivity(this@SplashActivity)
-                    finish()
-                }
-                else if (medicalCall){
-                    if (PrefsManager.getInstance(context)!!.isFirstTime("turnOn")) {
-                        callAmbulanceActivity(this@SplashActivity)
-                        finish()
-                }else {
-                        callMainActivity(this@SplashActivity)
-                        finish()
-                }
-                }else {
-                    Toast.makeText(this@SplashActivity,R.string.info_call,Toast.LENGTH_LONG).show()
-                }
+//                if (PrefsManager.getInstance(context)!!.isFirstTime("safe")) {
+//                    callSignInActivity(this@SplashActivity)
+//                    finish()
+//                }
+//                else if (medicalCall){
+//                    if (PrefsManager.getInstance(context)!!.isFirstTime("turnOn")) {
+//                        callAmbulanceActivity(this@SplashActivity)
+//                        finish()
+//                }else {
+//                        callMainActivity(this@SplashActivity)
+//                        finish()
+//                }
+//                }else {
+//                    Toast.makeText(this@SplashActivity,R.string.info_call,Toast.LENGTH_LONG).show()
+//                }
 
-//                callMainActivity(this@SplashActivity)
-//                finish()
+                callMainActivity(this@SplashActivity)
+                finish()
                 binding.apply {
                     openHistory.setOnClickListener {
                         callHistoryActivity(this@SplashActivity)
                         finish()
-
                     }
                 }
 

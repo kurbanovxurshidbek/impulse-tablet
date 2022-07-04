@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.PageStatementFragmentContinueAdapter
 import com.impulse.impulse_driver.adapter.QuantityAdapter
 import com.impulse.impulse_driver.databinding.FragmentStatementPageContinueBinding
 import com.impulse.impulse_driver.listener.QuantityListenerFragment
 import com.impulse.impulse_driver.model.CheckboxM
+import com.impulse.impulse_driver.utils.ARG
 import java.util.ArrayList
 
 class PageStatementFragmentContinue : BaseFragment(),QuantityListenerFragment {
@@ -47,38 +49,38 @@ class PageStatementFragmentContinue : BaseFragment(),QuantityListenerFragment {
     }
     fun getQuantityData(): ArrayList<CheckboxM> {
         var arrayList : ArrayList<CheckboxM> = ArrayList()
-        arrayList.add(CheckboxM("1.Nafas Tizimi",1))
-        arrayList.add(CheckboxM("Vezikulyar","Xansirash","Susaygan","Dag`al","Xo`l xrillash",2))
-        arrayList.add(CheckboxM("Quruq xrillash","Agonal nafas","Apnoe","Suniy nafasda","Nafas yo`l tiniq",2))
-        arrayList.add(CheckboxM("2.Psixikasi",1))
-        arrayList.add(CheckboxM("Meyorda","Qo`rquv","Suiqasdga moyil","Sekinlashga","Eyforiyaga xos",3))
-        arrayList.add(CheckboxM("Xarakatchan notinch","Agressiv","Paranoyik","Qo`zg`alon","Depressiv",3))
-        arrayList.add(CheckboxM("3.Yurak qon-tomir",1))
-        arrayList.add(CheckboxM("Yurak tonlari bog`liq","Bradikardiya","Tasixardiya","Asistoliya","Ekstrasistoliya",5))
-        arrayList.add(CheckboxM("4.EKG",1))
-        arrayList.add(CheckboxM("O`zgarishsiz","Artimiya(xilpillovchi)","Paroksizmal taxikardiya",6))
-        arrayList.add(CheckboxM("UKS 5T-sigment ko'tarilishi,tushishi","Qorincha fibrillyasiyasi","Pullsiz aktivlik",6))
-        arrayList.add(CheckboxM("5.Teri Qoplami",1))
-        arrayList.add(CheckboxM("Toza","Quruq","Rangpar","Sianotik","Toshmali","Shishgan",7))
-        arrayList.add(CheckboxM("6.Nevrologiya",1))
-        arrayList.add(CheckboxM("Gemiplegiya","Paraplegiya","Tetraplegiya","Babinskiy musbat simptomi","Meningeal musbat simptomlar",8))
-        arrayList.add(CheckboxM("7.Ko`z qorachiqlari",1))
-        arrayList.add(CheckboxM("O`rtacha","Toraygan","Kengaygan","Anizokoreya","Fotoreaksiya",9))
-        arrayList.add(CheckboxM("8.Jarohat soxasi",1))
-        arrayList.add(CheckboxM("Bosh","Tana","O`ng qo`l","Chap qo`l","Chap oyoq","O`ng oyoq",10))
-        arrayList.add(CheckboxM("9.Glasgo shkalasi",1))
-        arrayList.add(CheckboxM("Ko`zi ochiq","So'ralganda","Og`riqqa","Umuman ochmaydi",11))
-        arrayList.add(CheckboxM("Tashxis",1))
-        arrayList.add(CheckboxM("Koma xolati","O`tkir qorin sindromi","Vegototomir distoniya",12))
-        arrayList.add(CheckboxM("Shok xolati","Tug`ruq","Bronxial asmatik status",12))
-        arrayList.add(CheckboxM("O`tkir qoronar sindrom","Homilador patalogiyasi","URI,Bronxit,Laringit,Pnevmoniya",12))
-        arrayList.add(CheckboxM("Yurak ritmining buzilishi","BMKAUB(ONMK)","Allergiya",12))
-        arrayList.add(CheckboxM("Stenokardiya va uning xurujlari","O`tkir zaxarlanish","O`tkir LOR kasalliklari(angina)",12))
-        arrayList.add(CheckboxM("Qo`shma jaroxatlar","Epilepsiya,talvasa sindromi","Alkagoldan mastlik holati",12))
-        arrayList.add(CheckboxM("Sinishlar,chiqishlar","Termik,kimyoviy kuyish","Qarilik demensiyasi",12))
-        arrayList.add(CheckboxM("Qon ketish(ichki,tashqi,burun,bachadon...)","Og`ir ruxiy buzilishlar","Metiorizm",12))
-        arrayList.add(CheckboxM("Bosh miya jarohatlari","Arterial gipertensiya(krizis)","Havo-tomeni,o'tkir ichak infeksiyasi",12))
-        arrayList.add(CheckboxM("Arterial gipertenziya(kris bilan)","Hazm a'zolari faolyati buzilishi","Boshqa kasalliklar",12))
+        arrayList.add(CheckboxM(getString(R.string.str_respiratory),1))
+        arrayList.add(CheckboxM(getString(R.string.str_ch_one),getString(R.string.str_ch_two),getString(R.string.str_ch_three),getString(R.string.str_ch_four),getString(R.string.str_ch_five),2))
+        arrayList.add(CheckboxM(getString(R.string.str_ch_six),getString(R.string.str_ch_seven),getString(R.string.str_ch_eight),getString(R.string.str_ch_nine),getString(R.string.str_ch_teen),2))
+        arrayList.add(CheckboxM(getString(R.string.str_myText),1))
+        arrayList.add(CheckboxM(getString(R.string.str_a_one),getString(R.string.str_a_two),getString(R.string.str_a_three),getString(R.string.str_a_four),getString(R.string.str_a_five),3))
+        arrayList.add(CheckboxM(getString(R.string.str_b_one),getString(R.string.str_b_two),getString(R.string.str_b_three),getString(R.string.str_b_four),getString(R.string.str_b_five),3))
+        arrayList.add(CheckboxM(getString(R.string.str_b_mytext),1))
+        arrayList.add(CheckboxM(getString(R.string.str_c_one),getString(R.string.str_c_two),getString(R.string.str_c_three),getString(R.string.str_c_four),getString(R.string.str_c_five),5))
+        arrayList.add(CheckboxM(getString(R.string.str_d_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_d_two),getString(R.string.str_d_three),getString(R.string.str_d_four),6))
+        arrayList.add(CheckboxM(getString(R.string.str_d_five),getString(R.string.str_d_six),getString(R.string.str_d_seven),6))
+        arrayList.add(CheckboxM(getString(R.string.str_e_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_e_two),getString(R.string.str_e_three),getString(R.string.str_e_four),getString(R.string.str_e_five),getString(R.string.str_e_six),getString(R.string.str_e_seven),7))
+        arrayList.add(CheckboxM(getString(R.string.str_f_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_f_two),getString(R.string.str_f_three),getString(R.string.str_f_four),getString(R.string.str_f_five),getString(R.string.str_f_six),8))
+        arrayList.add(CheckboxM(getString(R.string.str_g_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_g_two),getString(R.string.str_g_three),getString(R.string.str_g_four),getString(R.string.str_g_five),getString(R.string.str_g_six),9))
+        arrayList.add(CheckboxM(getString(R.string.str_o_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_o_two),getString(R.string.str_o_three),getString(R.string.str_o_four),getString(R.string.str_o_five),getString(R.string.str_o_six),getString(R.string.str_o_seven),10))
+        arrayList.add(CheckboxM(getString(R.string.str_p_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_p_two),getString(R.string.str_p_three),getString(R.string.str_p_four),getString(R.string.str_p_five),11))
+        arrayList.add(CheckboxM(getString(R.string.str_r_one),1))
+        arrayList.add(CheckboxM(getString(R.string.str_r_two),getString(R.string.str_r_three),getString(R.string.str_r_four),12))
+        arrayList.add(CheckboxM(getString(R.string.str_r_five),getString(R.string.str_r_six),getString(R.string.str_r_seven),12))
+        arrayList.add(CheckboxM(getString(R.string.str_r_eight),getString(R.string.str_r_nine),getString(R.string.str_r_teen),12))
+        arrayList.add(CheckboxM(getString(R.string.str_r_eleven),getString(R.string.str_r_twelve),getString(R.string.str_s_one),12))
+        arrayList.add(CheckboxM(getString(R.string.str_s_two),getString(R.string.str_s_three),getString(R.string.str_s_four),12))
+        arrayList.add(CheckboxM(getString(R.string.str_s_five),getString(R.string.str_s_six),getString(R.string.str_s_seven),12))
+        arrayList.add(CheckboxM(getString(R.string.str_s_eleven),getString(R.string.str_s_twelve),getString(R.string.str_s_eight),12))
+        arrayList.add(CheckboxM(getString(R.string.str_s_nine),getString(R.string.str_s_teen),getString(R.string.str_t_one),12))
+        arrayList.add(CheckboxM(getString(R.string.str_t_two),getString(R.string.str_t_three),getString(R.string.str_t_four),12))
+        arrayList.add(CheckboxM(getString(R.string.str_t_five),getString(R.string.str_t_six),getString(R.string.str_t_seven),12))
         return arrayList
     }
 
@@ -92,42 +94,92 @@ class PageStatementFragmentContinue : BaseFragment(),QuantityListenerFragment {
     }
 
     override fun onQuantityChange(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_one = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeTwo(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_two = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeThree(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_three = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeFour(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_four = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeFive(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_five = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeSix(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_six = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeSeven(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_seven = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeEight(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_eight = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeNine(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_nine = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 
     override fun onQuantityChangeTeen(arrayList: ArrayList<String>) {
-        Toast.makeText(requireContext(),arrayList.toString(),Toast.LENGTH_SHORT).show()
+        var strings = ""
+        for (i in arrayList) {
+            strings += " $i,"
+        }
+        ARG.statement_continue_teen = strings
+        Toast.makeText(requireContext(),strings,Toast.LENGTH_SHORT).show()
     }
 }

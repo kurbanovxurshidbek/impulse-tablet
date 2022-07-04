@@ -14,7 +14,9 @@ import com.impulse.impulse_driver.database.Event
 import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
+import com.impulse.impulse_driver.model.NewBase
 import com.impulse.impulse_driver.model.PatientInfo
+import com.impulse.impulse_driver.utils.ARG
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -24,10 +26,11 @@ import java.time.format.DateTimeFormatter
 class SubscriberViewModel(private val repository: MedicineRepository) : ViewModel(), Observable {
 
     val subscribers = repository.subscribers
+    val subscribers_base = repository.subscribers_base
     private var isUpdateOrDelete = false
-    private lateinit var subscriberToUpdateOrDelete : Medicine
-    private lateinit var baseSaveInfo : BaseMedicine
-    private lateinit var patientInfo : PatientInfo
+    private lateinit var subscriberToUpdateOrDelete: Medicine
+    private lateinit var baseSaveInfo: Medicine
+    private lateinit var patientInfo: PatientInfo
 
 
     @Bindable
@@ -43,121 +46,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val clearAllOrDeleteButtonText = MutableLiveData<String>()
 
     @Bindable
-    val fullName = MutableLiveData<String>()
-
-    @Bindable
-    val patientAge = MutableLiveData<String>()
-
-    @Bindable
-    val callPatient = MutableLiveData<String>()
-
-    @Bindable
-    val residence_address = MutableLiveData<String>()
-
-    @Bindable
     val callStatus = MutableLiveData<String>()
-
-    @Bindable
-    val cardNumber = MutableLiveData<String>()
-
-    @Bindable
-    val cardNumberSecond = MutableLiveData<String?>()
-
-    @Bindable
-    val groupN = MutableLiveData<String?>()
-
-    @Bindable
-    val currentDate = MutableLiveData<String?>()
-
-    @Bindable
-    val currentTimes = MutableLiveData<String>()
-
-    @Bindable
-    val ch_patient = MutableLiveData<String>()
-
-    @Bindable
-    val ch_operator = MutableLiveData<String>()
-
-    @Bindable
-    val ch_brigade = MutableLiveData<String>()
-
-    @Bindable
-    val et_time = MutableLiveData<String>()
-
-    @Bindable
-    val et_timeP = MutableLiveData<String>()
-
-    @Bindable
-    val et_timeS = MutableLiveData<String>()
-
-    @Bindable
-    val et_timeFinish = MutableLiveData<String>()
-
-    @Bindable
-    val chAmbulanse_name = MutableLiveData<String>()
-
-    @Bindable
-    val doctor_name = MutableLiveData<String>()
-
-    @Bindable
-    val signature = MutableLiveData<String>()
-
-    @Bindable
-    val signaturePerson = MutableLiveData<String>()
-
-    @Bindable
-    val indicators1 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators2 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators3 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators4 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators5 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators6 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators7 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators8 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators9 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators10 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators11 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators12 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators13 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators14 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators15 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators16 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators17 = MutableLiveData<String>()
-
-    @Bindable
-    val indicators18 = MutableLiveData<String>()
 
     @Bindable
     val institution_name = MutableLiveData<String>()
@@ -172,141 +61,77 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     val time_fragment_three = MutableLiveData<String>()
 
     @Bindable
-    val station = MutableLiveData<String>()
-
-    @Bindable
-    val district = MutableLiveData<String>()
-
-    @Bindable
-    val street = MutableLiveData<String>()
-
-    @Bindable
-    val home = MutableLiveData<String>()
-
-    @Bindable
-    val apartment = MutableLiveData<String>()
-
-    @Bindable
-    val doctor = MutableLiveData<String>()
-
-    @Bindable
-    val feldsher = MutableLiveData<String>()
-
-    @Bindable
-    val sanitary = MutableLiveData<String>()
-
-    @Bindable
-    val dispatcher = MutableLiveData<String>()
-
-    @Bindable
-    val driver = MutableLiveData<String>()
-
-    @Bindable
-    val board_number = MutableLiveData<String>()
-
-    @Bindable
-    val distance = MutableLiveData<String>()
-
-    @Bindable
-    val number_ps = MutableLiveData<String>()
-
-    @Bindable
-    val add_info = MutableLiveData<String>()
-
-    @Bindable
     val add_infoSecond = MutableLiveData<String>()
-
-    @Bindable
-    val phoneNumber = MutableLiveData<String>()
 
     private val statusMessage = MutableLiveData<Event<String>>()
 
 
-    val message : LiveData<Event<String>>
-    get() = statusMessage
+    val message: LiveData<Event<String>>
+        get() = statusMessage
 
     init {
         saveOrUpdateButtonText.value = "Saqlash"
         clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun saveTimeFragment() {
-         patientInfo = PatientInfo()
-        cardNumber.value = patientInfo.cardNumber.toString()
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        val formatted = current.format(formatter)
-        currentDate.value = formatted
-        val formatterTime = DateTimeFormatter.ofPattern("HH:mm:ss")
-        val formattedTime = current.format(formatterTime)
-        currentTimes.value = formattedTime
-        Log.d("came",ch_patient.value.toString())
-    }
-
-    fun saveDatabaseFragment() {
+    fun saveDatabaseFragment(baseMedicine: ARG) {
         patientInfo = PatientInfo()
-        statementFragment()
-        Log.d("institution_name",institution_name.value.toString())
-        insertBase(BaseMedicine(0,cardNumber.value!!,cardNumberSecond.value!!,groupN.value!!,currentDate.value!!,ch_patient.value!!,
-            ch_operator.value!!,ch_brigade.value!!,currentTimes.value!!,et_time.value!!,et_timeP.value!!,
-        et_timeS.value!!,et_timeFinish.value!!,time_fragment.value.toString(),time_fragment_two.value.toString(),time_fragment_three.value.toString(),
-        chAmbulanse_name.value.toString(),doctor_name.value.toString(),signature.value.toString(),signaturePerson.value.toString(),indicators1.value.toString(),indicators2.value.toString(),
-            indicators3.value.toString(),indicators4.value.toString(),indicators5.value.toString(),indicators6.value.toString(),indicators7.value.toString(),indicators8.value.toString(),
-            indicators9.value.toString(),indicators10.value.toString(),indicators11.value.toString(),indicators12.value.toString(),indicators13.value.toString(),
-            indicators14.value.toString(),indicators15.value.toString(),indicators16.value.toString(),indicators17.value.toString(),indicators18.value.toString(),
-        fullName.value.toString(),callStatus.value.toString(),street.value.toString(),patientAge.value!!.toInt(),patientInfo.weight!!,patientInfo.height!!,institution_name.value.toString()))
+        baseSaveInfo = Medicine()
+        Log.d("institution_name", institution_name.value.toString())
+        insertBase(BaseMedicine(cardNumber = baseMedicine.TIMES.cardNumber, cardNumberSecond = baseMedicine.TIMES.cardNumberSecond,
+            groupN = baseMedicine.TIMES.groupN, currentDate = baseMedicine.TIMES.currentDate, ch_patient = baseMedicine.chPatient,
+            ch_brigade = baseMedicine.et_time, ch_operator = baseMedicine.chOperator, currentTimes = baseMedicine.TIMES.currentTime,
+            et_time = baseMedicine.TIMES.et_time, et_timeP = baseMedicine.TIMES.et_timeP, et_timeS = baseMedicine.TIMES.et_timeS,
+            et_timeFinish = baseMedicine.TIMES.et_timeFinish, time_fragment = baseMedicine.time_fragment, time_fragment_two = baseMedicine.time_fragment_two,
+            time_fragment_three = baseMedicine.time_fragment_three, chAmbulanse_name = baseMedicine.TIMES.chAmbulanse_name,
+            doctor_name = baseMedicine.TIMES.doctor_name, signature = baseMedicine.TIMES.signature, signaturePerson = baseMedicine.TIMES.signaturePerson,
+            indicators1 = baseMedicine.TIMES.indicators1,indicators2 = baseMedicine.TIMES.indicators2,indicators3 = baseMedicine.TIMES.indicators3,
+            indicators4 = baseMedicine.TIMES.indicators4,indicators5 = baseMedicine.TIMES.indicators5,indicators6 = baseMedicine.TIMES.indicators6,
+            indicators7 = baseMedicine.TIMES.indicators7,indicators8 = baseMedicine.TIMES.indicators8,indicators9 = baseMedicine.TIMES.indicators9,
+            indicators10 = baseMedicine.TIMES.indicators10,indicators11 = baseMedicine.TIMES.indicators11,indicators12 = baseMedicine.TIMES.indicators12,
+            indicators13 = baseMedicine.TIMES.indicators13,indicators14 = baseMedicine.TIMES.indicators14,indicators15 = baseMedicine.TIMES.indicators15,
+            indicators16 = baseMedicine.TIMES.indicators16,indicators17 = baseMedicine.TIMES.indicators17,indicators18 = baseMedicine.TIMES.indicators18,
+            institution_name = baseMedicine.TIME.institution_name, station_name = baseMedicine.TIME.station_name, station_number = baseMedicine.TIME.station_number,
+            street = baseMedicine.TIME.street, home = baseMedicine.TIME.home, apartment = baseMedicine.TIME.apartment, phoneNumber = baseMedicine.TIME.phoneNumber,
+            age = baseMedicine.TIME.age, call_patient = baseMedicine.TIME.call_patient, doctor = baseMedicine.TIME.doctor, feldsher = baseMedicine.TIME.feldsher,
+            sanitary = baseMedicine.TIME.sanitary, dispatcher = baseMedicine.TIME.dispatcher, driver = baseMedicine.TIME.driver, board_number = baseMedicine.TIME.board_number,
+            statement_fragment = baseMedicine.statement_fragment, statement_fragment_two = baseMedicine.statement_fragment_two, callStatus = patientInfo.callStatus,
+            fullName = baseMedicine.TIME.fullName,weight = patientInfo.weight, height = patientInfo.height, residence_address = baseMedicine.TIME.residence_address,
+            addressName = baseMedicine.TIME.district, statement_continue_one = baseMedicine.statement_continue_one, statement_continue_two = baseMedicine.statement_continue_two,
+            statement_continue_three = baseMedicine.statement_continue_three, statement_continue_four = baseMedicine.statement_continue_four, statement_continue_five = baseMedicine.statement_continue_five,
+            statement_continue_six = baseMedicine.statement_continue_six, statement_continue_seven = baseMedicine.statement_continue_seven, statement_continue_eight = baseMedicine.statement_continue_eight,
+            statement_continue_nine = baseMedicine.statement_continue_nine, statement_continue_teen = baseMedicine.statement_continue_teen, add_info = baseMedicine.MEDICINE.add_info,
+            add_infoSecond = baseMedicine.MEDICINE.add_infoSecond, drugs = baseMedicine.drugs, patientImg = patientInfo.patientImg, bloodGroup = patientInfo.bloodGroup.toString()))
     }
+    fun updateBase(baseMedicine: BaseMedicine): Job = viewModelScope.launch {
+        val noOfRows = repository.updateAll(baseMedicine)
+        if (noOfRows > 0) {
 
-    fun saveBaseDatabase() {
-        if (fullName.value == null) {
-            statusMessage.value = Event("Xato")
-        }else {
-            val fullName = fullName.value!!
-            val callStatus = callStatus.value!!
-//            insertBase(BaseMedicine(0,fullName,callStatus,"",2,2,3,3))
+        } else {
+            statusMessage.value = Event("Error occurred")
         }
+
     }
 
-    fun stamentTwo() {
-        patientInfo = PatientInfo()
-        patientAge.value = patientInfo.age.toString()
-        var institution_names = institution_name.value.toString()
-        Log.d("ffff",institution_names)
-    }
-
-    fun statementFragment() {
-        patientInfo = PatientInfo()
-        callStatus.value = patientInfo.callStatus
-        district.value = patientInfo.districtName
-        street.value = patientInfo.street
-        home.value = patientInfo.homeNumber
-        apartment.value = patientInfo.apartment
-        phoneNumber.value = patientInfo.phoneNumber
-        fullName.value = patientInfo.fullName
-        patientAge.value = patientInfo.age.toString()
-        callPatient.value = patientInfo.callPatient
-        residence_address.value = patientInfo.residence_address
-    }
     fun saveOrUpdate() {
         if (drugsName.value == null || drugsName.value == "") {
             statusMessage.value = Event("Iltimos dorining nomini kiriting")
-        }else if (drugsAmount.value == null) {
+        } else if (drugsAmount.value == null) {
             val name = drugsName.value!!
             val amount = 1
-            insert(Medicine(0,name,amount))
+            insert(Medicine(name = name, amount = amount))
+            ARG.drugs?.add("$name , $amount")
             drugsName.value = null
-        }
-            else {
+        } else {
             if (isUpdateOrDelete) {
                 subscriberToUpdateOrDelete.name = drugsName.value!!
                 subscriberToUpdateOrDelete.amount = drugsAmount.value!!
                 update(subscriberToUpdateOrDelete)
-            }else {
+            } else {
                 val name = drugsName.value!!
-                val email = drugsAmount.value!!
-                insert(Medicine(0,name,email))
+                val amount = drugsAmount.value!!
+                insert(Medicine(name = name, amount = amount))
+                ARG.drugs?.add("$name , $amount")
                 drugsName.value = null
                 drugsAmount.value = 1
             }
@@ -316,66 +141,64 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
     fun clearAllOrDelete() {
         if (isUpdateOrDelete) {
             delete(subscriberToUpdateOrDelete)
-        }else {
+        } else {
             clearAll()
         }
     }
 
-    fun insert(subscriber: Medicine) : Job = viewModelScope.launch {
+    fun insert(subscriber: Medicine): Job = viewModelScope.launch {
         val newRowId = repository.insert(subscriber)
-        if (newRowId>-1) {
+        if (newRowId > -1) {
             statusMessage.value = Event("Omadli yakunlandi")
-        }else {
+        } else {
             statusMessage.value = Event("Error Occurred")
         }
 
     }
 
-    fun insertBase(subscriber: BaseMedicine) : Job = viewModelScope.launch {
+    fun insertBase(subscriber: BaseMedicine): Job = viewModelScope.launch {
         val newRowId = repository.insertAll(subscriber)
-        if (newRowId>-1) {
+        if (newRowId > -1) {
             statusMessage.value = Event("Omadli yakunlandi")
-        }else {
+        } else {
             statusMessage.value = Event("Error Occurred")
         }
-
     }
 
-    fun update(subscriber: Medicine) : Job = viewModelScope.launch {
+    fun update(subscriber: Medicine): Job = viewModelScope.launch {
         val noOfRows = repository.update(subscriber)
-        if (noOfRows>0) {
+        if (noOfRows > 0) {
             drugsName.value = null
             drugsAmount.value = 1
             isUpdateOrDelete = false
             saveOrUpdateButtonText.value = "Saqlash"
             clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
             statusMessage.value = Event("$noOfRows O`zgartirildi")
-        }else {
+        } else {
             statusMessage.value = Event("Error occurred")
         }
 
     }
 
-    fun delete(subscriber: Medicine) : Job = viewModelScope.launch {
+    fun delete(subscriber: Medicine): Job = viewModelScope.launch {
         val noOfRowsDeleted = repository.delete(subscriber)
-
-        if (noOfRowsDeleted>0) {
+        if (noOfRowsDeleted > 0) {
             drugsName.value = null
             drugsAmount.value = 1
             isUpdateOrDelete = false
             saveOrUpdateButtonText.value = "Saqlash"
             clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
             statusMessage.value = Event("$noOfRowsDeleted Barchasi o'chirildi")
-        }else {
+        } else {
             statusMessage.value = Event("Error occurred")
         }
     }
 
-    fun clearAll() : Job = viewModelScope.launch {
+    fun clearAll(): Job = viewModelScope.launch {
         val noOfRowsDeleted = repository.deleteAll()
-        if (noOfRowsDeleted>0) {
+        if (noOfRowsDeleted > 0) {
             statusMessage.value = Event("$noOfRowsDeleted O`chirish omadli yakunlandi")
-        }else {
+        } else {
             statusMessage.value = Event("Error Occurred")
         }
 
@@ -383,17 +206,13 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
 
     fun initUpdateAndDelete(subscriber: Medicine) {
         drugsName.value = subscriber.name
-        drugsAmount.value = subscriber.amount
+        drugsAmount.value = subscriber.amount!!
         isUpdateOrDelete = true
         subscriberToUpdateOrDelete = subscriber
         saveOrUpdateButtonText.value = "O`zgartirish"
         clearAllOrDeleteButtonText.value = "O`chirish"
-
     }
 
-    fun initUpdateAndDeleteBase(subscriber: BaseMedicine) {
-        fullName.value = subscriber.fullName
-    }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
     }

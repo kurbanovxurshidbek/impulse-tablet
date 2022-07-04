@@ -24,6 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Impulse"
         tools:targetApi="31">
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -61,9 +62,14 @@
         <activity
             android:name=".activity.SignInActivity"
             android:exported="false" />
-        <activity android:name=".activity.SignUpActivity"/>
-        <activity android:name=".activity.HistoryActivity"
-            android:exported="false"/>
+        <activity android:name=".activity.SignUpActivity" />
+        <activity
+            android:name=".activity.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SharedActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" />
 
         <service
             android:name=".service.FetchAddressIntentService"
@@ -72,7 +78,7 @@
             android:name=".service.LocationService"
             android:enabled="true"
             android:exported="true" />
-        <service android:name=".service.TimerService"/>
+        <service android:name=".service.TimerService" />
     </application>
 
 </manifest>

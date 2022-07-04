@@ -16,6 +16,7 @@ import java.util.*
 
 class MapsAndInfoAdapter(val context: Context): BaseAdapter(){
     private val subscriberList= ArrayList<PatientInfo>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MapsAndInfoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding : ItemMapsAndInfoBinding =

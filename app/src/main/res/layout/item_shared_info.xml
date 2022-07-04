@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/relative_sheet"
+    app:behavior_hideable = "true"
+    android:layout_height="match_parent"
+    app:behavior_peekHeight = "30dp"
+    app:layout_behavior = "com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="40dp"
+            android:background="@drawable/background_bottom"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_shared"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+<!--            <LinearLayout-->
+<!--                android:id="@+id/page_bottom"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/background_bottom"-->
+<!--                android:fitsSystemWindows="false"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingHorizontal="20dp"-->
+<!--                android:paddingTop="40dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/call_status"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="7dp"-->
+<!--                android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:hint="Design Wrong"-->
+<!--                    android:paddingLeft="15dp" />-->
+<!--            </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="7dp"-->
+<!--                android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:hint="Design Wrong"-->
+<!--                    android:paddingLeft="15dp" />-->
+<!--            </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="7dp"-->
+<!--                    android:background="@drawable/edittext_rounded_corners_border">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:hint="Design Wrong"-->
+<!--                        android:paddingLeft="15dp" />-->
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

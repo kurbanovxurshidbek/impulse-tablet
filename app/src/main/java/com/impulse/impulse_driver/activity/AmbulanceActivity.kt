@@ -81,12 +81,9 @@ class AmbulanceActivity : BaseActivity() {
 
     private fun displaySubscribersList() {
         var array = ArrayList<PatientInfo>()
-        var subscriber = PatientInfo(
-            "Ilhombek Ubaydullayev",
-            "Boytepa 4","Yengil",25)
+        var subscriber = PatientInfo()
         array.add(subscriber)
         adapter.setList(array)
         adapter.notifyDataSetChanged()
-
     }
 }

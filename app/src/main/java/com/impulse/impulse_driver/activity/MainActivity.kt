@@ -7,20 +7,14 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.adapter.MainAdapter
 import com.impulse.impulse_driver.adapter.ViewPagerAdapter
-import com.impulse.impulse_driver.database.MedicineDatabase
-import com.impulse.impulse_driver.database.MedicineRepository
 import com.impulse.impulse_driver.databinding.ActivityMainBinding
 import com.impulse.impulse_driver.fragments.*
 import com.impulse.impulse_driver.model.PatientInfo
-import com.impulse.impulse_driver.presenter.SubscriberViewModel
-import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
 import com.impulse.impulse_driver.service.TimerService
 import kotlin.math.roundToInt
 
@@ -33,7 +27,6 @@ The MainActivity stores an ambulance call and patient information
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter : MainAdapter
-    private lateinit var subscriberViewModel: SubscriberViewModel
     private var timerStarted = false
     private lateinit var serviceIntent : Intent
     private var time = 0.0
@@ -59,11 +52,6 @@ class MainActivity : BaseActivity() {
     private fun initViews() {
         serviceIntent = Intent(applicationContext,TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
-        val dao = MedicineDatabase.getInstance(application).subscriberDao
-        val repository = MedicineRepository(dao)
-        val factory = SubscriberViewModelFactory(repository)
-        subscriberViewModel = ViewModelProvider(this,factory).get(SubscriberViewModel::class.java)
-//        replaceFragment(MapsInfoFragment())
         specilFragments()
         initRecyclerView()
         startTimer()
@@ -135,7 +123,6 @@ class MainActivity : BaseActivity() {
         adapter.setList(array)
         adapter.notifyDataSetChanged()
         saveDatabase(subscriber)
-
     }
 
     fun saveDatabase(subscriber: PatientInfo) {
@@ -317,7 +304,7 @@ class MainActivity : BaseActivity() {
         adapter.addFragment(PageStatementFragment())
         adapter.addFragment(PageStatementFragmentContinue())
         adapter.addFragment(PageMedicineFragment())
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(3)
         viewPager.adapter = adapter
     }
 
@@ -328,12 +315,5 @@ class MainActivity : BaseActivity() {
         pageStatementFragmentContinue = PageStatementFragmentContinue().newInstance()!!
         pageMedicineFragment = PageMedicineFragment().newInstance()!!
     }
-
-//    private fun replaceFragment(fragment: Fragment) {
-//        val fragmentManager = supportFragmentManager
-//        var fragmentTransition = fragmentManager.beginTransaction()
-//        fragmentTransition.replace(R.id.fragmentContainer,fragment)
-//        fragmentTransition.commit()
-//    }
 
 }

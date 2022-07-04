@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -30,6 +31,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.FirebaseDatabase
 import com.impulse.impulse_driver.adapter.MapsAndInfoAdapter
 import com.impulse.impulse_driver.adapter.PageMedicineAdapter
+import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.database.entity.Medicine
 import com.impulse.impulse_driver.databinding.FragmentInfoMapsBinding
 import com.impulse.impulse_driver.model.MyLocation

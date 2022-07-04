@@ -8,6 +8,7 @@ import com.impulse.impulse_driver.database.entity.Medicine
 class MedicineRepository(private val dao : MedicineDAO) {
 
     val subscribers = dao.getAllSubscribers()
+    val subscribers_base = dao.getAllBase()
 
     suspend fun insert(subscriber: Medicine) : Long {
         return dao.insertSubscriber(subscriber)
@@ -31,7 +32,7 @@ class MedicineRepository(private val dao : MedicineDAO) {
         return dao.insertSubscriberAll(baseInsert)
     }
 
-    suspend fun update(baseUpdate: BaseMedicine) : Int {
+    suspend fun updateAll(baseUpdate: BaseMedicine) : Int {
         return dao.updateSubscriberAll(baseUpdate)
     }
 
