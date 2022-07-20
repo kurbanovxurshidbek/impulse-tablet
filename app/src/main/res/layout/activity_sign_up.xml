@@ -68,7 +68,7 @@
                             android:id="@+id/et_driver_ID"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/edittext_rounded_corners_border"
+                            android:background="@drawable/edittext_rounded_corners_register"
                             android:baselineAligned="false"
                             android:textColor="@color/white"
                             android:imeActionLabel="Next"
@@ -113,7 +113,7 @@
                         android:id="@+id/et_driver_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittext_rounded_corners_border"
+                        android:background="@drawable/edittext_rounded_corners_register"
                         android:baselineAligned="false"
                         android:textColor="@color/white"
                         android:hint="@string/driver_name"
@@ -163,7 +163,7 @@
                         android:textColorHint="@color/white"
                         android:imeOptions="actionDone"
                         android:imeActionLabel="Ok"
-                        android:background="@drawable/edittext_rounded_corners_border" />
+                        android:background="@drawable/edittext_rounded_corners_register" />
                 </LinearLayout>
 
             </LinearLayout>

@@ -11,6 +11,10 @@ import com.impulse.impulse_driver.databinding.ItemMainHeaderBinding
 import com.impulse.impulse_driver.model.PatientInfo
 import java.util.*
 
+/**
+ * MainAdapter get data and deliver to MainActivity
+ * **/
+
 class MainAdapter(val context: Context): BaseAdapter(){
     private val subscriberList= ArrayList<PatientInfo>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {

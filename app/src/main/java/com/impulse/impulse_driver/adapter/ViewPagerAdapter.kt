@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
+/**
+ * ViewPagerAdapter to control the viewpager in MainActivity
+ * **/
 class ViewPagerAdapter(manager: FragmentManager?) : FragmentPagerAdapter(manager!!) {
     private val mFragmentList: MutableList<Fragment> = ArrayList()
 

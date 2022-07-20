@@ -247,4 +247,13 @@
     <string name="str_weight">Vazni</string>
     <string name="str_call_statuss">Chaqiruv xolati</string>
     <string name="str_current_date">Chaqirilgan vaqti</string>
+    <string name="str_blood_pressure_base">Qon bosimi</string>
+    <string name="str_first">Dastlabki</string>
+    <string name="str_after_help">Yordamdan so`ng</string>
+    <string name="str_came_hospital">Kasalxonaga kelganda</string>
+    <string name="str_puls">Puls</string>
+    <string name="str_breath_count">Nafas soni</string>
+    <string name="str_saturatsion">Saturatsiya%</string>
+    <string name="str_temperature">Temperatura</string>
+    <string name="str_blood_glucose">Qondagi glukoza</string>
 </resources>

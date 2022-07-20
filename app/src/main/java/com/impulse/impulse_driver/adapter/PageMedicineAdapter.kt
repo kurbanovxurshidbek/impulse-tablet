@@ -10,6 +10,10 @@ import com.impulse.impulse_driver.database.entity.Medicine
 import com.impulse.impulse_driver.model.PatientInfo
 import java.util.*
 
+/**
+ * PageMedicineAdapter get data and deliver to PageMedicineFragment
+ * **/
+
 class PageMedicineAdapter(private val clickListener:(Medicine)->Unit):BaseAdapter(){
     private val subscriberList= ArrayList<Medicine>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

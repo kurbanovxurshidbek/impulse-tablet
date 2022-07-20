@@ -27,6 +27,10 @@ import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.presenter.SubscriberViewModelFactory
 import java.util.ArrayList
 
+/**
+ * HistoryActivity Storing Patient Information
+ * **/
+
 class HistoryActivity : BaseActivity() {
     private lateinit var binding: ActivityHistoryBinding
     private lateinit var adapter : HistoryAdapter
@@ -40,6 +44,7 @@ class HistoryActivity : BaseActivity() {
     }
 
     private fun initViews() {
+//        obtaining information from (dao) database
         val dao = MedicineDatabase.getInstance(this.application).subscriberDao
         val repository = MedicineRepository(dao)
         val factory = SubscriberViewModelFactory(repository)
@@ -47,7 +52,7 @@ class HistoryActivity : BaseActivity() {
         initRecyclerView()
     }
 
-
+//    get information from adapter to recyclerview
     private fun initRecyclerView() {
         binding.apply {
             rvHistory.layoutManager = GridLayoutManager(context, 1)
@@ -60,6 +65,7 @@ class HistoryActivity : BaseActivity() {
         }
     }
 
+//    delivering information from the viewmodel to the adapter
     private fun displaySubscribersList() {
         subscriberViewModel.subscribers_base.observe(this, Observer {
             Log.d("MyTag",it.toString())
@@ -68,6 +74,7 @@ class HistoryActivity : BaseActivity() {
         })
     }
 
+//    status when a list is pressed
     private fun listItemClicked(subscriber: BaseMedicine) {
         var intent = Intent(this,SharedActivity::class.java)
         intent.putExtra("member", subscriber)

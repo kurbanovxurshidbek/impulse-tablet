@@ -11,6 +11,10 @@ import com.impulse.impulse_driver.model.PatientInfo
 
 import java.util.*
 
+
+/**
+ * AmbulanceAdapter get data and deliver to AmbulanceActivity
+ * **/
 class AmbulanceAdapter(val context: Context): BaseAdapter(){
     private val subscriberList= ArrayList<PatientInfo>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AmbulanceViewHolder {

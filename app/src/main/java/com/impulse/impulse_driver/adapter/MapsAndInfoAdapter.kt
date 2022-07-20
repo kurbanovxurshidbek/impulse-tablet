@@ -14,6 +14,10 @@ import com.impulse.impulse_driver.databinding.ItemMapsAndInfoBinding
 import com.impulse.impulse_driver.model.PatientInfo
 import java.util.*
 
+/**
+ * MapsAndInfoAdapter get data and deliver to MapsInfoFragment
+ * **/
+
 class MapsAndInfoAdapter(val context: Context): BaseAdapter(){
     private val subscriberList= ArrayList<PatientInfo>()
 

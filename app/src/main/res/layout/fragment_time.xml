@@ -638,7 +638,7 @@
                         android:gravity="center"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:text="Qon bosimi"/>
+                        android:text="@string/str_blood_pressure_base"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -647,7 +647,7 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:textColor="@color/black"
-                        android:text="Puls"/>
+                        android:text="@string/str_puls"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -656,7 +656,7 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:textColor="@color/black"
-                        android:text="Nafas soni"/>
+                        android:text="@string/str_breath_count"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -665,7 +665,7 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:textColor="@color/black"
-                        android:text="Saturatsiya%"/>
+                        android:text="@string/str_saturatsion"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -674,7 +674,7 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:textColor="@color/black"
-                        android:text="Temperatura"/>
+                        android:text="@string/str_temperature"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -684,7 +684,7 @@
                         android:singleLine="true"
                         android:gravity="center_horizontal"
                         android:textColor="@color/black"
-                        android:text="Qondagi glukoza"/>
+                        android:text="@string/str_blood_glucose"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -698,7 +698,7 @@
                         android:textSize="16sp"
                         android:layout_weight="1.7"
                         android:textColor="@color/black"
-                        android:text="Dastlabki"/>
+                        android:text="@string/str_first"/>
 
                     <EditText
                         android:id="@+id/et_indicators1"
@@ -761,7 +761,7 @@
                         android:textSize="16sp"
                         android:layout_weight="1.7"
                         android:textColor="@color/black"
-                        android:text="Yordamdan song"/>
+                        android:text="@string/str_after_help"/>
 
                     <EditText
                         android:id="@+id/et_indicators7"
@@ -824,7 +824,7 @@
                         android:textSize="16sp"
                         android:layout_weight="1.7"
                         android:textColor="@color/black"
-                        android:text="Kasalxonaga kelganda"/>
+                        android:text="@string/str_came_hospital"/>
 
                     <EditText
                         android:id="@+id/et_indicators13"

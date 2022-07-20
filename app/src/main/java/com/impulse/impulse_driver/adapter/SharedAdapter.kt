@@ -15,6 +15,10 @@ import com.impulse.impulse_driver.model.SharedInfo
 import java.util.*
 import kotlin.collections.ArrayList
 
+
+/**
+ * SharedAdapter get data and deliver to SharedActivity
+ * **/
 class SharedAdapter(val context: Context,private val subscriberList: List<SharedInfo>):BaseAdapter(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SharedViewHolders {

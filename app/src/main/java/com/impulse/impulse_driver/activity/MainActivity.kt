@@ -73,6 +73,7 @@ class MainActivity : BaseActivity() {
 
     }
 
+//    counting time
     private fun getTimeStringFromDouble(time: Double): String {
         val resultInt = time.roundToInt()
         val hours = resultInt % 86400 / 3600
@@ -89,18 +90,22 @@ class MainActivity : BaseActivity() {
 
     private fun makeTimeString(hour: Int, min: Int, sec: Int): String = String.format("%02d:%02d:%02d",hour,min,sec)
 
+
+//    start counting time
     private fun startTimer() {
         serviceIntent.putExtra(TimerService.TIME_EXTRA,time)
         startService(serviceIntent)
         timerStarted = true
     }
 
+    //restart time
     private fun resetTimer() {
         stopTimer()
         time = 0.0
         binding.tvTimer.text = getTimeStringFromDouble(time)
     }
 
+//    stop time
     private fun stopTimer() {
         stopService(serviceIntent)
         timerStarted = false
@@ -177,6 +182,8 @@ class MainActivity : BaseActivity() {
         }
     }
 
+
+//    page control is in the fragment
     private fun setFragment(index: Int) {
         if (index == 0) {
             binding.apply {

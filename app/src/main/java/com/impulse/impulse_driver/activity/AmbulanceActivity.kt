@@ -36,8 +36,10 @@ class AmbulanceActivity : BaseActivity() {
     }
 
     private fun initViews() {
-
         binding.apply {
+
+            //animation pressed and working state
+
             lottieAnimation.setAnimation("sos_animation_plus.json")
             lottieAnimationAmbulance.setAnimation("ambulance_ways.json")
             sosView()
@@ -69,6 +71,7 @@ class AmbulanceActivity : BaseActivity() {
         PrefsManager.getInstance(context)!!.setFirstTime("turnOn",turnOn)
     }
 
+//    get short information about the patient from the adapter and deliver them to recyclerView
     private fun initRecyclerView() {
         binding.apply {
             rvAmbulance.layoutManager = LinearLayoutManager(context)
@@ -79,6 +82,7 @@ class AmbulanceActivity : BaseActivity() {
 
     }
 
+//    delivery of information to the adapter
     private fun displaySubscribersList() {
         var array = ArrayList<PatientInfo>()
         var subscriber = PatientInfo()

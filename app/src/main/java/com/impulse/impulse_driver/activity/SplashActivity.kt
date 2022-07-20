@@ -50,7 +50,7 @@ class SplashActivity : BaseActivity() {
             }
 
             override fun onFinish() {
-
+//
 //                if (PrefsManager.getInstance(context)!!.isFirstTime("safe")) {
 //                    callSignInActivity(this@SplashActivity)
 //                    finish()

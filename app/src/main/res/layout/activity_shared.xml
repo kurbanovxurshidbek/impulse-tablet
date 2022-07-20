@@ -10,7 +10,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +23,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:paddingBottom="10dp">
 
@@ -62,14 +62,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/pfImage"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
                         android:scaleType="fitXY"
                         app:strokeWidth="3dp"
                         android:padding="3.5dp"
@@ -85,7 +84,7 @@
                         android:singleLine="true"
                         android:text="Ilhombek Ubaydullayev"
                         android:textColor="@color/black"
-                        android:textSize="23sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -93,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginRight="20dp"
                     android:orientation="vertical">
 
@@ -121,11 +120,12 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:text="@string/str_patient_age"
-                                    android:textSize="16sp" />
+                                    android:textColor="@color/status_bar_color"
+                                    android:textSize="17sp" />
 
                                 <TextView
                                     android:id="@+id/tAge"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_marginBottom="5dp"
                                     android:gravity="bottom"
@@ -134,11 +134,11 @@
                                     android:textSize="24sp"
                                     android:textStyle="bold" />
 
-                                <!--                                <ImageView-->
-                                <!--                                    android:layout_width="23dp"-->
-                                <!--                                    android:layout_height="23dp"-->
-                                <!--                                    android:layout_gravity="right"-->
-                                <!--                                    android:src="@drawable/ic_age" />-->
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="right|center"
+                                    android:src="@mipmap/ic_age" />
 
 
                             </FrameLayout>
@@ -164,7 +164,8 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:text="@string/str_blood_type"
-                                    android:textSize="16sp" />
+                                    android:textColor="@color/status_bar_color"
+                                    android:textSize="17sp" />
 
                                 <TextView
                                     android:id="@+id/tBloodtype"
@@ -177,11 +178,11 @@
                                     android:textSize="24sp"
                                     android:textStyle="bold" />
 
-                                <!--                                <ImageView-->
-                                <!--                                    android:layout_width="wrap_content"-->
-                                <!--                                    android:layout_height="wrap_content"-->
-                                <!--                                    android:layout_gravity="right"-->
-                                <!--                                    android:src="@drawable/ic_bloodtype" />-->
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="right|center"
+                                    android:src="@mipmap/ic_blood" />
 
 
                             </FrameLayout>
@@ -212,11 +213,12 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:text="@string/str_height"
-                                    android:textSize="16sp" />
+                                    android:textColor="@color/status_bar_color"
+                                    android:textSize="17sp" />
 
                                 <TextView
                                     android:id="@+id/tHeight"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_marginBottom="5dp"
                                     android:gravity="bottom"
@@ -225,11 +227,11 @@
                                     android:textSize="24sp"
                                     android:textStyle="bold" />
 
-                                <!--                                <ImageView-->
-                                <!--                                    android:layout_width="wrap_content"-->
-                                <!--                                    android:layout_height="wrap_content"-->
-                                <!--                                    android:layout_gravity="right"-->
-                                <!--                                    android:src="@drawable/ic_height" />-->
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="right|center"
+                                    android:src="@mipmap/ic_height" />
 
 
                             </FrameLayout>
@@ -255,11 +257,12 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:text="@string/str_weight"
-                                    android:textSize="16sp" />
+                                    android:textColor="@color/status_bar_color"
+                                    android:textSize="17sp" />
 
                                 <TextView
                                     android:id="@+id/tWeight"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_marginBottom="5dp"
                                     android:gravity="bottom"
@@ -268,11 +271,11 @@
                                     android:textSize="24sp"
                                     android:textStyle="bold" />
 
-                                <!--                                <ImageView-->
-                                <!--                                    android:layout_width="wrap_content"-->
-                                <!--                                    android:layout_height="wrap_content"-->
-                                <!--                                    android:layout_gravity="right"-->
-                                <!--                                    android:src="@drawable/ic_weight" />-->
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="right|center"
+                                    android:src="@mipmap/ic_weight" />
 
                             </FrameLayout>
                         </LinearLayout>

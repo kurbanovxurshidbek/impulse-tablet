@@ -13,6 +13,10 @@ import com.impulse.impulse_driver.model.CheckboxTime
 
 import java.util.*
 
+/**
+ * QuantityAdapter to store data in checkboxes and TimeFragment
+ * **/
+
 class QuantityAdapter(val context: Context,var arrayLists: ArrayList<CheckboxTime>,val quantityListener: QuantityListener): BaseAdapter() {
     private val subscriberList = ArrayList<String>()
     private val subscriberListTwo = ArrayList<String>()

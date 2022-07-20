@@ -22,7 +22,9 @@ import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-
+/**
+ * The main class for managing all information about the patient in SubscriberViewModel
+ * **/
 class SubscriberViewModel(private val repository: MedicineRepository) : ViewModel(), Observable {
 
     val subscribers = repository.subscribers
@@ -74,6 +76,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         clearAllOrDeleteButtonText.value = "Barchasini o`chirish"
     }
 
+
+//    save the data to the database at the end
     fun saveDatabaseFragment(baseMedicine: ARG) {
         patientInfo = PatientInfo()
         baseSaveInfo = Medicine()
@@ -103,16 +107,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
             statement_continue_nine = baseMedicine.statement_continue_nine, statement_continue_teen = baseMedicine.statement_continue_teen, add_info = baseMedicine.MEDICINE.add_info,
             add_infoSecond = baseMedicine.MEDICINE.add_infoSecond, drugs = baseMedicine.drugs, patientImg = patientInfo.patientImg, bloodGroup = patientInfo.bloodGroup.toString()))
     }
-    fun updateBase(baseMedicine: BaseMedicine): Job = viewModelScope.launch {
-        val noOfRows = repository.updateAll(baseMedicine)
-        if (noOfRows > 0) {
 
-        } else {
-            statusMessage.value = Event("Error occurred")
-        }
-
-    }
-
+//    save temporary data in the database
     fun saveOrUpdate() {
         if (drugsName.value == null || drugsName.value == "") {
             statusMessage.value = Event("Iltimos dorining nomini kiriting")
@@ -138,6 +134,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         }
     }
 
+
+//    delete all data from the database
     fun clearAllOrDelete() {
         if (isUpdateOrDelete) {
             delete(subscriberToUpdateOrDelete)
@@ -146,6 +144,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         }
     }
 
+//    core processing of coroutines
     fun insert(subscriber: Medicine): Job = viewModelScope.launch {
         val newRowId = repository.insert(subscriber)
         if (newRowId > -1) {
@@ -155,6 +154,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         }
 
     }
+
 
     fun insertBase(subscriber: BaseMedicine): Job = viewModelScope.launch {
         val newRowId = repository.insertAll(subscriber)
@@ -180,6 +180,7 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
 
     }
 
+
     fun delete(subscriber: Medicine): Job = viewModelScope.launch {
         val noOfRowsDeleted = repository.delete(subscriber)
         if (noOfRowsDeleted > 0) {
@@ -194,6 +195,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         }
     }
 
+
+// basic workflow to delete all data
     fun clearAll(): Job = viewModelScope.launch {
         val noOfRowsDeleted = repository.deleteAll()
         if (noOfRowsDeleted > 0) {
@@ -204,6 +207,8 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
 
     }
 
+
+//    to update or delete
     fun initUpdateAndDelete(subscriber: Medicine) {
         drugsName.value = subscriber.name
         drugsAmount.value = subscriber.amount!!
@@ -212,7 +217,6 @@ class SubscriberViewModel(private val repository: MedicineRepository) : ViewMode
         saveOrUpdateButtonText.value = "O`zgartirish"
         clearAllOrDeleteButtonText.value = "O`chirish"
     }
-
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
     }

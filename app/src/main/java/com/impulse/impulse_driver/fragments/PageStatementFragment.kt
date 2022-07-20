@@ -25,7 +25,9 @@ import com.impulse.impulse_driver.model.PatientInfo
 import com.impulse.impulse_driver.presenter.SubscriberViewModel
 import com.impulse.impulse_driver.utils.ARG
 
-
+/**
+ * PageStatementFragment mainly to save data from checkboxes to the database
+ * **/
 class PageStatementFragment : BaseFragment(),QuantityListenerStatement {
     private var _binding: FragmentStatementPageBinding? = null
     private val binding get() = _binding!!

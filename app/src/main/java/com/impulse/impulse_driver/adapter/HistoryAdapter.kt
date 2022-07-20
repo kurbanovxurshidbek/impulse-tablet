@@ -11,6 +11,11 @@ import com.impulse.impulse_driver.R
 import com.impulse.impulse_driver.database.entity.BaseMedicine
 import com.impulse.impulse_driver.databinding.ItemHistoryBinding
 import java.util.*
+import kotlin.collections.ArrayList
+
+/**
+ * HistoryAdapter get data and deliver to HistoryActivity
+ * **/
 
 class HistoryAdapter(val context: Context,private val clickListener:(BaseMedicine)->Unit):BaseAdapter(){
     private val subscriberList= ArrayList<BaseMedicine>()
@@ -28,7 +33,8 @@ class HistoryAdapter(val context: Context,private val clickListener:(BaseMedicin
     }
     fun setList(subscriber: List<BaseMedicine>) {
         subscriberList.clear()
-        subscriberList.addAll(subscriber)
+        val list = subscriber.reversed()
+        subscriberList.addAll(list)
     }
 
 

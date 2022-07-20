@@ -15,7 +15,7 @@
             android:id="@+id/call_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:hint="Design Wrong"
             android:paddingLeft="15dp" />
     </LinearLayout>

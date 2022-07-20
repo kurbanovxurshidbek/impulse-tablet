@@ -16,6 +16,10 @@ import com.impulse.impulse_driver.model.CheckboxM
 import com.impulse.impulse_driver.utils.ARG
 import java.util.ArrayList
 
+/**
+ * PageStatementFragmentContinue mainly to save data from checkboxes to the database
+ * **/
+
 class PageStatementFragmentContinue : BaseFragment(),QuantityListenerFragment {
     private var _binding: FragmentStatementPageContinueBinding? = null
     private val binding get() = _binding!!

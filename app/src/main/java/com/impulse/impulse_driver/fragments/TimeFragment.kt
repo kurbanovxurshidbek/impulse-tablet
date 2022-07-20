@@ -27,7 +27,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.ArrayList
 
-
+/**
+ * TimeFragment to accurately store information and time
+ * **/
 class TimeFragment : BaseFragment(),QuantityListener {
     private var _binding: FragmentTimeBinding? = null
     private val binding get() = _binding!!

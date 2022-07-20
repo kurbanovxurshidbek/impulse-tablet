@@ -12,8 +12,13 @@ import com.impulse.impulse_driver.model.CheckboxStatement
 
 import java.util.*
 
-class PageStatementAdapter(val context: Context, var arrayLists: ArrayList<CheckboxStatement>, val quantityListener: QuantityListenerStatement): BaseAdapter() {
+/**
+ * PageStatementAdapter to store data in checkboxes and PageStatementFragment
+ * **/
 
+class PageStatementAdapter(val context: Context, var arrayLists: ArrayList<CheckboxStatement>,
+                           val quantityListener: QuantityListenerStatement): BaseAdapter()
+{
     private var TYPE_ITEM_ONE = 0
     private var TYPE_ITEM_TWO = 1
     private var  TYPE_ITEM_THREE = 2

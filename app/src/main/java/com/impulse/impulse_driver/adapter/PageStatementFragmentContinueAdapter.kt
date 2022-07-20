@@ -12,6 +12,10 @@ import com.impulse.impulse_driver.model.CheckboxM
 
 import java.util.*
 
+/**
+ * PageStatementFragmentContinueAdapter to store data in checkboxes and PageStatementFragmentContinue
+ * **/
+
 class PageStatementFragmentContinueAdapter(val context: Context, var arrayLists: ArrayList<CheckboxM>, val quantityListener: QuantityListenerFragment): BaseAdapter() {
     private val subscriberList = ArrayList<String>()
     private val subscriberListTwo = ArrayList<String>()
